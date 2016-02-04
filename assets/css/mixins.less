@@ -1,0 +1,37 @@
+/* ====================== Mixins =====================*/
+.strokeWhite {
+    color: #566C7E;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 fff,
+    1px 1px 0 #fff;   
+} 
+
+
+.drop-shadow(@xoffset: 1px, @yoffset: 1px, @blur-radius: 2px,  @color: #000){
+    text-shadow: @xoffset @yoffset @blur-radius @color;
+   // -moz-box-shadow: @xoffset @yoffset @blur-radius @spread-radius @color;
+    //-webkit-box-shadow: @xoffset @yoffset @blur-radius @spread-radius @color;
+}
+
+
+.linerGradient(@top: #fff, @bottom: #000, @fallbackcolor: #FFF) {
+      background-color: @fallbackcolor;
+      /* Safari 4-5, Chrome 1-9 */
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@top), to(#2F2727));
+
+      /* Safari 5.1, Chrome 10+ */
+      background: -webkit-linear-gradient(top, @top, @bottom);
+
+      /* Firefox 3.6+ */
+      background: -moz-linear-gradient(top, @top, @bottom);
+
+      /* IE 10 */
+      background: -ms-linear-gradient(top, @top, @bottom);
+
+      /* Opera 11.10+ */
+      background: -o-linear-gradient(top, @top, @bottom);
+}
+
+/*=========== end mixins ============================*/
