@@ -2,33 +2,47 @@
  ========= start jobs page styles  ========
 ========================================= */
 
-
-
 #content-section {
     //background: url('../images/bg/bg_pattern1.png') repeat fixed;
-}
-
-#x-filters li {
-    padding: 4px 0;
-}
-
-
-.x-clear-filters {
-    width: 100%;
 }
 
 .x-content {
     background: #fff;
 }
 
+
+/* ======== filters wrapper ===== */
+#x_filters {
+    
+    .form-control {
+        width: 75%;
+    }
+    
+    h5 {
+        font-weight: bold;
+        font-size: @font-md;
+    }
+    
+    li {
+        padding: 4px 0;
+    }
+
+    
+} /* ======== end filters wrapper ===== */
+
+
+
+
+
 /* ================ end job page styles ===================== */
 
 
 
 @media (max-width: 479px){
-    .x-what, .x-where {
+    .x-searchbar .x-reducepad-5  {
         margin-bottom: 5px;
     }
+    
     
    /* .x-logo
     {
@@ -43,10 +57,16 @@
 }
 
 @media (min-width: 480px) and (max-width: 991px){
-    .x-reducepad-5
+    .x-searchbar {
+        padding-left:10px;
+        padding-right:10px;
+    }
+    
+    .x-searchbar  .x-reducepad-5
     {
         padding-right: 5px !important;
         padding-left: 5px !important;
+        margin-bottom: 5px;
     }
 }
 
