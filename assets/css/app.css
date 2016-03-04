@@ -12894,73 +12894,129 @@ a:hover {
  ========= start pads and margins  ========
 ========================================= */
 /* line 4, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeM {
+.x-noM {
   margin: 0px !important;
 }
 /* line 8, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeMT {
+.x-noMT {
   margin-top: 0px !important;
 }
 /* line 12, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeMB {
+.x-noMB {
   margin-bottom: 0px !important;
 }
 /* line 16, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeML {
+.x-noML {
   margin-left: 0px !important;
 }
 /* line 20, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeMR {
+.x-noMR {
   margin-right: 0px !important;
 }
 /* line 24, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removeP {
+.x-noP {
   padding: 0px !important;
 }
 /* line 28, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removePT {
+.x-noPT {
   padding-top: 0px !important;
 }
 /* line 32, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removePB {
+.x-noPB {
   padding-bottom: 0px !important;
 }
 /* line 36, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removePL {
+.x-noPL {
   padding-left: 0px !important;
 }
 /* line 40, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
-.x-removePR {
+.x-noPR {
   padding-right: 0px !important;
 }
-/* line 44, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+@media only screen and (max-width: 480px) {
+  /* line 45, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noP-xs {
+    padding: 0px !important;
+  }
+  /* line 48, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPL-xs {
+    padding-left: 0px !important;
+  }
+  /* line 51, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPR-xs {
+    padding-right: 0px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* line 58, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noP-sm {
+    padding: 0px !important;
+  }
+  /* line 61, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPL-sm {
+    padding-left: 0px !important;
+  }
+  /* line 64, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPR-sm {
+    padding-right: 0px !important;
+  }
+}
+@media only screen and (max-width: 992px) {
+  /* line 70, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noP-md {
+    padding: 0px !important;
+  }
+  /* line 73, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPL-md {
+    padding-left: 0px !important;
+  }
+  /* line 76, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPR-md {
+    padding-right: 0px !important;
+  }
+}
+@media only screen and (max-width: 4200px) {
+  /* line 83, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noP-lg {
+    padding: 0px !important;
+  }
+  /* line 86, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPL-lg {
+    padding-left: 0px !important;
+  }
+  /* line 89, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+  .x-noPR-lg {
+    padding-right: 0px !important;
+  }
+}
+/* ================ end pads and margins ===================== */
+/* line 95, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-inlineblock {
   display: inline-block;
 }
-/* line 48, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 99, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-block {
   display: block;
 }
-/* ================ end pads and margins ===================== */
 /* ========== typography ================== */
-/* line 58, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 105, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-textleft {
   text-align: left !important;
 }
-/* line 61, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 108, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-textright {
   text-align: justify !important;
 }
-/* line 65, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 112, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-textjustify {
   text-align: justify !important;
 }
-/* line 70, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 117, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-offcanvas {
   text-indent: -999px;
   margin: 0;
 }
-/* line 75, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 122, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -12968,13 +13024,13 @@ a:hover {
   margin-bottom: 10px;
 }
 /* ======= MISC ================= */
-/* line 85, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 132, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .x-dashline {
   min-width: 10px;
   height: 4px;
   border-bottom: 1px dashed #ddd;
 }
-/* line 92, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
+/* line 139, C:\inetpub\wwwroot\localhost - HTML\assets\css\util.less */
 .bw {
   -webkit-filter: grayscale(1) !important;
   -moz-filter: grayscale(100%) !important;
@@ -12988,6 +13044,46 @@ a:hover {
   text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 fff, 1px 1px 0 #ffffff;
 }
 /*=========== end mixins ============================*/
+/* line 1, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+/* line 7, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+/* line 13, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.fa {
+  color: #36567d;
+}
+/* line 18, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.form-control {
+  border-radius: 5px;
+}
+/* line 27, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.btn {
+  border-radius: 5px;
+}
+/* line 31, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.btn-primary {
+  color: #fff;
+  background-color: #36567d;
+  border-color: #DDD;
+}
+/* line 37, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #36567d;
+  border-color: #FFF;
+}
+/* line 43, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
+.x-search-btn {
+  min-width: 100px;
+}
 /* line 1, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 body {
   min-width: 345px !important;
@@ -12998,7 +13094,7 @@ body {
   font-weight: 700;
   font-size: 32px;
 }
-/* line 18, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 13, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .interactive-slider-v2-md {
   padding: 150px 0;
   transition: all 0.7s ease-in-out;
@@ -13006,39 +13102,39 @@ body {
   -moz-transition: all 0.7s ease-in-out;
   -webkit-transition: all 0.7s ease-in-out;
 }
-/* line 26, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 21, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .x-blue {
   color: #36567d;
 }
-/* line 29, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 24, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .x-red {
   color: #e74c3c;
 }
-/* line 33, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 28, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .navbar {
   height: 80px;
   color: #FFF;
   border-radius: 0px;
 }
-/* line 39, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 34, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .navbar-brand a,
 .navbar-brand a:hover,
 .navbar-brand a:focus {
   text-decoration: none;
 }
-/* line 43, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 38, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .header-v6 .navbar {
   min-height: 40px !important;
 }
-/* line 47, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 42, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .header-v6 .navbar-brand {
-  height: 85px;
+  height: 80px;
   max-height: 85px;
   line-height: 26px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
-/* line 55, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 50, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .x-headline,
 .x-sub {
   font-family: Montserrat;
@@ -13048,44 +13144,44 @@ body {
   color: #FFF;
   text-align: center;
 }
-/* line 64, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 59, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .x-headline {
   margin: 10px auto;
 }
-/* line 68, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 63, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .xsub {
   font-weight: 400;
 }
 /* hide everything under 320 */
 @media only screen and (max-width: 340px) {
-  /* line 77, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 70, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   body {
     display: none;
     background-color: deepskyblue;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 335px) {
-  /* line 83, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 76, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-searchbar .row {
     margin: 0px;
   }
-  /* line 84, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 77, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-searchbar .container {
     padding-left: 0px;
   }
 }
 @media only screen and (min-width: 340px) {
-  /* line 90, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 83, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 14px 0;
   }
-  /* line 91, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 84, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 17px;
     margin: 0px;
     line-height: 25px;
   }
-  /* line 96, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 89, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-sub {
     font-size: 13px;
   }
@@ -13097,155 +13193,155 @@ body {
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width: 400px) {
-  /* line 111, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 104, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 14px 0;
   }
-  /* line 112, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 105, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 23px;
     margin: 0px;
     line-height: 35px;
   }
-  /* line 117, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 110, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-sub {
     font-size: 16px;
   }
-  /* line 120, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 113, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 {
     padding-left: 0px;
   }
-  /* line 122, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 115, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 h3 {
     font-size: 17px;
   }
-  /* line 123, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 116, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 ul li {
     font-size: 16px;
   }
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width: 480px) {
-  /* line 131, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 124, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 15px 0;
   }
-  /* line 132, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 125, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 30px;
     margin-bottom: 0px;
     line-height: 45px;
   }
-  /* line 137, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 130, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-sub {
     font-size: 20px;
   }
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
-  /* line 147, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 140, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 80px 0;
   }
-  /* line 148, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 141, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 36px;
     margin-bottom: 20px;
     line-height: 45px;
   }
-  /* line 153, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 146, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-sub {
     font-size: 24px;
   }
-  /* line 157, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 150, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 {
     padding-left: 0px;
   }
-  /* line 159, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 152, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 h3 {
     font-size: 14px;
   }
-  /* line 160, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 153, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 ul li {
     font-size: 12px;
   }
-  /* line 163, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 156, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .shop-subscribe .col-sm-4 {
     width: 32.5%;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 171, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 164, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 150px 0;
   }
-  /* line 172, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 165, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 38px;
     margin-bottom: 20px;
   }
-  /* line 176, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 169, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-sub {
     font-size: 24px;
   }
-  /* line 180, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 173, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 {
     padding-left: 0px;
   }
-  /* line 182, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 175, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 h3 {
     font-size: 16px;
   }
-  /* line 183, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 176, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 ul li {
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 191, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 184, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .interactive-slider-v2-md {
     padding: 150px 0;
   }
-  /* line 192, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 185, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .x-headline {
     font-size: 40px;
     margin-bottom: 20px;
   }
-  /* line 197, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 190, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 {
     padding-left: 0px;
   }
-  /* line 199, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 192, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 h3 {
     font-size: 18px;
   }
-  /* line 200, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 193, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   #x_browse .content-boxes-v5 ul li {
     font-size: 16px;
   }
 }
-/* line 207, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+/* line 200, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
 .homelogo {
   padding-left: 0px !important;
 }
 /* ===================== MAX WIDTH ============================= */
 @media (max-width: 480px) {
   /*.interactive-slider-v2 h1.x-headline {font-size: 24px; margin-bottom:0px;}*/
-  /* line 213, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 206, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .xbold {
     font-size: 16px;
   }
-  /* line 215, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 208, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .content-boxes-v5 li {
     font-size: 16px;
   }
 }
 @media (max-width: 991px) {
-  /* line 224, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 217, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .header-fixed .header-v6.header-dark-transparent .navbar {
     background: #000;
   }
-  /* line 225, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
+  /* line 218, C:\inetpub\wwwroot\localhost - HTML\assets\css\home.less */
   .navbar-brand {
     padding-left: 0px;
   }
@@ -13263,16 +13359,15 @@ body {
 .header {
   background: #000000;
   color: #ffffff;
-  padding-bottom: 6px;
   margin-bottom: 10px;
 }
-/* line 9, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 8, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-text-logo {
   width: 228px;
   padding: 6px;
   border: 1px solid #FFF;
 }
-/* line 15, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 14, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-text-logo h1 {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -13280,17 +13375,17 @@ body {
   font-size: 47px;
   color: #FFF;
 }
-/* line 24, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 23, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-text-logo .x-job {
   font-weight: 700;
   color: #FFF;
 }
-/* line 29, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 28, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-text-logo .x-fool {
   font-weight: 400;
   color: #FFF;
 }
-/* line 34, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 33, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-logofont {
   font-family: Roboto, Oswald, Lato, Abril Fatface;
   font-weight: 700;
@@ -13298,7 +13393,7 @@ body {
   color: #ffffff;
   text-transform: uppercase;
 }
-/* line 43, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 42, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-logo {
   background-image: url("http:/thejobfool.com/themes/default/images/Logo2012.png");
   background-size: 240px 70px;
@@ -13308,26 +13403,27 @@ body {
   margin-left: 12px;
   display: block;
 }
-/* line 57, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 56, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-homelogo {
   width: 100%;
   max-width: 300px;
   min-width: 150px;
   display: block;
 }
-/* line 63, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 62, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-homelogo img {
   width: 100%;
 }
-/* line 65, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 64, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-homelogo a {
   display: block-inline;
   min-height: 50px;
   text-decoration: none;
 }
-/* line 73, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
+/* line 72, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .header-v6 .menu-icons-list {
-  margin: 20% 10px;
+  margin: 31% 10px;
+  padding-left: 10px;
 }
 /* line 77, C:\inetpub\wwwroot\localhost - HTML\assets\css\header.less */
 .x-siderbar-toggle {
@@ -13369,8 +13465,33 @@ body {
   }
 }
 /* Large Devices, Wide Screens */
-/* line 1, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
-.x-searchbar {
+/* line 1, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-buttons.less */
+.btn {
+  border-radius: 5px;
+}
+/* line 5, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-buttons.less */
+.btn-primary {
+  color: #fff;
+  background-color: #36567d;
+  border-color: #DDD;
+}
+/* line 11, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-buttons.less */
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #36567d;
+  border-color: #FFF;
+}
+/* line 17, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-buttons.less */
+.x-search-btn {
+  min-width: 100px;
+}
+/* line 21, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-buttons.less */
+.x-btn-addemail {
+  min-width: 85px;
+}
+/* line 2, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
+.x-searchbar-home {
   /*padding: 5px 0px;*/
   margin-top: 0px;
   background: transparent;
@@ -13378,43 +13499,30 @@ body {
   /*border-bottom: 1px solid @searchbarBorder;*/
   color: #fff;
 }
-/* line 10, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
-.x-searchbar .fa-map-marker {
+/* line 11, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
+.x-searchbar-home .fa-map-marker {
   padding: 2px;
 }
-/* line 14, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
-.x-searchbar .form-control {
+/* line 15, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
+.x-searchbar-home .form-control {
   height: 46px;
   padding: 6px 12px;
   font-size: 16px;
   color: #FFF;
   border-radius: 5px;
 }
-/* line 22, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
+/* line 23, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
 .input-group-addon {
   color: #36567D;
   font-size: 14px;
   background: #EEE;
   border-radius: 5px;
 }
-/* line 29, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
+/* line 30, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
 .interactive-slider-v2.img-v3 {
   background: url(../images/home/img8.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
-}
-/* line 36, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
-.btn-primary {
-  color: #fff;
-  background-color: #36567d;
-  border-color: #DDD;
-}
-/* line 42, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-homehero.less */
-.btn-primary:hover,
-.btn-primary:focus {
-  color: #fff;
-  background-color: #36567d;
-  border-color: #FFF;
 }
 /* line 4, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-browsehome.less */
 .x_browse .content-boxes-v5 {
@@ -13469,33 +13577,41 @@ body {
 .shop-subscribe input {
   border-right: 1px solid #fff;
 }
+/* line 13, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+.shop-subscribe .form-control {
+  border-radius: 0px;
+}
+/* line 17, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+.shop-subscribe .btn {
+  border-radius: 0px;
+}
 @media only screen and (min-width: 768px) {
-  /* line 19, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 27, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .col-sm-4 {
     width: 32.5%;
   }
 }
 @media (max-width: 480px) {
-  /* line 34, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 42, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
-  /* line 38, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 46, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .input-group {
     padding-left: 15px;
     padding-right: 15px;
   }
-  /* line 43, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 51, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .content-boxes-v5 li {
     font-size: 16px;
   }
 }
 @media (max-width: 768px) {
-  /* line 53, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 61, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe {
     padding: 10px;
   }
-  /* line 59, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
+  /* line 67, C:\inetpub\wwwroot\localhost - HTML\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
@@ -13504,51 +13620,63 @@ body {
 .x-hire .content-sm {
   padding: 20px;
 }
-/* line 1, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
-body {
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  color: #333;
-}
-/* line 7, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
-a {
-  color: #337ab7;
-  text-decoration: none;
-}
-/* line 13, C:\inetpub\wwwroot\localhost - HTML\assets\css\global.less */
-.fa {
-  color: #36567d;
-}
 /* ========================================
  ========= start jobs page styles  ========
 ========================================= */
-/* line 5, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
-.header {
-  background: #000;
-  color: #fff;
+/* line 10, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+.x-contentpattern {
+  background: url("../img/patterns/breadcrumbs.png");
+  background-repeat: repeat;
 }
-/* line 14, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+/* line 16, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+h1.x-jobtitle {
+  display: inline-block;
+  font-size: 16px;
+  padding: 6px;
+  font-weight: 700;
+}
+/* line 23, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
 .x-content {
   background: #fff;
 }
-/* ======== filters wrapper ===== */
-/* line 22, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
-#x_filters .form-control {
-  width: 75%;
+/* line 28, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+.header-v6 .header-inner-right {
+  margin-right: 7px;
 }
-/* line 26, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+/* line 32, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+.navbar-brand {
+  padding-left: 15px;
+}
+/* ======== filters wrapper ===== */
+/* line 38, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+#x_filters .x-emailform {
+  margin-bottom: 15px;
+}
+/* line 42, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
 #x_filters h5 {
   font-weight: bold;
   font-size: 16px;
 }
-/* line 31, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+/* line 47, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
 #x_filters li {
   padding: 4px 0;
 }
 /* ======== end filters wrapper ===== */
+@media (max-width: 1024px) {
+  /* line 57, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+  .form-inline .form-control {
+    display: inline-block !important;
+    width: 40% !important;
+    vertical-align: middle !important;
+  }
+  /* line 62, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+  .email {
+    width: 50% !important;
+  }
+}
 /* ================ end job page styles ===================== */
 @media (max-width: 479px) {
-  /* line 45, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+  /* line 71, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
   .x-reducepad-5 {
     margin-bottom: 5px;
   }
@@ -13564,16 +13692,14 @@ a {
     }*/
 }
 @media (min-width: 360px) and (max-width: 479px) {
-  /* line 64, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+  /* line 89, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
   .x-jobtitle {
     font-size: 16px;
   }
 }
 @media (min-width: 480px) and (max-width: 991px) {
-  /* line 77, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
+  /* line 102, C:\inetpub\wwwroot\localhost - HTML\assets\css\jobs.less */
   .x-reducepad-5 {
-    padding-right: 5px !important;
-    padding-left: 5px !important;
     margin-bottom: 5px;
   }
 }

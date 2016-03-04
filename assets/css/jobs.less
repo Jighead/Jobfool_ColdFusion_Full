@@ -2,13 +2,22 @@
  ========= start jobs page styles  ========
 ========================================= */
 
-.header {
-    background: #000;
-    color: #fff;
-}
-
 #content-section {
     //background: url('../images/bg/bg_pattern1.png') repeat fixed;
+}
+
+
+.x-contentpattern {
+    background: url("../img/patterns/breadcrumbs.png");
+    background-repeat: repeat;
+}
+
+
+h1.x-jobtitle {
+    display: inline-block;
+    font-size:  16px;
+    padding: 6px;
+    font-weight: 700;
 }
 
 .x-content {
@@ -16,13 +25,20 @@
 }
 
 
-/* ======== filters wrapper ===== */
-#x_filters {
-    
-    .form-control {
-        width: 75%;
+.header-v6 .header-inner-right {
+        margin-right: 7px;
     }
     
+.navbar-brand {
+        padding-left:15px;
+}
+
+/* ======== filters wrapper ===== */
+#x_filters {
+    .x-emailform {
+    margin-bottom: 15px;
+    }
+   
     h5 {
         font-weight: bold;
         font-size: @font-md;
@@ -31,21 +47,30 @@
     li {
         padding: 4px 0;
     }
-
     
 } /* ======== end filters wrapper ===== */
 
 
 
-/* ================ end job page styles ===================== */
 
+@media (max-width: 1024px) {
+  .form-inline .form-control {
+    display: inline-block !important;
+    width: 40% !important;
+    vertical-align: middle !important;
+  }
+    .email {
+        width: 50% !important;
+    }
+}
+
+/* ================ end job page styles ===================== */
 
 
 @media (max-width: 479px){
     .x-reducepad-5  {
         margin-bottom: 5px;
     }
-    
     
    /* .x-logo
     {
@@ -70,16 +95,20 @@
 
 
 @media (min-width: 480px) and (max-width: 991px){
-    .x-searchbar {
+    .x-searchbar-jobs {
 
     }
     
     .x-reducepad-5
     {
-        padding-right: 5px !important;
-        padding-left: 5px !important;
+       // padding-right: 5px !important;
+       // padding-left: 5px !important;
         margin-bottom: 5px;
     }
+}
+
+@media (min-width: 768px) {
+    
 }
 
 
@@ -88,3 +117,4 @@
         width: 1340px;
     }
 }*/
+
