@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> 
+<html lang="en"> 
+    <!--<![endif]-->
+    <head>
+        <title>Job Search</title>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico">
+        <!-- Web Fonts -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play">
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+        <link href="bootstrap/css/offcanvas.css" rel="stylesheet">
+        <link href="assets/css/grid-ms.css" rel="stylesheet">
+        <!--all Styles -->
+        <link rel="stylesheet" href="assets/css/app.css">
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="assets/plugins/animate.css">
+        <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/plugins/animated-headline/css/animated-headline.css">
+    </head>
+    <body class="x-home header-fixed">
+        <div class="wrapper">
+            <!--=== Header v6 ===-->
+            <div class="header-v6 header-dark-transparent header-sticky">
+                <!-- Navbar -->
+                <div class="navbar mega-menu" role="navigation">
+                    <div class="container">
+                        <div class="menu-container">
+                            <!-- Navbar Brand -->
+                            <div class="navbar-brand">
+                                <div class="col-xs-12 homelogo">
+                                    <a class="x-homelink" href="/">
+                                        <div class="x-text-logo">
+                                            <h1><span class="x-job">JOB</span><span class="x-fool">FOOL</span></h1>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- ENd Navbar Brand -->
+                            <!-- Header Inner Right -->
+                            <div class="header-inner-right">
+                                <!---
+                                    <ul class="menu-icons-list">
+                                    <li>
+                                        <button type="button" class="btn x-siderbar-toggle" data-toggle="offcanvas">
+                                            <i class="fa fa-lg fa-navicon"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                                --->
+                            </div>
+                            <!-- End Header Inner Right -->
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-responsive-collapse">
+                            <div class="menu-container">
+                                <!--- 
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown active">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+										LINK</a>
+                                    </li>
+                                    <li class="dropdown active">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+										LINK</a>
+                                    </li>
+                                    <li class="dropdown active">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+										LINK</a>
+                                    </li>
+                                </ul>
+                                --->
+                            </div>
+                        </div>
+                        <!--/navbar-collapse-->
+                    </div>
+                </div>
+                <!-- End Navbar -->
+            </div>
+            <!--=== End Header v6 ===-->
+            <!-- Interactive Slider v2 -->
+            <section class="x-searchbar-home"> 
+                <div class="interactive-slider-v2 interactive-slider-v2-md img-v3">
+                    <div class="container">
+                        <h1 class="x-headline">Find Your Perfect Job Today</h1>
+                        <p class="x-sub">Find millions of local jobs from one place</p>
+                        <div class="row" data-pg-name="Row-Searchbar"> 
+                            <form method="get" action="/jobs"> 
+                                <div class="col-sm-5 x-reducepad-5"> 
+                                    <div class="input-group"> 
+                                        <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span> 
+                                        <input type="text" name="kw" id="x-what" placeholder="what job you are looking for" class="form-control x-what"> 
+                                    </div>                                     
+                                </div>                                 
+                                <div class="col-sm-5 x-reducepad-5"> 
+                                    <div class="input-group"> 
+                                        <span class="input-group-addon"><i class="fa fa-lg fa-map-marker x-red"></i></span> 
+                                        <input type="text" name="loc" id="x-where" placeholder="where would you like to work" class="form-control x-where"> 
+                                    </div>                                     
+                                </div>                                 
+                                <div class="col-sm-2 x-reducepad-5"> 
+                                    <button id="x_search-form" class="form-control inline-block btn-primary">Find a Job</button>                                     
+                                </div>                                 
+                            </form>                             
+                        </div>                         
+                    </div>
+                </div>
+            </section>
+            <!-- End Interactive Slider v2 -->
+            <!--=== Browse ===-->
+            <div class="x-browse bg-color-light">
+                <div class="container content-xs">
+                    <div class="row">
+                        <div class="col-xs-12 wow animated fadeInUp" data-wow-duration="1.5s">
+                            <div class="col-xs-12 col-sm-4"> 
+                                <div class="content-boxes-v5">
+                                    <i class="rounded-x icon-layers icon-bg-red"></i>
+                                    <div class="overflow-h">
+                                        <h3><strong>Popular Categories</strong></h3>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="#">Sales</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Certified Rgistered Nurse</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Internship</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Accounting</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">GIS</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Work From Home</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4"> 
+                                <div class="content-boxes-v5">
+                                    <!--<i class="rounded-x icon-pointer icon-bg-green"></i>-->
+                                    <i class="rounded-x icon-custom icon-md icon-bg-black icon-line icon-directions"></i>
+                                    <div class="overflow-h">
+                                        <h3><strong>Popular Cities</strong></h3>
+                                        <ul class="list-unstyled">
+                                            <li>Chicago</li>
+                                            <li>San Francisco</li>
+                                            <li>Atlanta</li>
+                                            <li>Boston</li>
+                                            <li>Denver</li>
+                                            <li>Houston</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 hidden-xs"> 
+                                <div class="content-boxes-v5">
+                                    <i class="rounded-x icon-layers icon-bg-blue"></i>
+                                    <div class="overflow-h">
+                                        <h3><strong>Popular Employers</strong></h3>
+                                        <ul class="list-unstyled">
+                                            <li>Google</li>
+                                            <li>General Electric</li>
+                                            <li>Chipolte</li>
+                                            <li>Wal-Mart</li>
+                                            <li>KForce</li>
+                                            <li>Boeing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--=== End About Us ===-->
+            <!--=== Subscribe Form ===-->
+            <div class="shop-subscribe bg-color-red">
+                <div class="container">
+                    <div class="row">
+                        <div class=" col-xs-12">
+                            <h2>Send me great new <strong>jobs by email</strong></h2>
+                        </div>
+                        <div class="col-sm-4 x-reducepad-5">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="What Job">
+                        </div>
+                        <div class="col-sm-4 x-reducepad-5">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="What city or zipcode">
+                        </div>
+                        <div class="col-sm-4 input-group x-reducepad-5">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="enter email address">
+                            <span class="input-group-btn"><button class="btn" type="button">
+                                    <i class="fa fa-envelope-o"></i>
+                                </button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/end container-->
+            <!--=== Subscribe Form ===-->
+            <!--=== Hire Block ===-->
+            <div class="x-hire bg-color-light hidden-sm">
+                <div class="container content-sm wow animated fadeInUp">
+                    <div class="heading heading-v1">
+                        <h2>WE ARE HIRING!</h2>
+                    </div>
+                    <img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">
+                </div>
+            </div>
+            <!--=== End Hire Block ===-->
+            <!--=== Footer v6 ===-->
+            <div id="footer-v6" class="footer-v6">
+                <div class="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="list-inline browse-list">
+                                    <li>
+                                        <a href="#">Job Search By Job Catergory</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Job Search By Location</a>
+                                    </li>
+                                    <li class="silver">
+                                        <a href="#">Job Search By Employer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <ul class="list-inline country-list">
+                                <li>
+                                    <img src="assets/images/icons/ca.png" class="flag">
+                                    <a href="#">Canada</a>
+                                </li>
+                                <li>
+                                    <img src="assets/images/icons/fr.png" class="flag">
+                                    <a href="#">France</a>
+                                </li>
+                                <li>
+                                    <img src="assets/images/icons/de.png" class="flag">
+                                    <a href="#">Germany</a>
+                                </li>
+                                <li>
+                                    <img src="assets/images/icons/es.png" class="flag">
+                                    <a href="#">Spain</a>
+                                </li>
+                                <li>
+                                    <img src="assets/images/icons/uk.png" class="flag">
+                                    <a href="#">United Kingdom</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 sm-margon-bottom-10">
+                                <ul class="list-inline terms-menu">
+                                    <li class="silver">Copyright © 2006-2016 | All Rights Reserved</li>
+                                    <li>
+                                        <a href="#">Terms of Use</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy and Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="list-inline dark-social pull-right space-bottom-0">
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Vine" href="#"><i class="fa fa-vine"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Google plus" href="#"><i class="fa fa-google-plus"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Youtube" href="#"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Soundcloud" href="#"><i class="fa fa-soundcloud"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--=== End Footer v6 ===-->
+        </div>
+        <!-- JS Global Compulsory -->
+        <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- JS Implementing Plugins -->
+        <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+        <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery.parallax.js"></script>
+        <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+        <script type="text/javascript" src="assets/plugins/counter/waypoints.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/counter/jquery.counterup.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/wow-animations/js/wow.min.js"></script>
+        <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>         
+        <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
+        <!-- JS Page Level -->
+        <script type="text/javascript" src="assets/js/unify-app.js"></script>
+        <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            new WOW().init();
+            App.initCounter();
+            App.initParallaxBg(); 
+
+        });
+            
+        $('#x_search-form').submit(function(e){
+          e.preventDefault();
+        });   
+             
+        </script>
+        <!--[if lt IE 9]>
+	<script src="assets/plugins/respond.js"></script>
+	<script src="assets/plugins/html5shiv.js"></script>
+	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+	<![endif]-->
+    </body>
+</html>

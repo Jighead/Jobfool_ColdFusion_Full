@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-size:12px;
+                color: black;
+            }
+            a {
+                color: blue;
+            }
+            #jobs-data, #pagination {
+                width: 50%;
+                border:1px solid black;
+                padding: 6px;
+                padding: 6px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+
+
+    <input class="jobname" id="jobname" type="text" value="server" name="jobname">
+    <input class="location" id="location" type="text" value="florida" name="location">
+    <button id="link">Click Me</button>
+
+
+
+    <!—Job result element -->
+    <div id="jobs-data"></div>
+    <div style="clear:both;"></div>
+    <!—Pagination element -->
+    <div id="pagination"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+
+
+function extractDomain(url) {
+     var domain;
+     //find & remove protocol (http, ftp, etc.) and get domain
+     if (url.indexOf("://") > -1) {
+      domain = url.split('/')[2];
+     }
+     else {
+      domain = url.split('/')[0];
+     }
+     //find & remove port number
+     domain = domain.split(':')[0];
+     return domain;
+};
+
+
+
+
+    $( "#link" ).click(function() {
+        var co = 'us';
+        var loc = $('#location').val();
+        var kw = $('#jobname').val();
+        var start = 0;
+        var limit = 10;
+        jobSearch( loc, kw, co ,start,limit);
+    });
+
+
+    function jobSearch(loc,kw,co,start,limit) {
+        var searchData = kw;
+        $.ajax({
+            cache: true,
+            data: $.extend({
+            publisher:'1271737033048898',
+            v: '2',
+            format: 'json',
+            q: kw,
+            l: loc,
+            radius: 50,
+            limit: limit,
+            sort: 'date',
+            highlight: 1,
+            filter: 1,
+            latlong: 1,
+            co: co.toLowerCase(),
+            userip: '',
+            useragent: ''
+        },{ start: start, end: limit }),
+        dataType: 'jsonp',
+        type: 'GET',
+        timeout: 5000,
+        url: 'http://api.indeed.com/ads/apisearch'
+
+    }).done(function(data) {
+
+
+                var result = "",
+                pagination = "",
+                i = 2,
+                style, url, paginationLimit = Math.ceil((data.totalResults) / limit);
+
+                scrub(data);
+
+                $.each(data.results, function(i, item) {
+                      style = ((i % 2) == 0) ? "articaljoblistinggray" : "articaljoblistingwhite"
+                      result = result + '<a target="_blank" href="' + item.url + '"><li class="articaljoblisting ' + style + '" style="margin-bottom:3px;">' + item.jobtitle + '<br /><span style="color:black;">' + item.source + ' - ' + item.formattedLocation + '</span></li></a>';
+                     i++;
+                      // Get current location indeed url
+                      url = item.url;
+                });
+
+                for (i = 1; i <= paginationLimit; i++) {
+                    pagination = pagination + '<li>' + i + '</li>';
+                }
+
+                $('#jobs-data').html('<ul style="list-style: none;margin: 0;padding:0;">' + result + '</ul>  ;<a style="float: right;" target="_blank" href="http://' + extractDomain(url) + '/jobs?q=' +  searchData + '&l=' + location + '">Find more jobs</a>');
+
+                $('#pagination').html('<ul class="pagination" style="list-style: none;margin: 0;padding:0;">' + pagination + '</ul>');
+
+            });
+
+
+
+    };
+
+function scrub(data) {
+    $.each(data.results, function(i, item) {
+        console.log(item.url);
+        var jobkey = item.url.split('?')[1];
+        jobkey = jobkey.split('&')[0];
+        console.log(jobkey);
+        var URL = "/jobs/view.cfm?do=1&amp;jobid="+ jobkey;
+        console.log(URL);
+    });
+}
+
+
+
+$("#link").trigger("click");
+
+
+});// end doc ready
+
+</script>
+
+    </body>
+</html>
+
+
+
