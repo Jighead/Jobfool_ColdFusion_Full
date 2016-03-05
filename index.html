@@ -95,7 +95,7 @@
                         <h1 class="x-headline">Find Your Perfect Job Today</h1>
                         <p class="x-sub">Find millions of local jobs from one place</p>
                         <div class="row" data-pg-name="Row-Searchbar"> 
-                            <form method="get" action="#"> 
+                            <form method="get" action="jobs.cfm"> 
                                 <div class="col-sm-5 x-reducepad-5"> 
                                     <div class="input-group"> 
                                         <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span> 
@@ -109,7 +109,7 @@
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-2 x-reducepad-5"> 
-                                    <button class="form-control inline-block btn-primary">Find a Job</button>                                     
+                                    <button id="x_search-form" class="form-control inline-block btn-primary">Find a Job</button>                                     
                                 </div>                                 
                             </form>                             
                         </div>                         
@@ -213,7 +213,7 @@
             <!--/end container-->
             <!--=== Subscribe Form ===-->
             <!--=== Hire Block ===-->
-            <div class="x-hire bg-color-light hidden-xs">
+            <div class="x-hire bg-color-light hidden-sm">
                 <div class="container content-sm wow animated fadeInUp">
                     <div class="heading heading-v1">
                         <h2>WE ARE HIRING!</h2>
@@ -335,13 +335,19 @@
         <!-- JS Page Level -->
         <script type="text/javascript" src="assets/js/unify-app.js"></script>
         <script type="text/javascript">
-	jQuery(document).ready(function() {
-		App.init();
-		new WOW().init();
-		App.initCounter();
-		App.initParallaxBg();   
-	});
-</script>
+        jQuery(document).ready(function() {
+            App.init();
+            new WOW().init();
+            App.initCounter();
+            App.initParallaxBg(); 
+
+        });
+            
+        $('#x_search-form').submit(function(e){
+          e.preventDefault();
+        });   
+             
+        </script>
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
