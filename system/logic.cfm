@@ -7,12 +7,11 @@
 </cfif> 
 --->
 
-
 <cfinclude template="/system/udf/sentenceCase.cfm">
 <cfparam name="request.co" default="US">
 <cfset url.co = request.co> <!--- conditionally set in config/settings.cfm based on subdomain --->
 <cfparam name="url.kw" default="hiring">
-<cfparam name="url.qt" default="16">
+<cfparam name="url.qt" default="10">
 <cfparam name="url.l" default="">
 <cfparam name="url.radius" default="50">
 <cfparam name="url.emp" default="">
@@ -52,6 +51,10 @@
 
 <cfif url.kw contains "enter job title">
 	<cfset url.kw ="">
+</cfif>
+    
+<cfif len(url.kw) LT 2>
+    <cfset url.kw = 'hiring'>
 </cfif>
 
 <!--- <cfif url.kw is "" and structkeyExists(client, "lastkw")><cfset url.kw = client.lastkw></cfif>
@@ -128,7 +131,7 @@
 
 
  	<!---				                    
-                    <cfquery name="check" datasource="jobs">
+                    <cfquery name="check" datasource="jobs"> 
                     select distinct keyword from keywords where keyword = '#keyword#'
                     </cfquery>
                     
@@ -137,7 +140,7 @@
                         insert into keywords  (keyword)  values   ('#trim(keyword)#')
                         </cfquery>
                     </cfif> 
-				                          
+		--->		                          
                     <cftry>
                     <!--- add to recentqueires table --->
                     <cfquery name="check2" datasource="jobs">
@@ -155,7 +158,7 @@
                     
                     <cfcatch></cfcatch>
                     </cftry>
-			--->			
+			
             			<cftry>
 					    <cfquery name="insert" datasource="jobs">
                         insert into RecentQueries  
@@ -175,6 +178,7 @@
         <!--- end save keywords to keyword table --->
 	</cfif>	
 
+	<!---
 	<cfparam name="qst" default="">
 
 	<cfif len(form.kw)>
@@ -187,17 +191,21 @@
 		<cfset qst = qst & "L/#form.l#/">
         <cfset client.lastLoc = "#form.L#">
 	</cfif>
+    
 	<cfif isDefined('form.employer')><!--- if they came from employer section --->
 		<cfif len(form.co)>
 			<cfset qst = qst & "co/#form.co#/">
 		</cfif>
         <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
 		<cflocation url="/employers/index.cfm/#lcase(qst)#" addtoken="no">
-	<cfelse>	
+        
+	<cfelse>
+    	
 		<cfset qst = qst & "radius/#form.radius#/">
         <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
 		<cflocation url="/jobs/index.cfm/#lcase(qst)#" addtoken="no">
-	</cfif>
+	</cfif> 
+	--->
 	</cfoutput>
 	</cfif>
 </cfif>

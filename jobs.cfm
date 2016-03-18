@@ -136,7 +136,10 @@
                             </div>
                             </cfloop>
                             </cfoutput>                     
-                        </div>                         
+                        </div>
+                        <div class=".x-pagination col-xs-12">
+                            <div id='pagi' class="pagination-sm"></div>  
+                        </div>
                     </div>                     
                     <!--                <div class="ads col-sm-3">
                 <p>an ad</p>
@@ -347,15 +350,26 @@
         <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>         
         <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>         
         <!-- JS Page Level -->         
-        <script type="text/javascript" src="/assets/js/unify-app.js"></script>         
+        <script type="text/javascript" src="/assets/js/unify-app.js"></script>  
+        <script type="text/javascript" src="/assets/js/jquery.twbsPagination.js"></script>
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
-        });
+            
+            $('#pagi').twbsPagination({
+              totalPages: 100,
+              visiblePages: 5,
+              href: '?p/{{number}}/kw/java/l/dallas/',
+              onPageClick: function (event, page) {
+                $('#page-content').text('Page ' + page);
+
+              }
+            }); 
+        }); // end doc ready
             
         $('#x_search-form').submit(function(e){
           e.preventDefault();
-        });   
+        }); 
         </script>         
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>

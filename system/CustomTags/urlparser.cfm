@@ -2,7 +2,6 @@
 <cfif cgi.script_name contains "view.cfm"><cfexit></cfif>
 <cfif structKeyExists(url,"SES") and SES eq "no"><cfexit></cfif>
 <cfparam name="request.query_string" default="">
-<cfsilent>
 <cfif ListLast(CGI.PATH_INFO,".") NEQ "cfm">
   <cfif Find(".cfm",CGI.PATH_INFO)>
       <cfset lenRHSofDotCFM = Len(CGI.PATH_INFO) - (Find(".cfm",CGI.PATH_INFO)+4)>
@@ -14,21 +13,20 @@
       <cfset numURLItems = listLen(RHSofDotCFM,'/')>
       <cfset numURLItems = numURLItems - (numURLItems mod 2)>
       <cfloop from="1" to="#numURLItems#" index="i" step="2">
-          <cfset URL[ GetToken(RHSofDotCFM,i,'/') ] = GetToken(lcase(RHSofDotCFM),i+1,'/')>
-      </cfloop>
+          
+          <cfif len( GetToken(lcase(RHSofDotCFM),i+1,'/') ) GT 0>
+          
+          <cfset URL[ GetToken(RHSofDotCFM,i,'/') ] = GetToken(lcase(RHSofDotCFM),i+1,'/')>  
+            </cfif>
+      </cfloop>  
   </cfif>
 </cfif>
 
-
-
-
 <cfif len(cgi.query_string) and cgi.query_string contains "=">
-
-	<cfset qstring=reReplaceNoCase(cgi.query_string, "[=?&]", "/", "all")>
+	<cfset qstring=reReplaceNoCase(cgi.query_string, "[=?&]", "/", "all")> 
 	<cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
 	<cflocation url="#lcase(cgi.script_name)#/#lcase(qstring)#" addtoken="no"><!--- good seo to use consistent case --->
 </cfif> 
-
 
 <!--- rebuild the cgi.query_string from a SEO url 
 <cfif ListLast(CGI.PATH_INFO,".") NEQ "cfm">
@@ -50,4 +48,5 @@
   </cfif>
 </cfif>
 --->
+<cfsilent>
 </cfsilent>

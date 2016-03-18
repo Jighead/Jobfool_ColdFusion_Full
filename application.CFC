@@ -25,21 +25,10 @@
         <cfif isDefined("url.reinit")>
             <cfset structClear(application)>
         </cfif>
-      
         <cfinclude template="/system/config/settings.cfm">
-        <cfinclude template="/system/customtags/urlparser.cfm">
+        <!--- <cfinclude template="/system/customtags/urlparser.cfm"> --->
         <cfinclude template="/system/config/DomainAliasManager.cfm">
         <cfinclude template="/system/udf/lib.cfm">
-        <!---
-        <cfinclude template="/system/config/app_scripts.cfm">
-
-        <cfinclude template="/system/config/currentSkin.cfm">
-
-
-        <cfinclude template="/system/customtags/urlparser.cfm">
-        
-        <cfinclude template="/system/udf/lib.cfm">
-        --->
         <!---
        <cfif not cgi.REMOTE_ADDR is not "97.102.160.56">
                   <cfinclude template="tempdown.cfm"><cfabort>

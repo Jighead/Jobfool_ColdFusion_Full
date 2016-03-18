@@ -2,22 +2,22 @@
 <cfif not isdefined("Attributes.recordcount")>
 	<cfabort showerror="You need to pass a recordcount">
 </cfif>
-
-<cfparam name="Attributes.setRange" default="10">
-<cfparam name="Attributes.perPage" default="20">
+<cfparam name="Attributes.setRange" default="5">
+<cfparam name="Attributes.perPage" default="10">
 <cfparam name="Attributes.Class" default="">
 <cfparam name="Attributes.GoTo" default="false">
 <cfparam name="Attributes.Next" default="Next&nbsp;&raquo;">
 <cfparam name="Attributes.Previous" default="&laquo;&nbsp;Previous">
 <cfparam name="st" default="1">
 
-
 <cfif not(isnumeric(Attributes.recordcount))>
 	<cfset Attributes.recordcount = 0>
 </cfif>
 
-<cfif isdefined("Caller.P")>
+<cfif isDefined("Caller.P")>
 	<cfset P = caller.P>
+<cfelseif isDefined("attributes.p")>
+	<cfset P = attributes.p>
 <cfelse>
 	<cfset P = 1>
 </cfif>
@@ -49,27 +49,29 @@
 	//if (refind("[Pp][Nn]=[0-9]+", autovars) gt 0)
 	//	autovars = rereplace(autovars, "[Pp][Nn]=[0-9]+", "", "ALL");
 	//  autovars = replace(autovars, "&&", "&", "All");
+	
+	showst = st ;
+	showend =  showst + Attributes.perPage;
 </cfscript>
-
 
 
 		<cfif cgi.path_info eq cgi.script_name>
 		<!--- we have a standard url, do nothing --->
 		<cfelse>
-		<cfset qst="">
-		<cfloop collection="#url#" item="i"> 
-		 <cfoutput> 
-		 <cfif i neq "p" and i neq "qt" and i neq "st">
-			 <cfif len(url[i])>
-				<cfset namevalue="#i#=#url[i]#">
-				<cfset qst = listAppend(qst, "#namevalue#","&")>
-			 </cfif>
-		 </cfif>
-		 </cfoutput> 
-		</cfloop>
+			<cfset qst="">
+            <cfloop collection="#url#" item="i"> 
+                 <cfoutput> 
+                 <cfif i neq "p" and i neq "qt" and i neq "st" and i neq "co" and i neq "SB" and i neq "END" and i neq "radius">
+                     <cfif len(url[i])>
+                        <cfset namevalue="#i#=#url[i]#">
+                        <cfset qst = listAppend(qst, "#namevalue#","&")>
+                     </cfif>
+                 </cfif>
+                 </cfoutput> 
+            </cfloop>
 		</cfif>
-
-
+</cfsilent>
+<!---
 
 <cfset qst1 = reReplace(qst, "[Pp]=[0-9]+", "", "all")>
 <cfset qst2 = reReplace(qst1, "[Ss][Tt]=[0-9]+", "", "all")>
@@ -80,33 +82,36 @@
 <cfset qstr = replacenocase(qstr, "&", "/", "all")>
 <cfset qstr = replacenocase(qstr, "?", "/", "all")>
 <cfset qstr = replacenocase(qstr, "=", "/", "all")>
+--->
 
-
-</cfsilent>
 <cfoutput>
-
 <div id="pagination">
-<cfif P gt 1>	
-<a href="#cgi.script_name#/#urldecode(qstr)#/p/#int(url.p - 1)#/st/#st#" class="prev">
-#Attributes.Previous#</a>&nbsp;
-</cfif>
+<ul class="pagination">
+	<cfif P gt 1>	
+    <li class="prev <cfif st eq 1>disabled</cfif>">
+    <a href="#cgi.script_name#?#urldecode(qst)#&p=#int(url.p - 1)#&st=#st#" class="prev">#Attributes.Previous#</a>&nbsp;
+    </li>
+    </cfif>
 
-
-<cfif Attributes.recordcount gt Attributes.perPage>
-	<cfif start lt 1><cfset start = 1></cfif>
-	<cfloop from="#int(start)#" to="#int(end)#" step="1" index="i">
-	<cfset st = (i * attributes.perpage)-attributes.perpage+1>
-		<a href="#cgi.script_name#/#urldecode(qstr)#/p/#i#/st/#st#" <cfif i eq P>class="cpage"<cfelse>class="page"</cfif>>#i#</a>&nbsp;
-	</cfloop>
-</cfif>
-
-
-<cfif int(P * Attributes.perPage) lt Attributes.recordcount>	
-	&nbsp;<a href="#cgi.script_name#/#urldecode(qstr)#/p/#int(P + 1)#/st/#st#" class="next">#Attributes.Next#</a>
-</cfif>
+	<cfif Attributes.recordcount gt Attributes.perPage>
+        <cfif start lt 1><cfset start = 1></cfif>
+        <cfloop from="#int(start)#" to="#int(end)#" step="1" index="i">
+            <cfset st = (i * attributes.perpage)-attributes.perpage+1>
+            <li class="page <cfif i eq P>active</cfif>">
+            <a href="#cgi.script_name#?#urldecode(qst)#&p=#i#&st=#st#" <cfif i eq P>class="cpage"<cfelse>class="page"</cfif>>#i#</a>&nbsp;
+            </li>
+        </cfloop>
+    </cfif>
+    
+    
+    <cfif int(P * Attributes.perPage) lt Attributes.recordcount>	
+        <li class="next">
+        &nbsp;<a href="#cgi.script_name#?#urldecode(qst)#&p=#int(P + 1)#&st=#st#" class="next">#Attributes.Next#</a>
+        </li>
+    </cfif>
+</ul>
 </div>
-
-
+<!---
 <cfif Attributes.GoTo and pgs gt 1>
 	<div id="goto">
 	<cfset st = (P * attributes.perPage) +1>
@@ -127,4 +132,5 @@
 	</script>
 	</div>
 </cfif>
+--->
 </cfoutput>

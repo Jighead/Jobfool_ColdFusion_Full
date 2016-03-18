@@ -2,13 +2,13 @@
 .x-searchbar-jobs {
     //padding: 5px 0px;
     margin-top: 0px;
-    background: @searchbarBackground;
-   // border-top: 1px solid @searchbarBorder;
-   // border-bottom: 1px solid @searchbarBorder;
-    color: #fff;
+    padding-top: 20px;
+    padding-bottom:20px;
     background: url("../img/patterns/breadcrumbs.png");
+    background: @searchbarBackground-color;
+    border-bottom: 1px solid @searchbarBorder;
+    color: #fff;
     background-repeat: repeat;
-    
 }
 
 
@@ -40,3 +40,10 @@
     background: @jfBlue;
     border: 1px solid #ddd;
 }
+
+    /* Only on Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+        .x-searchbar-jobs {
+            padding-bottom: 5px;
+        }
+    }

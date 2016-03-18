@@ -9,14 +9,14 @@
     <cfset variables.salary = "">
     <cfset variables.prev = "">
     <cfset variables.next = "">
-    <cfset variables.radius = "25">
+    <cfset variables.radius = "50">
     <cfset variables.fromage= "last">
     <cfset variables.sort= "date">
     <cfset variables.totalrecords = "">
     <cfset variables.pages = "">
     <cfset variables.columlist = "">
 
-    <cffunction name="getJobs">
+    <cffunction name="getJobs" output="false" returntype="any">
         <cfargument name="kw" required="no" default="sales" hint="keyword search string">
         <cfargument name="L" required="yes" default="">
         <cfargument name="co" required="yes" default="US">
@@ -26,7 +26,7 @@
         <cfargument name="salary" required="no" default="" hint="">
         <cfargument name="start" required="no" default="1" hint="start at record">
         <cfargument name="p" required="no" default="1" hint="pageumber to calc start record from.">
-        <cfargument name="radius" required="no" default="25" hint="radius from location">
+        <cfargument name="radius" required="no" default="50" hint="radius from location">
         <cfargument name="fromage" required="no" default ="30" hint="How many days back to search">
         <cfargument name="sb" required="no" default ="relevance" hint="relevance or date">
         <cfargument name="rbc" required="no" default ="30" hint="employer name - used in como with jcid">
@@ -82,9 +82,12 @@
         </cfif>
 
         <cfif isDefined('arguments.emp') and arguments.emp gt 2>
-            <cfset variables.q = "company:#arguments.emp#">
+<!---            <cfset variables.q = "company:#arguments.emp#">
             <cfset variables.st = "employer">
-            <cfset variables.sr = "directhire">
+            <cfset variables.sr = "directhire"> --->
+            <cfset variables.emp = "#arguments.emp#"/>
+                
+
         </cfif>
         <cfif isDefined('arguments.fromage')>
             <cfset variables.fromage = arguments.fromage>
@@ -96,19 +99,37 @@
             <cfset variables.start = 1>
         </cfif>
 
-        <cfif variables.q contains "company:">
-
-        <cfset link="http://api.indeed.com/ads/apisearch?publisher=#trim(getPublisher())#&v=2&format=json&q=#variables.q#&l=#variables.l#&sr=directhire&st=employer&limit=#variables.qt#&start=#variables.start#&fromage=#variables.fromage#&co=#variables.co#&salary=#variables.salary#&sort=#variables.sb#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
-
+        <cfif len(arguments.emp) GTE 2>    
+                <cfset link="http://api.indeed.com/ads/apisearch?publisher=#trim(getPublisher())#&v=2&format=json&q=#variables.q#&l=#variables.l#&rbc=#emp#&limit=#variables.qt#&start=#variables.start#&fromage=#variables.fromage#&co=#variables.co#&salary=#variables.salary#&sort=#variables.sb#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
         <cfelse>
 
         <cfset link="http://api.indeed.com/ads/apisearch?publisher=#trim(getPublisher())#&v=2&format=json&cache=true&q=#variables.q#&l=#variables.l#&st=#variables.st#&start=#variables.start#&limit=#variables.qt#&fromage=#variables.fromage#&salary=#variables.salary#&sort=#variables.sb#&filter=1&latlong=1&co=#variables.co#&chnl=&radius=#variables.radius#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
 
         </cfif>
+        
+        
+        <!--- testing stuff --->
+	<cfif isDefined('url.test') and url.test>
+			<!--- Paramaters available for Indeed...
+            st = Site type. To show only jobs from job boards use 'jobsite'. For jobs from direct employer websites use 'employer'
+            start = Start results at this result number, beginning with 0. Default is 0. 
+            fromage = Number of days back to search. 
+            filter = Filter duplicate results. 0 turns off duplicate job filtering. Default is 1. 
+            --->
+            <cfoutput>
+            <a href="#link#">#link#</a>
+           </cfoutput>
+            <cfhttp method="get" url="#link#">
+            <br><br>
+            <cfdump var="#cfhttp#">
+            <cfabort>
+	</cfif>
+        
+        
+        
 
         <cfset resultset = getJobData(link)>
         <!--- <cfset resultset = scrubJobData(resultset)> --->
-
         <cfreturn resultset>
     </cffunction>
 
@@ -146,6 +167,7 @@
                    145021333590586,
                    2838105322279545,
                    8609926619731182,
+                   3832358952142376,
                    ">
 
     <cfset objRandom=ArrayNew(1)>
@@ -155,8 +177,6 @@
     <!--- random number b/n 1 and length of list/array --->
     <cfset randpubid = objRandom[RandRange(1, arraylen, "SHA1PRNG")]>
 
-
-
     <cfreturn randpubid>
     </cffunction>
 
@@ -165,13 +185,41 @@
 
         <cfhttp method="get" url="#arguments.link#">
         <cfif cfhttp.statuscode EQ "200 OK">
-            <cfset resultsArray = deserializeJSON(cfhttp.filecontent)>
-        <CFELSE>
-            <cfset resultsArray = "ERROR">
+            <cfset result = deserializeJSON(cfhttp.filecontent)>
+            <!--- <cfset qrydata = createQuery(resultsArray.results)> --->     
+        <cfelse>
+            <cfset result = "ERROR">
         </cfif>
 
-        <cfreturn resultsArray>
+        <cfreturn result>
     </cffunction>
+            
+    <!--- =============================================================
+        This function creates an empty query to hold the result data 
+        so we can query for locations or employers, etc.
+    =================================================================== --->
+    <cffunction name="createQuery" access="public" output="true" returntype="any">
+            <cfargument name="data" type="any">
+            <cfset var q = QueryNew( StructKeyList(arguments.data[1]) ) />
+                
+            <cfloop from="1" to="#arrayLen(arguments.data)#" index="i">
+                <cfset Row = QueryAddRow(Q) />
+                    <cfloop collection="#arguments.data[i]#" item="colname">
+                        <!--- <cfoutput>#colname# #arguments.data[i][colname]#</cfoutput><br> --->
+                        <cfset QuerySetCell( Q , colname , data[i][colname], Row ) />    
+                    </cfloop>
+            </cfloop> 
+            
+        <!--- Force Define the datatype in the query --->
+		<cfquery name="rquery" dbType="query">
+		SELECT *
+		FROM q
+		WHERE 1 <> 1
+		</cfquery>
+
+        <cfreturn q> 
+    </cffunction>     
+            
 
     <cffunction name="renderResultView" access="private" returntype="any">
         <cfargument name="data" required="yes" type="any">
@@ -180,7 +228,50 @@
                 <p>#item.jobtitle#</p>
                 <p>#item.jobdescription#</p>
             </div>
-            </cfloop>
+        </cfloop>
+    </cffunction>
+        
+    
+        
+        
+    <!--- =============== SubQueries (filters) start here =============== --->
+	<cffunction name="getLocations" access="public" returntype="query" output="no" hint="">
+	   <cfargument name="query" type="query" required="no">
+	   <cfif isDefined('arguments.query')>
+         <cfquery dbtype="query" name="locations">
+                select distinct(location) as location
+                from query
+                where location is not NULL
+                group by location
+          </cfquery>
+        </cfif>
+	<cfreturn locations>
+	</cffunction>
+           
+    <cffunction name="getLocs" access="public" output="no">
+        <cfargument name="data" type="any">   
+            
+        <cfset var locations = [] /> 
+        <cfloop array="#arguments.data.results#" index="data"> 
+            <cfif not ArrayFindNoCase(locations,data.formattedLocation)>
+                <cfset arrayAppend(locations, data.formattedLocation) >
+            </cfif>
+        </cfloop> 
+            
+        <cfreturn locations>
+    </cffunction>
+            
+    <cffunction name="getEmps" access="public" output="no">
+        <cfargument name="data" type="any">   
+            
+        <cfset var employers = [] /> 
+        <cfloop array="#arguments.data.results#" index="data"> 
+            <cfif not ArrayFindNoCase(employers,data.company)>
+                <cfset arrayAppend(employers, data.company) >
+            </cfif>
+        </cfloop> 
+            
+        <cfreturn employers>
     </cffunction>
 
 

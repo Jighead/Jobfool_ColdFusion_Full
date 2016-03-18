@@ -13358,16 +13358,15 @@ body {
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .header {
   background: #000000;
-  color: #ffffff;
-  margin-bottom: 10px;
+  color: #dddddd;
 }
-/* line 8, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 7, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-text-logo {
   width: 228px;
   padding: 6px;
   border: 1px solid #FFF;
 }
-/* line 14, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 13, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-text-logo h1 {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -13375,25 +13374,25 @@ body {
   font-size: 47px;
   color: #FFF;
 }
-/* line 23, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 22, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-text-logo .x-job {
   font-weight: 700;
   color: #FFF;
 }
-/* line 28, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 27, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-text-logo .x-fool {
   font-weight: 400;
   color: #FFF;
 }
-/* line 33, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 32, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-logofont {
   font-family: Roboto, Oswald, Lato, Abril Fatface;
   font-weight: 700;
   font-size: 44px;
-  color: #ffffff;
+  color: #dddddd;
   text-transform: uppercase;
 }
-/* line 42, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 41, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-logo {
   background-image: url("http:/thejobfool.com/themes/default/images/Logo2012.png");
   background-size: 240px 70px;
@@ -13403,49 +13402,49 @@ body {
   margin-left: 12px;
   display: block;
 }
-/* line 56, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 55, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-homelogo {
   width: 100%;
   max-width: 300px;
   min-width: 150px;
   display: block;
 }
-/* line 62, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 61, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-homelogo img {
   width: 100%;
 }
-/* line 64, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 63, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-homelogo a {
   display: block-inline;
   min-height: 50px;
   text-decoration: none;
 }
-/* line 72, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 71, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .header-v6 .menu-icons-list {
   margin: 31% 10px;
   padding-left: 10px;
 }
-/* line 77, C:\Apache24\htdocs\jf16\assets\css\header.less */
+/* line 76, C:\Apache24\htdocs\jf16\assets\css\header.less */
 .x-siderbar-toggle {
   border-radius: 5px;
 }
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
-  /* line 86, C:\Apache24\htdocs\jf16\assets\css\header.less */
+  /* line 85, C:\Apache24\htdocs\jf16\assets\css\header.less */
   #x-home .header h1 {
     height: 60px;
   }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (min-width: 480px) {
-  /* line 93, C:\Apache24\htdocs\jf16\assets\css\header.less */
+  /* line 92, C:\Apache24\htdocs\jf16\assets\css\header.less */
   #x-home .header h1 {
     height: 70px;
   }
 }
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
-  /* line 101, C:\Apache24\htdocs\jf16\assets\css\header.less */
+  /* line 100, C:\Apache24\htdocs\jf16\assets\css\header.less */
   .header-v6 .navbar-nav > li > a {
     padding: 10px 20px;
     line-height: 54px;
@@ -13453,18 +13452,58 @@ body {
 }
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
-  /* line 110, C:\Apache24\htdocs\jf16\assets\css\header.less */
+  /* line 109, C:\Apache24\htdocs\jf16\assets\css\header.less */
   .header-fixed .header-v6.header-dark-transparent.header-fixed-shrink .navbar-nav .active > a,
   .header-fixed .header-v6.header-dark-transparent.header-fixed-shrink .navbar-nav li > a:hover {
     color: #FFF;
   }
-  /* line 114, C:\Apache24\htdocs\jf16\assets\css\header.less */
+  /* line 113, C:\Apache24\htdocs\jf16\assets\css\header.less */
   .header-v6 .navbar-nav > li > a {
     padding: 10px 20px !important;
     line-height: 54px !important;
   }
 }
 /* Large Devices, Wide Screens */
+/* line 2, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+.x-searchbar-jobs {
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: url("../img/patterns/breadcrumbs.png");
+  background: #f1f1f1;
+  border-bottom: 1px solid #cccccc;
+  color: #fff;
+  background-repeat: repeat;
+}
+/* line 15, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+.fa-map-marker {
+  padding: 2px;
+}
+/* line 24, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+.x-result-bar {
+  background: #fff;
+  padding-top: 10px;
+  padding-bottom: 4px;
+}
+/* line 29, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+.x-result-bar .x-jobtitle {
+  margin: 0;
+  display: inline;
+  font-weight: bold;
+  padding: 0 4px;
+}
+/* line 39, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+.btn-primary {
+  background: #36567d;
+  border: 1px solid #ddd;
+}
+/* Only on Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* line 46, C:\Apache24\htdocs\jf16\assets\css\searchbar.less */
+  .x-searchbar-jobs {
+    padding-bottom: 5px;
+  }
+}
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
 .btn {
   border-radius: 5px;
@@ -13485,10 +13524,6 @@ body {
 /* line 17, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
 .x-search-btn {
   min-width: 100px;
-}
-/* line 21, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
-.x-btn-addemail {
-  min-width: 85px;
 }
 /* line 2, C:\Apache24\htdocs\jf16\assets\css\comp-homehero.less */
 .x-searchbar-home {
@@ -13616,6 +13651,17 @@ body {
     font-size: 16px;
   }
 }
+/* line 1, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe-jobs.less */
+.x-emailform {
+  /*.x-send-btn {
+        padding-left: 0px;
+    }*/
+  /* Only on Small Devices, Tablets */
+}
+/* line 15, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe-jobs.less */
+.x-emailform input {
+  margin-bottom: 5px !important;
+}
 /* line 2, C:\Apache24\htdocs\jf16\assets\css\comp-werehiring.less */
 .x-hire .content-sm {
   padding: 20px;
@@ -13703,11 +13749,13 @@ h1.x-jobtitle {
     margin-bottom: 5px;
   }
 }
-/*@media (min-width: 1360px){
-    .container {
-        width: 1340px;
-    }
-}*/
+@media screen and (max-width: 767px) {
+  /* line 116, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -50%;
+    margin-right: 15px;
+  }
+}
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\jobwell.less */
 .x-job-well {
   padding-top: 15px;
@@ -13733,8 +13781,8 @@ h1.x-jobtitle {
 footer {
   background: #252525;
   color: #333333;
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
 }
 /* line 9, C:\Apache24\htdocs\jf16\assets\css\comp-footer.less */
 .footer-v6 .footer {
@@ -13808,4 +13856,3 @@ footer {
 .x-subfooter {
   padding: 10px 0 5px 0;
 }
-/*# sourceMappingURL=app.css.map */
