@@ -95,17 +95,17 @@
                         <h1 class="x-headline">Find Your Perfect Job Today</h1>
                         <p class="x-sub">Find millions of local jobs from one place</p>
                         <div class="row" data-pg-name="Row-Searchbar"> 
-                            <form method="get" action="/jobs"> 
+                            <form method="get" action="/jobs/"> 
                                 <div class="col-sm-5 x-reducepad-5"> 
                                     <div class="input-group"> 
                                         <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span> 
-                                        <input type="text" name="kw" id="x-what" placeholder="what job you are looking for" class="form-control x-what"> 
+                                        <input type="text" name="kw" id="x-what" placeholder="what job you are looking for" class="form-control x-what">
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-5 x-reducepad-5"> 
                                     <div class="input-group"> 
                                         <span class="input-group-addon"><i class="fa fa-lg fa-map-marker x-red"></i></span> 
-                                        <input type="text" name="loc" id="x-where" placeholder="where would you like to work" class="form-control x-where"> 
+                                        <input type="text" name="l" id="x-where" placeholder="where would you like to work" class="form-control x-where"> 
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-2 x-reducepad-5"> 
