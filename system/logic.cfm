@@ -331,10 +331,11 @@
 <!---************************** CONTROLLERS ****************************** --->
 <cfif cgi.script_name contains "/jobs" or cgi.script_name contains "/a/" or  cgi.script_name contains "/sandbox"  or  cgi.script_name contains "/layouts"   or  cgi.script_name contains "/themes">
 	<!--- <cfinclude template="/Controllers/googlebase.cfm"> --->
-      
-    <cfif qrydata.recordcount lt url.qt or len(url.jobid) gt 2 > 	<!--- if this is NOT a single job query to Partner Site --->
+     <!--- 
+    <cfif qrydata.recordcount lt url.qt or len(url.jobid) gt 2 >
         <cfinclude template="/system/Controllers/getjobs.cfm">
     </cfif>
+    --->
 	
     <!--- <cfinclude template="/controllers/sponsoredjobs.cfm"> --->
 </cfif>

@@ -126,9 +126,14 @@
 	</cfif>
         
         
-        
 
         <cfset resultset = getJobData(link)>
+        <!--- TODO : remove for production --->
+        <cfif not isDefined('resultset.totalResults')>
+            <cfdump var="#link#"><cfabort>
+        </cfif>
+
+
         <!--- <cfset resultset = scrubJobData(resultset)> --->
         <cfreturn resultset>
     </cffunction>
@@ -143,7 +148,6 @@
                    4957686695268887,
                    4957686695268887,
                    4939942668444045,
-                   4011229145604540,
                    6717239641963456,
                    2113264712719746,
                    513220477112201,

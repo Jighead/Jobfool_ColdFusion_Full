@@ -1,0 +1,53 @@
+/* line 1, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe {
+  padding: 10px;
+}
+/* line 4, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe h2 {
+  text-align: center;
+  margin: 5px;
+}
+/* line 9, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe input {
+  border-right: 1px solid #fff;
+}
+/* line 13, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe .form-control {
+  border-radius: 0px;
+}
+/* line 17, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe .btn {
+  border-radius: 0px;
+}
+@media only screen and (min-width: 768px) {
+  /* line 27, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe .col-sm-4 {
+    width: 32.5%;
+  }
+}
+@media (max-width: 480px) {
+  /* line 42, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe h2 {
+    font-size: 16px;
+  }
+  /* line 46, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe .input-group {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  /* line 51, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe .content-boxes-v5 li {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  /* line 61, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe {
+    padding: 10px;
+  }
+  /* line 67, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  .shop-subscribe h2 {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=comp-alert-subscribe.css.map */

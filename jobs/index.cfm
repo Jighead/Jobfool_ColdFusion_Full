@@ -8,6 +8,7 @@
 
 <cfif len(url.kw) GT 0>
     <cfinvoke component="components.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
+
         <cfset total = results.totalResults>
         <script>
             var results = {};
@@ -21,6 +22,11 @@
                 st: '<cfoutput>#url.st#</cfoutput>'
             }
         </script>
+        
+        
+        <cfdump var="#results#">
+        
+        
 </cfif>   
         
      
@@ -130,9 +136,11 @@
                         <div id="job-well" class="x-job-well"> 
                             <cfif results.totalresults GT 0>
                             <cfoutput>
-                            <cfloop array="#results.results#" index="item"> 
+                            <cfloop array="#results.results#" index="item">
+                            <cfset key = encrypt(item.jobkey, "jf", "CFMX_COMPAT", "Base64") />
+                            
                             <div class="x-well"> 
-                                <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=">#item.jobtitle#</a></p> 
+                                <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#">#item.jobtitle#</a></p> 
                                 <p class="x-serpsnip">#item.snippet#</p> 
                                 <p class="x-serpcompany">#item.company#
                                 <cfif len(item.formattedLocationFull)>
@@ -142,7 +150,7 @@
                                 </cfif>
                                 </p>
                                 <p class="x-serppostee"><i>#item.formattedRelativeTime#</i></p>
-                                <p><a class="savejob" id="925b6ebced3abca9" href="/jobs/savejob.cfm?jobid=925b6ebced3abca9">Save Job</a></p>
+                                <p><a class="savejob" id="#key#" href="/jobs/savejob.cfm?jobid=#key#">Save Job</a></p>
                             </div>
                             </cfloop>
                             </cfoutput>  
@@ -175,7 +183,7 @@
                         
     
                         <h5>Nearby Cities</h5> 
-                        <cfif isdefined('results.totalResults') and results.totalResults gt 2>
+                        <cfif isdefined('results.totalResults') and results.totalResults gt 0>
                             <cfinvoke component="components.ijson" method="getLocs" returnvariable="locations"  data="#results#" /> 
                             <ul class="x-list-unstyled">
                             <cfoutput>
@@ -188,12 +196,13 @@
                             <p>&nbsp;</p>
                         </cfif> 
                         <h5>Employers</h5> 
-                        <cfif isdefined('results.totalResults') and results.totalResults gt 2>
+                        <cfif isdefined('results.totalResults') and results.totalResults gt 0>
                             <cfinvoke component="components.ijson" method="getEmps" returnvariable="employers"  data="#results#" /> 
                             <ul class="x-list-unstyled">
                             <cfoutput>
                             <cfloop array="#employers#" index="emp"> 
-                                <li><a href="?kw=#urlencodedformat(url.kw)#&l=#urlencodedformat(loc)#&emp=#emp#">#emp#</a></li>
+                            <cfset empsearch = url.kw &' '& emp />
+                                <li><a href="?kw=#urlencodedformat(empsearch)#&l=#urlencodedformat(loc)#">#emp#</a></li>
                             </cfloop>
                             </cfoutput>
                             </ul>

@@ -12933,90 +12933,154 @@ a:hover {
 .x-noPR {
   padding-right: 0px !important;
 }
+/* line 44, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PT5 {
+  padding-top: 5px !important;
+}
+/* line 48, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PB5 {
+  padding-bottom: 5px !important;
+}
+/* line 52, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PL5 {
+  padding-left: 5px !important;
+}
+/* line 56, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PR5 {
+  padding-right: 5px !important;
+}
+/* line 60, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PT10 {
+  padding-top: 10px !important;
+}
+/* line 64, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PB10 {
+  padding-bottom: 10px !important;
+}
+/* line 68, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PL10 {
+  padding-left: 10px !important;
+}
+/* line 72, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PR10 {
+  padding-right: 10px !important;
+}
+/* line 77, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PT15 {
+  padding-top: 15px !important;
+}
+/* line 81, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PB15 {
+  padding-bottom: 15px !important;
+}
+/* line 85, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PL15 {
+  padding-left: 15px !important;
+}
+/* line 89, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PR15 {
+  padding-right: 15px !important;
+}
+/* line 93, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PT20 {
+  padding-top: 20px !important;
+}
+/* line 97, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PB20 {
+  padding-bottom: 20px !important;
+}
+/* line 101, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PL20 {
+  padding-left: 20px !important;
+}
+/* line 105, C:\Apache24\htdocs\jf16\assets\css\util.less */
+.x-PR20 {
+  padding-right: 20px !important;
+}
 @media only screen and (max-width: 480px) {
-  /* line 45, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 110, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noP-xs {
     padding: 0px !important;
   }
-  /* line 48, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 113, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPL-xs {
     padding-left: 0px !important;
   }
-  /* line 51, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 116, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPR-xs {
     padding-right: 0px !important;
   }
 }
 @media only screen and (max-width: 768px) {
-  /* line 58, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 123, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noP-sm {
     padding: 0px !important;
   }
-  /* line 61, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 126, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPL-sm {
     padding-left: 0px !important;
   }
-  /* line 64, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 129, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPR-sm {
     padding-right: 0px !important;
   }
 }
 @media only screen and (max-width: 992px) {
-  /* line 70, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 135, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noP-md {
     padding: 0px !important;
   }
-  /* line 73, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 138, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPL-md {
     padding-left: 0px !important;
   }
-  /* line 76, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 141, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPR-md {
     padding-right: 0px !important;
   }
 }
 @media only screen and (max-width: 4200px) {
-  /* line 83, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 148, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noP-lg {
     padding: 0px !important;
   }
-  /* line 86, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 151, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPL-lg {
     padding-left: 0px !important;
   }
-  /* line 89, C:\Apache24\htdocs\jf16\assets\css\util.less */
+  /* line 154, C:\Apache24\htdocs\jf16\assets\css\util.less */
   .x-noPR-lg {
     padding-right: 0px !important;
   }
 }
 /* ================ end pads and margins ===================== */
-/* line 95, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 160, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-inlineblock {
   display: inline-block;
 }
-/* line 99, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 164, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-block {
   display: block;
 }
 /* ========== typography ================== */
-/* line 105, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 170, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textleft {
   text-align: left !important;
 }
-/* line 108, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 173, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textright {
   text-align: justify !important;
 }
-/* line 112, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 177, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textjustify {
   text-align: justify !important;
 }
-/* line 117, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 182, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-offcanvas {
   text-indent: -999px;
   margin: 0;
 }
-/* line 122, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 187, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -13024,13 +13088,13 @@ a:hover {
   margin-bottom: 10px;
 }
 /* ======= MISC ================= */
-/* line 132, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 197, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-dashline {
   min-width: 10px;
   height: 4px;
   border-bottom: 1px dashed #ddd;
 }
-/* line 139, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 204, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .bw {
   -webkit-filter: grayscale(1) !important;
   -moz-filter: grayscale(100%) !important;
@@ -13776,6 +13840,12 @@ h1.x-jobtitle {
   font-size: 16px;
   font-weight: bold;
   color: #36567d;
+}
+/* line 1, C:\Apache24\htdocs\jf16\assets\css\salaries.less */
+.progress {
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\comp-footer.less */
 footer {

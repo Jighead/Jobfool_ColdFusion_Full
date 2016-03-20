@@ -16,11 +16,14 @@
             <cfset var importurl = "https://api.import.io/store/connector/_magic?url=#indeedurl#&format=JSON&js=false&_apikey=#_import.io.apikey#">
                 
             <cfhttp url="#importurl#" method="get">
+            
+            <!--- <cfdump var="#cfhttp#"> --->
 
             <cfif cfhttp.statuscode EQ "200 OK">
                 <cfset resultsJSON = replace(cfhttp.filecontent, "/_", "_", "all")>
-                <cfset resultsStruct = deserializeJSON(resultsJSON)>  
-                <cfset resultsArray = resultsStruct.tables[1].results>              
+                <cfset resultsStruct = deserializeJSON(resultsJSON)>
+                <cfset resultsArray = resultsStruct.tables[1].results> 
+                <!--- <cfdump var="#resultsStruct#"> --->
             <CFELSE>
                 <cfset resultsArray = "ERROR">
             </cfif>
