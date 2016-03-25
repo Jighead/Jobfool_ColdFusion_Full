@@ -3,7 +3,7 @@
 <cfsilent>
 	<cfset jk = url.jobid>
     
-    <cfset jk = decrypt(url.jobid, "jf", "CFMX_COMPAT", "Base64") />
+    <<!--- cfset jk = decrypt(url.jobid, "foobar", "CFMX_COMPAT", "Base64") /> --->
     
     <cfhttp url="http://www.indeed.com/rc/clk?jk=#jk#" method="get" resolveurl="no" redirect="no" useragent="#cgi.HTTP_USER_AGENT#" /> 
     

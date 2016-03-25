@@ -1,16 +1,15 @@
-<cfinclude template="/system/logic.cfm">
-    
+<cfheader name="Cache-Control" value="max-age=3600">
+<cfinclude template="../meta/logic.cfm">
+<cfsilent>
 <cfparam name="results.totalresults" default="0">
 <cfparam name="results.total" default="0">
 <cfparam name="results.query" default="">
 <cfparam name="results.location" default="">
 <cfparam name="url.qt" default="10">
-
 <cfif len(url.kw) GT 0>
     <cfinvoke component="components.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
-
         <cfset total = results.totalResults>
-        <script>
+<!---         <script>
             var results = {};
             results.total = <cfoutput>#results.totalResults#</cfoutput>;
             results.kw = <cfoutput>"#url.kw#"</cfoutput>;
@@ -21,15 +20,13 @@
                 p: '<cfoutput>#url.p#</cfoutput>',
                 st: '<cfoutput>#url.st#</cfoutput>'
             }
-        </script>
+        </script> --->
         
         
-        <cfdump var="#results#">
-        
-        
-</cfif>   
-        
-     
+        <!--- <cfdump var="#results#"> --->
+  
+</cfif>         
+</cfsilent>     
 <!--- ================================================================================================================ --->
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -37,9 +34,8 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <meta name="description" content=""> 
-        <meta name="author" content=""> 
-        <title>Jobs</title>         
+        
+		<cfinclude template="../meta/head.cfm">      
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->         
         <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -137,7 +133,8 @@
                             <cfif results.totalresults GT 0>
                             <cfoutput>
                             <cfloop array="#results.results#" index="item">
-                            <cfset key = encrypt(item.jobkey, "jf", "CFMX_COMPAT", "Base64") />
+                            <cfset key = item.jobkey>
+                            <!--- <cfset key = encrypt(item.jobkey, "foobar", "CFMX_COMPAT", "Base64") /> --->
                             
                             <div class="x-well"> 
                                 <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#">#item.jobtitle#</a></p> 
