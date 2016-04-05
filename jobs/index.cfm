@@ -1,15 +1,15 @@
 <cfheader name="Cache-Control" value="max-age=3600">
-<cfinclude template="../meta/logic.cfm">
 <cfsilent>
+<cfinclude template="../meta/logic.cfm">
 <cfparam name="results.totalresults" default="0">
 <cfparam name="results.total" default="0">
 <cfparam name="results.query" default="">
 <cfparam name="results.location" default="">
 <cfparam name="url.qt" default="10">
-<cfif len(url.kw) GT 0>
+<cfif len(url.kw) GT 2 or len(url.l) GT 2>
     <cfinvoke component="components.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
         <cfset total = results.totalResults>
-<!---         <script>
+<!---   <script>
             var results = {};
             results.total = <cfoutput>#results.totalResults#</cfoutput>;
             results.kw = <cfoutput>"#url.kw#"</cfoutput>;
@@ -21,12 +21,12 @@
                 st: '<cfoutput>#url.st#</cfoutput>'
             }
         </script> --->
-        
-        
-        <!--- <cfdump var="#results#"> --->
   
-</cfif>         
-</cfsilent>     
+</cfif> 
+</cfsilent> 
+
+<!--- <cfdump var="#results#"> --->
+    
 <!--- ================================================================================================================ --->
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -185,7 +185,7 @@
                             <ul class="x-list-unstyled">
                             <cfoutput>
                             <cfloop array="#locations#" index="loc"> 
-                                <li><a href="?kw=#urlencodedformat(url.kw)#&l=#urlencodedformat(loc)#">#loc#</a></li>
+                                <li><a href="?kw=#url.kw#+l=#loc#">#loc#</a></li>
                             </cfloop>
                             </cfoutput>
                             </ul>
