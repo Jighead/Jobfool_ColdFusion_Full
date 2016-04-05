@@ -16,7 +16,7 @@
     <cfset variables.pages = "">
     <cfset variables.columlist = "">
 
-    <cffunction name="getJobs" output="false" returntype="any">
+    <cffunction name="getJobs" output="true" returntype="any">
         <cfargument name="kw" required="no" default="sales" hint="keyword search string">
         <cfargument name="L" required="yes" default="">
         <cfargument name="co" required="yes" default="US">
@@ -45,7 +45,6 @@
         variables.sb = arguments.sb;
         </cfscript>
 
-
        <cfif arguments.kw eq "enter+keyword" or arguments.KW is ""><cfset arguments.KW = "in"></cfif>
 
 
@@ -71,11 +70,6 @@
             <cfset variables.q = "sales">
         </cfif>
 
-        <cfif isDefined('arguments.kw') and arguments.kw contains "emp:">
-            <cfset variables.emp = replacenocase(arguments.kw,"emp:","")>
-            <cfset variables.q = "company:#variables.emp#">
-            <cfset variables.st = "employer">
-        </cfif>
 
         <cfif isDefined('arguments.salary') and arguments.salary gt 10000>
             <cfset variables.salary = arguments.salary>
@@ -98,36 +92,30 @@
         <cfelse>
             <cfset variables.start = 1>
         </cfif>
+            
+        <cfset pubid = trim(getPublisher())>
+            
+        <cfset link="http://api.indeed.com/ads/apisearch?publisher=#pubid#&v=2&format=json&cache=true&q=#variables.q#&l=#variables.l#&st=#variables.st#&start=#variables.start#&limit=#variables.qt#&fromage=#variables.fromage#&salary=#variables.salary#&sort=#variables.sb#&filter=1&latlong=1&co=#variables.co#&chnl=&radius=#variables.radius#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
 
-        <cfif len(arguments.emp) GTE 2>    
-                <cfset link="http://api.indeed.com/ads/apisearch?publisher=#trim(getPublisher())#&v=2&format=json&q=#variables.q#&l=#variables.l#&rbc=#emp#&limit=#variables.qt#&start=#variables.start#&fromage=#variables.fromage#&co=#variables.co#&salary=#variables.salary#&sort=#variables.sb#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
-        <cfelse>
-
-        <cfset link="http://api.indeed.com/ads/apisearch?publisher=#trim(getPublisher())#&v=2&format=json&cache=true&q=#variables.q#&l=#variables.l#&st=#variables.st#&start=#variables.start#&limit=#variables.qt#&fromage=#variables.fromage#&salary=#variables.salary#&sort=#variables.sb#&filter=1&latlong=1&co=#variables.co#&chnl=&radius=#variables.radius#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
-
-        </cfif>
-        
-        
         <!--- testing stuff --->
-	<cfif isDefined('url.test') and url.test>
-			<!--- Paramaters available for Indeed...
+        <cfif isDefined('url.test') and url.test EQ "gerd">
+            <!--- Paramaters available for Indeed...
             st = Site type. To show only jobs from job boards use 'jobsite'. For jobs from direct employer websites use 'employer'
             start = Start results at this result number, beginning with 0. Default is 0. 
             fromage = Number of days back to search. 
             filter = Filter duplicate results. 0 turns off duplicate job filtering. Default is 1. 
             --->
             <cfoutput>
-            <a href="#link#">#link#</a>
-           </cfoutput>
+                <a href="#link#">#link#</a>
+            </cfoutput>
             <cfhttp method="get" url="#link#">
             <br><br>
             <cfdump var="#cfhttp#">
             <cfabort>
-	</cfif>
+        </cfif>
         
-        
-
         <cfset resultset = getJobData(link)>
+            
         <!--- TODO : remove for production --->
         <cfif not isDefined('resultset.totalResults')>
             <cfdump var="#link#"><cfabort>

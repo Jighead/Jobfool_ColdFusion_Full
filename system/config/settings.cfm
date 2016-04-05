@@ -1,6 +1,6 @@
 <cfscript>
 application.root = replace(expandPath("."), "/system/config", "", "one");
-request.componentpath = "system.components";
+request.componentpath = "components";
 request.dsn = "jobs";
 request.dbuser = "jobfool";
 request.dbpass = "5berlin5";

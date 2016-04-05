@@ -27,6 +27,23 @@
         <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/plugins/animated-headline/css/animated-headline.css">
+        <style>
+            .has-error .form-control {
+                border: 1px solid #FF486F;
+                background-color: rgba(255, 72, 111, 0.24);
+            }
+            
+            
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus,
+            input:-webkit-autofill:active {
+                transition: background-color 5000s ease-in-out 0s;
+                color: #FFF !important;
+                -webkit-text-fill-color: #fff;
+            }
+
+        </style>
     </head>
     <body class="x-home header-fixed">
         <div class="wrapper">
@@ -109,7 +126,7 @@
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-2 x-reducepad-5"> 
-                                    <button id="x_search-form" class="form-control inline-block btn-primary">Find a Job</button>                                     
+                                    <button id="x_search-form" class="form-control inline-block btn-primary btn-search">Find a Job</button>                                     
                                 </div>                                 
                             </form>                             
                         </div>                         
@@ -126,26 +143,17 @@
                                 <div class="content-boxes-v5">
                                     <i class="rounded-x icon-layers icon-bg-red"></i>
                                     <div class="overflow-h">
+                                        
                                         <h3><strong>Popular Categories</strong></h3>
+                                        <cfset catArray = ["Sales","Certified Registered Nurse", "Internship", "Accounting", "GIS", "Work From Home"] />
                                         <ul class="list-unstyled">
+                                            <cfoutput>
+                                            <cfloop array="#catArray#" index="item">
                                             <li>
-                                                <a href="#">Sales</a>
+                                                <a href="/jobs/?kw=#item#">#item#</a>
                                             </li>
-                                            <li>
-                                                <a href="#">Certified Rgistered Nurse</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Internship</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Accounting</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">GIS</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Work From Home</a>
-                                            </li>
+                                            </cfloop>
+                                            </cfoutput>
                                         </ul>
                                     </div>
                                 </div>
@@ -156,13 +164,13 @@
                                     <i class="rounded-x icon-custom icon-md icon-bg-black icon-line icon-directions"></i>
                                     <div class="overflow-h">
                                         <h3><strong>Popular Cities</strong></h3>
+                                        <cfset cityArray = ["Chicago","San Francisco", "New York City", "Atlanta", "Denver", "Miami"] />
                                         <ul class="list-unstyled">
-                                            <li>Chicago</li>
-                                            <li>San Francisco</li>
-                                            <li>Atlanta</li>
-                                            <li>Boston</li>
-                                            <li>Denver</li>
-                                            <li>Houston</li>
+                                            <cfoutput>
+                                            <cfloop array="#cityArray#" index="item">
+                                            <li><a href="/jobs/?l=#item#">#item#</a></li>
+                                            </cfloop>
+                                            </cfoutput>
                                         </ul>
                                     </div>
                                 </div>
@@ -172,13 +180,13 @@
                                     <i class="rounded-x icon-layers icon-bg-blue"></i>
                                     <div class="overflow-h">
                                         <h3><strong>Popular Employers</strong></h3>
+                                        <cfset empArray = ["Google","General Electric", "Chipotle", "Wal-Mart", "Kforce", "Boeing"] />
                                         <ul class="list-unstyled">
-                                            <li>Google</li>
-                                            <li>General Electric</li>
-                                            <li>Chipolte</li>
-                                            <li>Wal-Mart</li>
-                                            <li>KForce</li>
-                                            <li>Boeing</li>
+                                            <cfoutput>
+                                            <cfloop array="#empArray#" index="item">
+                                            <li><a href="/jobs/?kw=#item#">#item#</a></li>
+                                            </cfloop>
+                                            </cfoutput>
                                         </ul>
                                     </div>
                                 </div>
@@ -195,17 +203,23 @@
                         <div class=" col-xs-12">
                             <h2>Send me great new <strong>jobs by email</strong></h2>
                         </div>
-                        <div class="col-sm-4 x-reducepad-5">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="What Job">
+                        <div class="col=xs-12">
+                        <form id="alert" data-toggle="validator" role="form">
+                        <div class="col-sm-4 x-reducepad-5 form-group">
+                            <input type="text" class="form-control" id="what" name="what" placeholder="What Job" required>
                         </div>
-                        <div class="col-sm-4 x-reducepad-5">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="What city or zipcode">
+                        <div class="col-sm-4 x-reducepad-5 form-group">
+                            <input type="text" class="form-control" id="where" name="where" placeholder="What city or zipcode" required>
                         </div>
-                        <div class="col-sm-4 input-group x-reducepad-5">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="enter email address">
-                            <span class="input-group-btn"><button class="btn" type="button">
+                        <div class="col-sm-4 input-group x-reducepad-5 form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="enter email address" required>
+                            <span class="input-group-btn">
+                                <button id="alertbtn" class="btn" type="submit">
                                     <i class="fa fa-envelope-o"></i>
-                                </button></span>
+                                </button>
+                            </span>
+                        </div>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -334,19 +348,59 @@
         <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
         <!-- JS Page Level -->
         <script type="text/javascript" src="assets/js/unify-app.js"></script>
+        <script src="assets/js/3p/validator.min.js"></script>
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
             new WOW().init();
             App.initCounter();
             App.initParallaxBg(); 
+            
+            
+            
+            $('input').focus(function(){
+               $(this).data('placeholder',$(this).attr('placeholder'))
+                   .attr('placeholder','');
+            }).blur(function(){
+               $(this).attr('placeholder',$(this).data('placeholder'));
+            });
+            
+            
 
-        });
+
+        }); <!--- end doc ready --->
+            
+            
+            
             
         $('#x_search-form').submit(function(e){
           e.preventDefault();
-        });   
+        });
+            
+            
+        /*$("#alert .disabled").on('click scroll touchmove mousewheel', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        })*/
              
+
+        $("#alert").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "addalert.cfm",
+                data: $(this).serialize()
+            }).done(function(response) {
+              console.log(response);
+            });
+
+
+            return false;           
+        });
+
+              
         </script>
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>

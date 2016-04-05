@@ -10,9 +10,9 @@
 <cfinclude template="/system/udf/sentenceCase.cfm">
 <cfparam name="request.co" default="US">
 <cfset url.co = request.co> <!--- conditionally set in config/settings.cfm based on subdomain --->
-<cfparam name="url.kw" default="hiring">
-<cfparam name="url.qt" default="10">
 <cfparam name="url.l" default="">
+<cfparam name="url.kw" default="">
+<cfparam name="url.qt" default="10">
 <cfparam name="url.radius" default="50">
 <cfparam name="url.emp" default="">
 <cfparam name="url.jobid" default="">
@@ -49,7 +49,7 @@
 <cfparam name="desc.description" default="Speed up your job search and find better employment! The Job Fool searches millions of jobs from thousands of sites. New Jobs are posted hourly. Find hot new jobs, advance your career, develop new and better employer relations. Job search made simple.">
 <cfparam name="canonical" default="http://thejobfool/jobs/?">
     
-<cfif len(url.kw) LT 2>
+<cfif len(url.kw) LT 2 and len(url.l) lt 2>
     <cfset url.kw = 'hiring'>
 </cfif>
 
@@ -181,9 +181,7 @@
                 </cfif>
                 <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
                 <cflocation url="/employers/index.cfm/#lcase(qst)#" addtoken="no">
-                
             <cfelse>
-                
                 <cfset qst = qst & "radius/#form.radius#/">
                 <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
                 <cflocation url="/jobs/index.cfm/#lcase(qst)#" addtoken="no">
@@ -195,11 +193,9 @@
 </cfif>
 </cfoutput>
 
-
-<cfif url.kw EQ "L" or url.kw is "" or url.kw is " " >
+<cfif url.kw EQ "L" or url.kw is " " >
 	<cfset url.kw = "">
 </cfif>
-
 
 <!--- dont use this it's kinda funky <cfif len(url.kw) is 0><cfset url.kw = client.lastkw></cfif> --->
 

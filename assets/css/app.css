@@ -13607,17 +13607,16 @@ body {
   height: 46px;
   padding: 6px 12px;
   font-size: 16px;
-  color: #333;
   border-radius: 5px;
 }
-/* line 23, C:\Apache24\htdocs\jf16\assets\css\comp-homehero.less */
+/* line 22, C:\Apache24\htdocs\jf16\assets\css\comp-homehero.less */
 .input-group-addon {
   color: #36567D;
   font-size: 14px;
   background: #EEE;
   border-radius: 5px;
 }
-/* line 30, C:\Apache24\htdocs\jf16\assets\css\comp-homehero.less */
+/* line 29, C:\Apache24\htdocs\jf16\assets\css\comp-homehero.less */
 .interactive-slider-v2.img-v3 {
   background: url(../images/home/img8.jpg) no-repeat;
   background-size: cover;
@@ -13684,33 +13683,37 @@ body {
 .shop-subscribe .btn {
   border-radius: 0px;
 }
+/* line 20, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe .disabled {
+  opacity: 1.0;
+}
 @media only screen and (min-width: 768px) {
-  /* line 27, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 30, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .col-sm-4 {
     width: 32.5%;
   }
 }
 @media (max-width: 480px) {
-  /* line 42, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 45, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
-  /* line 46, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 49, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .input-group {
     padding-left: 15px;
     padding-right: 15px;
   }
-  /* line 51, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 54, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .content-boxes-v5 li {
     font-size: 16px;
   }
 }
 @media (max-width: 768px) {
-  /* line 61, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 64, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe {
     padding: 10px;
   }
-  /* line 67, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 70, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
