@@ -149,8 +149,9 @@
                                         <ul class="list-unstyled">
                                             <cfoutput>
                                             <cfloop array="#catArray#" index="item">
+                                            <cfset itemlink = replace(item," ","-","all") />
                                             <li>
-                                                <a href="/jobs/?kw=#item#">#item#</a>
+                                                <a href="/jobs/?kw=#itemlink#">#item#</a>
                                             </li>
                                             </cfloop>
                                             </cfoutput>
@@ -168,7 +169,8 @@
                                         <ul class="list-unstyled">
                                             <cfoutput>
                                             <cfloop array="#cityArray#" index="item">
-                                            <li><a href="/jobs/?l=#item#">#item#</a></li>
+                                            <cfset itemlink = replace(item," ","-","all") />
+                                            <li><a href="/jobs/?l=#itemlink#">#item#</a></li>
                                             </cfloop>
                                             </cfoutput>
                                         </ul>
@@ -184,7 +186,8 @@
                                         <ul class="list-unstyled">
                                             <cfoutput>
                                             <cfloop array="#empArray#" index="item">
-                                            <li><a href="/jobs/?kw=#item#">#item#</a></li>
+                                                <cfset itemlink = replace(item," ","-","all") />
+                                            <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
                                             </cfloop>
                                             </cfoutput>
                                         </ul>

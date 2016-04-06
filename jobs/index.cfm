@@ -1,11 +1,12 @@
 <cfheader name="Cache-Control" value="max-age=3600">
-<cfsilent>
-<cfinclude template="../meta/logic.cfm">
+
+<cfsilent>      
+<cfinclude template="../meta/newlogic.cfm">
 <cfparam name="results.totalresults" default="0">
 <cfparam name="results.total" default="0">
 <cfparam name="results.query" default="">
 <cfparam name="results.location" default="">
-<cfparam name="url.qt" default="10">
+<cfparam name="url.qt" default="10">  
 <cfif len(url.kw) GT 2 or len(url.l) GT 2>
     <cfinvoke component="components.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
         <cfset total = results.totalResults>
@@ -23,8 +24,10 @@
         </script> --->
   
 </cfif> 
-</cfsilent> 
+</cfsilent>
 
+<!--- cfdump var="#url#">
+<cfoutput>#cgi.query_string#</cfoutput><cfabort> --->
 <!--- <cfdump var="#results#"> --->
     
 <!--- ================================================================================================================ --->
@@ -38,9 +41,9 @@
 		<cfinclude template="../meta/head.cfm">      
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->         
         <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->         
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->         
         <!-- Web Fonts -->         
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play"> 
         <!-- CSS Global Compulsory -->         
@@ -83,7 +86,8 @@
         <section class="x-searchbar-jobs x-contentpattern" data-pg-name="Search Bar">
             <div class="container"> 
                 <div class="row" data-pg-name="Row-Searchbar"> 
-                    <form method="get" action="/jobs/"> 
+                    <form method="get" action="/jobs/">
+
                         <div class="col-sm-5 x-reducepad-5"> 
                             <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span> 
@@ -103,7 +107,7 @@
                 </div>                 
             </div>           
             <!-- //container -->             
-        </section>         
+        </section>      
         <section id="content-section"> 
             <div class="container x-result-bar"> 
                 <div class="row" data-pg-name="Row-Result"> 
@@ -111,10 +115,11 @@
                     <cfif results.totalResults GT 0 >
                     <cfset showst = url.st> 
 					<cfset showend = showst + request.perpage>
+                        <cfif results.totalresults LT  showend><cfset showend = results.totalresults></cfif>
                     <cfoutput>
                         Showing #showst# - #showend# of #results.totalResults#
-                        <cfif len(results.query)><h1 class="x-jobtitle">#results.query#</h1> jobs</cfif>
-                        <cfif len(results.location) and not len(results.query)> 
+                        <cfif len(results.query) and results.query neq 'in'><h1 class="x-jobtitle">#results.query#</h1></cfif> jobs
+                        <cfif len(results.location)> 
                             near #results.location# 
                         </cfif>
                     </cfoutput>
@@ -128,34 +133,14 @@
         <section>
             <div class="container x-content" style="min-height:800px;"> 
                 <div class="row x-content row-offcanvas row-offcanvas-right" data-pg-name="Row:Content"> 
-                    <div class="col-sm-9 col-xs-12" data-pg-name="Col-Main Content"> 
+                    <div class="col-sm-9 col-xs-12" data-pg-name="Col-Main Content">
                         <div id="job-well" class="x-job-well"> 
-                            <cfif results.totalresults GT 0>
-                            <cfoutput>
-                            <cfloop array="#results.results#" index="item">
-                            <cfset key = item.jobkey>
-                            <!--- <cfset key = encrypt(item.jobkey, "foobar", "CFMX_COMPAT", "Base64") /> --->
-                            
-                            <div class="x-well"> 
-                                <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#">#item.jobtitle#</a></p> 
-                                <p class="x-serpsnip">#item.snippet#</p> 
-                                <p class="x-serpcompany">#item.company#
-                                <cfif len(item.formattedLocationFull)>
-                                    <span class="x-serplocation" itemtype="http://schema.org/Postaladdress">
-                                     - <a href="/jobs/index.cfm/kw/#url.kw#/l/#urlencodedformat(item.formattedLocationFull)#/">#item.formattedLocationFull#</a>
-                                    </span>
-                                </cfif>
-                                </p>
-                                <p class="x-serppostee"><i>#item.formattedRelativeTime#</i></p>
-                                <p><a class="savejob" id="#key#" href="/jobs/savejob.cfm?jobid=#key#">Save Job</a></p>
-                            </div>
-                            </cfloop>
-                            </cfoutput>  
-                            </cfif>
+                            <cfinclude template="../partials/jobs-jobwell.cfm">
                         </div>  
                         <div class=".x-pagination col-xs-12 x-noPL">
                             <cfmodule template="/system/customtags/pagination.cfm" recordcount="#results.totalResults#" perpage="10" p="#url.p#">
                         </div>
+
                     </div>                     
                 <!-- <div class="ads col-sm-3">
                 <p>an ad</p>
@@ -167,7 +152,7 @@
                 <p>an ad</p>
                 </div>-->                     
                     <div id="x_filters" class="sidebar-offcanvas col-sm-3" data-pg-name="Col-Filters"> 
-
+                        <cfoutput>
                         <div class="x-emailform row" role="form"> 
                             <div class="col-xs-12">
                                 <label for="email">Send me these jobs</label>
@@ -177,51 +162,84 @@
                                 <button id="addemail" class="btn btn-primary x-btn-addemail form-control">Send</button>
                             </div>                             
                         </div> 
-                        
     
-                        <h5>Nearby Cities</h5> 
+            <cfset qst="">
+            <cfloop collection="#url#" item="i"> 
+                 <cfoutput> 
+                 <cfif i eq 'kw' or i eq 'ef'>
+                     <cfif len(url[i])>
+                        <cfset namevalue="#i#=#url[i]#">
+                        <cfset qst = listAppend(qst, "#namevalue#","&")>
+                        <cfset qst = listAppend(qst, "radius=1","&")>
+                     </cfif>
+                 </cfif>
+                 </cfoutput> 
+            </cfloop>
+                        <h5>Nearby Cities
+                            <cfif isdefined('url.cf')>
+                            - <span class="fa fa-eraser"></span> <a href="?#qst#" class="x-clearfilter">Clear</a></span>
+                            </cfif>
+                        </h5>
                         <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getLocs" returnvariable="locations"  data="#results#" /> 
-                            <ul class="x-list-unstyled">
-                            <cfoutput>
-                            <cfloop array="#locations#" index="loc"> 
-                                <li><a href="?kw=#url.kw#+l=#loc#">#loc#</a></li>
+                            <cfinvoke component="components.ijson" method="getLocs" returnvariable="locations"  data="#results#" />
+                            <ul class="x-list-unstyled"> 
+                            <cfloop array="#locations#" index="loc">
+                                    <li><a href="?l=#loc#&#qst#&cf=1">#loc#</a></li>
                             </cfloop>
-                            </cfoutput>
+                            
                             </ul>
                         <cfelse>
                             <p>&nbsp;</p>
-                        </cfif> 
-                        <h5>Employers</h5> 
+                        </cfif>
+            <cfset qst="">
+            <cfloop collection="#url#" item="i"> 
+                 <cfoutput> 
+                 <cfif i eq 'l' or i eq 'cf' or i eq 'radius'>
+                     <cfif len(url[i])>
+                        <cfset namevalue="#i#=#url[i]#">
+                        <cfset qst = listAppend(qst, "#namevalue#","&")>
+                     </cfif>
+                 </cfif>
+                 </cfoutput> 
+            </cfloop>
+                        <h5>Employers 
+                             <cfif isdefined('url.ef')>
+                              - <span class="fa fa-eraser"></span> <a href="?#qst#" class="x-clearfilter">Clear</a>
+                            </cfif>
+                        </h5> 
                         <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getEmps" returnvariable="employers"  data="#results#" /> 
+                            <cfinvoke component="components.ijson" method="getEmps" returnvariable="employers"  data="#results#" />
                             <ul class="x-list-unstyled">
                             <cfoutput>
-                            <cfloop array="#employers#" index="emp"> 
-                            <cfset empsearch = url.kw &' '& emp />
-                                <li><a href="?kw=#urlencodedformat(empsearch)#&l=#urlencodedformat(loc)#">#emp#</a></li>
+                            <cfloop array="#employers#" index="emp">
+                                <li><a href="?kw=#emp#&#qst#&ef=1">#emp#</a></li>
                             </cfloop>
                             </cfoutput>
-                            </ul>
+                            </ul> 
                         <cfelse>
                             <p>&nbsp;</p>
-                        </cfif>                          
-                        <!--<h5>Salaries</h5>
-                    <ul class="x-list-unstyled">
-                        <li>
-                            <a href="#">Example 1</a>
-</li>
-                        <li>
-                            <a href="#">Example 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Example 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Example 1</a>
-                        </li>                         
-                    </ul>-->                         
-                    </div>                     
+                        </cfif>  
+                                    
+                        <!--
+                                    
+                            <h5>Salaries</h5>
+                            <ul class="x-list-unstyled">
+                                <li>
+                                    <a href="#">Example 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Example 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Example 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Example 1</a>
+                                </li>                         
+                            </ul>--> 
+                       </cfoutput>
+                    </div>
+                 
                 </div>                 
             </div>
             <!-- //container -->             
@@ -316,7 +334,18 @@
         <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>         
         <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>         
         <!-- JS Page Level -->         
-        <script type="text/javascript" src="/assets/js/unify-app.js"></script>       
+        <script type="text/javascript" src="/assets/js/unify-app.js"></script>
+        <script>
+        $(document).ready(function($){
+            App.init();
+            
+            $("#x_filters a").each(function() {
+                var text = $(this).attr('href')
+                text = text.replace(/ /g, "+");
+                $(this).prop('href',text);
+                });
+        });
+        </script>    
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>

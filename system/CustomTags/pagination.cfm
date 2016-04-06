@@ -61,7 +61,7 @@
 			<cfset qst="">
             <cfloop collection="#url#" item="i"> 
                  <cfoutput> 
-                 <cfif i neq "p" and i neq "qt" and i neq "st" and i neq "co" and i neq "SB" and i neq "END" and i neq "radius">
+                 <cfif i neq "p" and i neq "qt" and i neq "st" and i neq "co" and i neq "SB" and i neq "END" and i neq "radius" and i neq "kwlink">
                      <cfif len(url[i])>
                         <cfset namevalue="#i#=#url[i]#">
                         <cfset qst = listAppend(qst, "#namevalue#","&")>
@@ -72,45 +72,45 @@
 		</cfif>
 </cfsilent>
 <!---
-
 <cfset qst1 = reReplace(qst, "[Pp]=[0-9]+", "", "all")>
 <cfset qst2 = reReplace(qst1, "[Ss][Tt]=[0-9]+", "", "all")>
 <cfset qst3 = reReplace(qst2, "[Aa][Cc]=[0-9]+", "", "all")>
 <cfset qstr = reReplace(qst3, "&&", "&", "all")>
 <cfset cfnocache = false>
 
-<cfset qstr = replacenocase(qstr, "&", "/", "all")>
+
 <cfset qstr = replacenocase(qstr, "?", "/", "all")>
 <cfset qstr = replacenocase(qstr, "=", "/", "all")>
 --->
-
+<cfset qst = replacenocase(qst, " ", "-", "all")>
 <cfoutput>
-<div id="pagination">
-<ul class="pagination">
-	<cfif P gt 1>	
-    <li class="prev <cfif st eq 1>disabled</cfif>">
-    <a href="#cgi.script_name#?#urldecode(qst)#&p=#int(url.p - 1)#&st=#st#" class="prev">#Attributes.Previous#</a>&nbsp;
-    </li>
-    </cfif>
 
-	<cfif Attributes.recordcount gt Attributes.perPage>
-        <cfif start lt 1><cfset start = 1></cfif>
-        <cfloop from="#int(start)#" to="#int(end)#" step="1" index="i">
-            <cfset st = (i * attributes.perpage)-attributes.perpage+1>
-            <li class="page <cfif i eq P>active</cfif>">
-            <a href="#cgi.script_name#?#urldecode(qst)#&p=#i#&st=#st#" <cfif i eq P>class="cpage"<cfelse>class="page"</cfif>>#i#</a>&nbsp;
-            </li>
-        </cfloop>
-    </cfif>
-    
-    
-    <cfif int(P * Attributes.perPage) lt Attributes.recordcount>	
-        <li class="next">
-        &nbsp;<a href="#cgi.script_name#?#urldecode(qst)#&p=#int(P + 1)#&st=#st#" class="next">#Attributes.Next#</a>
-        </li>
-    </cfif>
-</ul>
-</div>
+            <div id="pagination">
+            <ul class="pagination">
+                <cfif P gt 1>	
+                <li class="prev <cfif st eq 1>disabled</cfif>">
+                <a href="#cgi.script_name#?#urldecode(qst)#&p=#int(url.p - 1)#&st=#st#" class="prev">#Attributes.Previous#</a>&nbsp;
+                </li>
+                </cfif>
+
+                <cfif Attributes.recordcount gt Attributes.perPage>
+                    <cfif start lt 1><cfset start = 1></cfif>
+                    <cfloop from="#int(start)#" to="#int(end)#" step="1" index="i">
+                        <cfset st = (i * attributes.perpage)-attributes.perpage+1>
+                        <li class="page <cfif i eq P>active</cfif>">
+                        <a href="#cgi.script_name#?#urldecode(qst)#&p=#i#&st=#st#" <cfif i eq P>class="cpage"<cfelse>class="page"</cfif>>#i#</a>&nbsp;
+                        </li>
+                    </cfloop>
+                </cfif>
+
+
+                <cfif int(P * Attributes.perPage) lt Attributes.recordcount>	
+                    <li class="next">
+                    &nbsp;<a href="#cgi.script_name#?#urldecode(qst)#&p=#int(P + 1)#&st=#st#" class="next">#Attributes.Next#</a>
+                    </li>
+                </cfif>
+            </ul>
+            </div>
 <!---
 <cfif Attributes.GoTo and pgs gt 1>
 	<div id="goto">

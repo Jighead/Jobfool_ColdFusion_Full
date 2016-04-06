@@ -236,6 +236,18 @@ var App = function () {
 		jQuery('.popovers-toggle').popover('toggle');
 		jQuery('.popovers-destroy').popover('destroy');
 	}
+            
+     function disabledKeys() {
+        $('#x-what, #x-where').bind('keypress', function (event) {
+            var regex = new RegExp("^[a-zA-Z0-9\\-\\s]+$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+               event.preventDefault();
+               return false;
+            }
+        });
+    }
+        
 
 	return {
 		init: function () {
@@ -253,6 +265,7 @@ var App = function () {
 			handleValignMiddle();
 			handleEqualHeightColumns();
 			handleEqualHeightColumns__Images();
+            disabledKeys();
 		},
 
 		// Counters

@@ -50,10 +50,31 @@
 
 <cfif len(url.kw) LT 2 and len(url.l) lt 2>
     <cfset url.kw = 'hiring'>
+    <cfset url.l = 'United States'>
 </cfif>
 
 <!--- ::::::::: if search form was submitted we need to check for a keyword and location ::::: --->
 <cfoutput>
+<cfif isdefined('URL.L') and len(URl.L)>
+        <cfset URL.L = Replace(URL.L, "*", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "(", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, ")", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "@", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "/", " ", "ALL")>
+        <cfset URL.L = Replace(URL.L, "[", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "]", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "^", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "`", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "~", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "!", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "=", "", "ALL")>
+
+        <cfset URL.L = Replace(URL.L, "_", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "|", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "$", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, """", "", "ALL")>
+        <cfset URL.L = Replace(URL.L, "''", "", "ALL")>	
+</cfif>
 <cfif isdefined('URL.kw') and len(URl.kw)>
    
     <cfset URL.kw = Replace(URL.kw, "*", "", "ALL")>
@@ -73,177 +94,90 @@
     <cfset URL.kw = Replace(URL.kw, "$", "", "ALL")>
     <cfset URL.kw = Replace(URL.kw, """", "", "ALL")>
     <cfset URL.kw = Replace(URL.kw, "''", "", "ALL")>	
-    <cfset URL.kw = Replace(URL.kw, ",", "-", "ALL")>   
+ 
 
-		<!--- save keywords to keyword table --->
+	<!--- save keywords to keyword table --->
 
-        	<cfset variables.keyword = URL.kw>
-			<cfset variables.keyword = replacenocase(variables.keyword,",","")>
-            <cfset variables.keyword = replacenocase(variables.keyword," job opening","")>
-            <cfset variables.keyword = replacenocase(variables.keyword," jobs opening","")>
-            <cfset variables.keyword = replacenocase(variables.keyword,"  ","")>
+    <cfset variables.keyword = URL.kw>
+    <cfset variables.keyword = replacenocase(variables.keyword,",","")>
+    <cfset variables.keyword = replacenocase(variables.keyword," job opening","")>
+    <cfset variables.keyword = replacenocase(variables.keyword," jobs opening","")>
+    <cfset variables.keyword = replacenocase(variables.keyword,"  ","")>
 
-			<cfif listlen(keyword, " ") lte 3>
+    <cfif listlen(keyword, " ") lte 3>               
+        <cfif variables.keyword does not contain " in " 
+            and variables.keyword does not contain " in" 
+            and variables.keyword does not contain " for "
+            and variables.keyword does not contain " for"
+            and variables.keyword does not contain " of"
+            and variables.keyword does not contain " to "
+            and variables.keyword does not contain " with "
+            and variables.keyword does not contain " ("
+            and variables.keyword does not contain ","	
+            and variables.keyword does not contain " all "
+            and variables.keyword does not contain " )"	
+            and variables.keyword does not contain "("
+            and variables.keyword does not contain ","	
+            and variables.keyword does not contain " all "
+            and variables.keyword does not contain ")"
+            and variables.keyword does not contain " ' "
+            and variables.keyword does not contain '"'
+            and variables.keyword does not contain "$"
+            and variables.keyword does not contain "--"
+            and variables.keyword does not contain "-"
+            and variables.keyword does not contain "!"
+            and variables.keyword does not contain "%"
+            and variables.keyword does not contain "@"
+            and variables.keyword does not contain ">"
+            and variables.keyword does not contain "?"
+            and variables.keyword does not contain "+"
+            and variables.keyword does not contain "*" >
             
-				<cfif variables.keyword does not contain " in " 
-					and variables.keyword does not contain " in" 
-					and variables.keyword does not contain " for "
-					and variables.keyword does not contain " for"
-					and variables.keyword does not contain " of"
-					and variables.keyword does not contain " to "
-					and variables.keyword does not contain " with "
-					and variables.keyword does not contain " ("
-					and variables.keyword does not contain ","	
-					and variables.keyword does not contain " all "
-					and variables.keyword does not contain " )"	
-					and variables.keyword does not contain "("
-					and variables.keyword does not contain ","	
-					and variables.keyword does not contain " all "
-					and variables.keyword does not contain ")"
-					and variables.keyword does not contain " ' "
-					and variables.keyword does not contain '"'
-					and variables.keyword does not contain "$"
-					and variables.keyword does not contain "--"
-					and variables.keyword does not contain "-"
-					and variables.keyword does not contain "!"
-					and variables.keyword does not contain "%"
-					and variables.keyword does not contain "@"
-					and variables.keyword does not contain ">"
-					and variables.keyword does not contain "?"
-					and variables.keyword does not contain "+"
-					and variables.keyword does not contain "*"
-					>
-            		<cfset REQUEST.UserAgent = LCase( CGI.http_user_agent ) />
- 					<!---				                    
-                    <cfquery name="check" datasource="jobs"> 
-                    select distinct keyword from keywords where keyword = '#keyword#'
+                <cfset REQUEST.UserAgent = LCase( CGI.http_user_agent ) />
+                <!---				                    
+                <cfquery name="check" datasource="jobs"> 
+                select distinct keyword from keywords where keyword = '#keyword#'
+                </cfquery>
+
+                <cfif check.recordcount is 0>
+                    <cfquery name="check" datasource="jobs">
+                    insert into keywords  (keyword)  values   ('#trim(keyword)#')
                     </cfquery>
-                    
-                    <cfif check.recordcount is 0>
-                        <cfquery name="check" datasource="jobs">
-                        insert into keywords  (keyword)  values   ('#trim(keyword)#')
-                        </cfquery>
-                    </cfif> 
-					--->		                          
-                    <cftry>
-                        <!--- add to recentqueires table --->
-                        <cfquery name="check2" datasource="jobs">
-                        select keyword from RecentQueries where keyword = '#keyword#' and location = '#URL.l#' and country = 'US'
-                        </cfquery>
-                        
-                        <cfif check2.recordcount is 0>
-                            <cfquery name="insert" datasource="jobs">
-                            insert into RecentQueries  
-                            (keyword, location, country)  
-                            values   
-                            ('#trim(keyword)#', '#trim(URL.l)#', 'US')
-                            </cfquery>
-                        </cfif>
-                    
-                    <cfcatch></cfcatch>
-                    </cftry>
-			
-                    <cftry>
+                </cfif> 
+                --->		                          
+                <cftry>
+                    <!--- add to recentqueires table --->
+                    <cfquery name="check2" datasource="jobs">
+                    select keyword from RecentQueries where keyword = '#keyword#' and location = '#URL.l#' and country = 'US'
+                    </cfquery>
+
+                    <cfif check2.recordcount is 0>
                         <cfquery name="insert" datasource="jobs">
                         insert into RecentQueries  
-                        (keyword, location, country, ipaddress, useragent)  
+                        (keyword, location, country)  
                         values   
-                        ('#trim(variables.keyword)#', '#trim(URL.l)#', 'US', '#cgi.REMOTE_ADDR#', '#cgi.HTTP_USER_AGENT#')
+                        ('#trim(keyword)#', '#trim(URL.l)#', 'US')
                         </cfquery>
-                       <cfcatch></cfcatch>
-                    </cftry>	
-				</cfif> <!--- end save keywords to keyword table --->
+                    </cfif>
 
+                <cfcatch></cfcatch>
+                </cftry>
+			
+                <cftry>
+                    <cfquery name="insert" datasource="jobs">
+                    insert into RecentQueries  
+                    (keyword, location, country, ipaddress, useragent)  
+                    values   
+                    ('#trim(variables.keyword)#', '#trim(URL.l)#', 'US', '#cgi.REMOTE_ADDR#', '#cgi.HTTP_USER_AGENT#')
+                    </cfquery>
+                   <cfcatch></cfcatch>
+                </cftry>	
+        </cfif> <!--- end save keywords to keyword table --->
 
-			<!---
-            <cfparam name="qst" default="">
-        
-            <cfif len(form.kw)>
-            <cfset form.kw = trim(form.kw)>
-                <cfset qst = "kw/#form.kw#/">
-                <cfset client.lastKW = "#form.kw#">
-            </cfif>
-            
-            <cfif len(form.l)>
-            <cfset form.L = trim(form.l)>
-                <cfset qst = qst & "L/#form.l#/">
-                <cfset client.lastLoc = "#form.L#">
-            </cfif>
-            
-            <cfif isDefined('form.employer')><!--- if they came from employer section --->
-                <cfif len(form.co)>
-                    <cfset qst = qst & "co/#form.co#/">
-                </cfif>
-                <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
-                <cflocation url="/employers/index.cfm/#lcase(qst)#" addtoken="no">
-            <cfelse>
-                <cfset qst = qst & "radius/#form.radius#/">
-                <cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
-                <cflocation url="/jobs/index.cfm/#lcase(qst)#" addtoken="no">
-            </cfif> 
-            --->
     </cfif>
 </cfif>
 </cfoutput>
-
-<cfif url.kw EQ "L" or url.kw is " " >
-	<cfset url.kw = "">
-</cfif>
-
-<!--- dont use this it's kinda funky <cfif len(url.kw) is 0><cfset url.kw = client.lastkw></cfif> --->
-
-<!--- save keywords to keyword table --->
-<cfif isdefined('url.kw') and len(url.kw) gt 2>
-<!---  
-	<cfset variables.keyword = replacenocase(url.kw,",","")>
-	<cfset variables.keyword = replacenocase(variables.keyword,",","")>
-	<cfset variables.keyword = replacenocase(variables.keyword," jobs","")>
-	<cfset variables.keyword = replacenocase(variables.keyword," job openings","")>
-	<cfset variables.keyword = replacenocase(variables.keyword,"  ","")>
-	<cfif listlen(url.kw, " ") lte 3 
-		and variables.keyword does not contain " in" 
-		and variables.keyword does not contain " for "
-		and variables.keyword does not contain " for"
-		and variables.keyword does not contain " of"
-		and variables.keyword does not contain " to "
-		and variables.keyword does not contain " with "
-		and variables.keyword does not contain " ("
-		and variables.keyword does not contain ","	
-		and variables.keyword does not contain " all "
-		and variables.keyword does not contain " )"	
-		and variables.keyword does not contain "("
-		and variables.keyword does not contain ","	
-		and variables.keyword does not contain " all "
-		and variables.keyword does not contain ")"
-		and variables.keyword does not contain " ' "
-		and variables.keyword does not contain '"'
-		and variables.keyword does not contain "$"
-		and variables.keyword does not contain "--"
-		and variables.keyword does not contain "-"
-		and variables.keyword does not contain "!"
-		and variables.keyword does not contain "%"
-		and variables.keyword does not contain "@"
-		and variables.keyword does not contain ">"
-		and variables.keyword does not contain "?"
-		and variables.keyword does not contain "+"
-		and variables.keyword does not contain "*"
-		and variables.keyword does not contain ":"
-		>         
-		<cfquery name="check" datasource="jobs">
-		select count( distinct keyword ) as count from keywords where keyword = '#keyword#'
-		</cfquery>
-		<cfif check.count is 0>
-			<cfquery name="check" datasource="jobs">
-			insert into keywords  (keyword)  values   ('#trim(keyword)#')
-			</cfquery>
-		</cfif> 
-		
-	</cfif>
-      --->
-
-      
- <!--- <cftry>
-    <!--- add to recentqueires table --->
+ <cftry>
     <cfif cgi.REMOTE_ADDR is '173.245.56.131'>
      <!--- this excludes crawlers --->
         <cfquery name="check2" datasource="jobs">
@@ -262,7 +196,6 @@
     </cfif>  
         <cfcatch></cfcatch>
     </cftry>
-     ---> 
  
 	<cfif cgi.REMOTE_ADDR is '108.162.212.104'>
         <cfquery name="insert" datasource="jobs">
@@ -273,24 +206,15 @@
         </cfquery>
     </cfif> 
 
-</cfif>	<!--- end save keywords to keyword table ---> 
+
 
 <!---************************** CONTROLLERS ****************************** --->
 <cfif cgi.script_name contains "/jobs" or cgi.script_name contains "/a/" or  cgi.script_name contains "/sandbox"  or  cgi.script_name contains "/layouts"   or  cgi.script_name contains "/themes">
-	<!--- <cfinclude template="/Controllers/googlebase.cfm"> --->
-     <!--- 
-    <cfif qrydata.recordcount lt url.qt or len(url.jobid) gt 2 >
-        <cfinclude template="/system/Controllers/getjobs.cfm">
-    </cfif>
-    --->
-	
     <!--- <cfinclude template="/controllers/sponsoredjobs.cfm"> --->
 </cfif>
 
 <!---**************************************************************************** --->
 
-<cfif isDefined('url.kw') and url.kw contains "Enter Keyword"><cfset url.kw = ""></cfif>
-<cfif isDefined('url.kw') and url.kw is "in"><cfset url.kw = ""></cfif>
 
 <!--- create thistitle from query_string --->
 <cfif isdefined('cgi.query_string')>	

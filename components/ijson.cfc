@@ -33,7 +33,7 @@
         <cfargument name="jcid" required="no" default ="30" hint="employerid used to identify employer">
         <cfargument name="filter" required="no" default="1" hint="filter duplicates 1 or 0">
         <cfargument name="orderby" required="yes" default="Publish_date DESC" hint="query sort order">
-
+        <cfset var pubid = ''>
         <cfscript>
         var XML = "";
         var rawXML = "";
@@ -46,9 +46,7 @@
         </cfscript>
 
        <cfif arguments.kw eq "enter+keyword" or arguments.KW is ""><cfset arguments.KW = "in"></cfif>
-
-
-        <cfif isdefined('arguments.kw') and len(arguments.kw)>
+           <cfif isdefined('arguments.kw') and len(arguments.kw)>
             <cfset arguments.kw = Replace(arguments.kw, "*", "", "ALL")>
             <cfset arguments.kw = Replace(arguments.kw, "(", "", "ALL")>
             <cfset arguments.kw = Replace(arguments.kw, ")", "", "ALL")>
@@ -64,7 +62,6 @@
             <cfset arguments.kw = Replace(arguments.kw, "-", "", "ALL")>
             <cfset arguments.kw = Replace(arguments.kw, "|", "", "ALL")>
             <cfset arguments.kw = Replace(arguments.kw, "$", "", "ALL")>
-
             <cfset variables.q = "#lcase(trim(arguments.kw))#">
         <cfelse>
             <cfset variables.q = "sales">
@@ -94,6 +91,10 @@
         </cfif>
             
         <cfset pubid = trim(getPublisher())>
+        <cfif pubid is ''>
+            pubid failed!
+        <cfabort>
+            </cfif>
             
         <cfset link="http://api.indeed.com/ads/apisearch?publisher=#pubid#&v=2&format=json&cache=true&q=#variables.q#&l=#variables.l#&st=#variables.st#&start=#variables.start#&limit=#variables.qt#&fromage=#variables.fromage#&salary=#variables.salary#&sort=#variables.sb#&filter=1&latlong=1&co=#variables.co#&chnl=&radius=#variables.radius#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
 
@@ -121,8 +122,6 @@
             <cfdump var="#link#"><cfabort>
         </cfif>
 
-
-        <!--- <cfset resultset = scrubJobData(resultset)> --->
         <cfreturn resultset>
     </cffunction>
 
@@ -182,10 +181,9 @@
         <cfelse>
             <cfset result = "ERROR">
         </cfif>
-
         <cfreturn result>
     </cffunction>
-            
+                    
     <!--- =============================================================
         This function creates an empty query to hold the result data 
         so we can query for locations or employers, etc.
@@ -213,15 +211,7 @@
     </cffunction>     
             
 
-    <cffunction name="renderResultView" access="private" returntype="any">
-        <cfargument name="data" required="yes" type="any">
-        <cfloop array="#resultsArray#" index="item">
-            <div class="job">
-                <p>#item.jobtitle#</p>
-                <p>#item.jobdescription#</p>
-            </div>
-        </cfloop>
-    </cffunction>
+
         
     
         
