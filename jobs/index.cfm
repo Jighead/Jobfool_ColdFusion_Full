@@ -52,7 +52,18 @@
         <link rel="stylesheet" href="/assets/plugins/animate.css"> 
         <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="/assets/css/app.css">
+        <link rel="stylesheet" href="/assets/css/app.css">   
+            
+            <STYLE>
+               .rhtitle.rhdefaultcolored {
+                color: ##337ab7;
+                    } 
+                
+                .rhtitle {
+                    font-size: 18px !important;
+                    color: #337ab7 !important;
+                }
+            </STYLE>
     </head>     
     <body class="header-fixed"> 
         <header> 
@@ -138,18 +149,51 @@
                             <cfinclude template="../partials/jobs-jobwell.cfm">
                         </div>  
                         <div class=".x-pagination col-xs-12 x-noPL">
+                            <div class="x-ads">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Display ads - mid page and bottom -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-2780853858393535"
+                                 data-ad-slot="8038727549"
+                                 data-ad-test="true"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            </div>
                             <cfmodule template="/system/customtags/pagination.cfm" recordcount="#results.totalResults#" perpage="10" p="#url.p#">
                         </div>
                     </div>
+                    <!--- right side Ad column --->        
                     <div class="ads col-sm-2">
-                    <p>an ad</p>
-                    <p>an ad</p>
-                    <p>an ad</p>
-                    <p>an ad</p>
-                    <p>an ad</p>
-                    <p>an ad</p>
-                    <p>an ad</p>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- New Right Column Link -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:160px;height:420px"
+                         data-ad-client="ca-pub-2780853858393535"
+                         data-ad-test="true"
+                         data-ad-slot="5863990347"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>    
+                        
+                        
+                    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                     160x600 - RightColumn 
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:160px;height:600px"
+                         data-ad-client="ca-pub-2780853858393535"
+                         data-ad-test="true"
+                         data-ad-slot="9615563746"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>-->
+                        
+                        
                     </div>  
+                            
+                            
                     <div id="x_filters" class="sidebar-offcanvas col-sm-3" data-pg-name="Col-Filters"> 
                         <cfoutput>
                         <div class="x-emailform row" role="form"> 

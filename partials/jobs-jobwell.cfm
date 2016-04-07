@@ -17,8 +17,8 @@
                         <cfif cnt is 4>
                             <div class="x-well">
                                 
-                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- In Page Link ads -->
+                        <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                         In Page Link ads 
                         <ins class="adsbygoogle"
                              style="display:block"
                              data-ad-client="ca-pub-2780853858393535"
@@ -27,8 +27,21 @@
                              data-ad-format="link"></ins>
                         <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                        </script>-->
                                 
+                                
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Display ads - mid page and bottom -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-2780853858393535"
+                                 data-ad-slot="8038727549"
+                                 data-ad-test="true"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+
                                 
 
                             </div>
