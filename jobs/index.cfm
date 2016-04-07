@@ -133,24 +133,23 @@
         <section>
             <div class="container x-content" style="min-height:800px;"> 
                 <div class="row x-content row-offcanvas row-offcanvas-right" data-pg-name="Row:Content"> 
-                    <div class="col-sm-9 col-xs-12" data-pg-name="Col-Main Content">
+                    <div class="col-sm-7 col-xs-12" data-pg-name="Col-Main Content">
                         <div id="job-well" class="x-job-well"> 
                             <cfinclude template="../partials/jobs-jobwell.cfm">
                         </div>  
                         <div class=".x-pagination col-xs-12 x-noPL">
                             <cfmodule template="/system/customtags/pagination.cfm" recordcount="#results.totalResults#" perpage="10" p="#url.p#">
                         </div>
-
-                    </div>                     
-                <!-- <div class="ads col-sm-3">
-                <p>an ad</p>
-                <p>an ad</p>
-                <p>an ad</p>
-                <p>an ad</p>
-                <p>an ad</p>
-                <p>an ad</p>
-                <p>an ad</p>
-                </div>-->                     
+                    </div>
+                    <div class="ads col-sm-2">
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    <p>an ad</p>
+                    </div>  
                     <div id="x_filters" class="sidebar-offcanvas col-sm-3" data-pg-name="Col-Filters"> 
                         <cfoutput>
                         <div class="x-emailform row" role="form"> 
