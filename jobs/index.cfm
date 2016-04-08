@@ -55,15 +55,24 @@
         <link rel="stylesheet" href="/assets/css/app.css">   
             
             <STYLE>
-               .rhtitle.rhdefaultcolored {
-                color: ##337ab7;
-                    } 
-                
-                .rhtitle {
-                    font-size: 18px !important;
-                    color: #337ab7 !important;
+                #adcontainer3-16 {
+                    overflow:hidden;
+                }
+                #adcontainer3-16 iframe {
+                    position: relative;
+                    left: -140px;
+                    top: -20px;
                 }
             </STYLE>
+            
+    <script type="text/javascript" charset="utf-8">
+      (function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
+       arguments)},G[g]['t']=1*new Date;L=o.createElement(O),e=o.getElementsByTagName(
+       O)[0];L.async=1;L.src='//www.google.com/adsense/search/async-ads.js';
+      e.parentNode.insertBefore(L,e)})(window,document,'script','_googCsa');
+    </script>
+            
+            
     </head>     
     <body class="header-fixed"> 
         <header> 
@@ -144,57 +153,24 @@
         <section>
             <div class="container x-content" style="min-height:800px;"> 
                 <div class="row x-content row-offcanvas row-offcanvas-right" data-pg-name="Row:Content"> 
-                    <div class="col-sm-7 col-xs-12" data-pg-name="Col-Main Content">
+                    <div class="col-xs-9 col-md-6" data-pg-name="Col-Main Content">
+                        <div class="ads col-sm-2" id="adcontainer2-16">
+                        <!--- above search results ads --->
+                        </div>  
                         <div id="job-well" class="x-job-well"> 
                             <cfinclude template="../partials/jobs-jobwell.cfm">
-                        </div>  
+                        </div> 
+                        <div class="x-ads" id="adcontainer3-16">
+                        <!--- below search results ads --->
+                        </div>
                         <div class=".x-pagination col-xs-12 x-noPL">
-                            <div class="x-ads">
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <!-- Display ads - mid page and bottom -->
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-2780853858393535"
-                                 data-ad-slot="8038727549"
-                                 data-ad-test="true"
-                                 data-ad-format="auto"></ins>
-                            <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                            </div>
                             <cfmodule template="/system/customtags/pagination.cfm" recordcount="#results.totalResults#" perpage="10" p="#url.p#">
                         </div>
                     </div>
-                    <!--- right side Ad column --->        
-                    <div class="ads col-sm-2">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- New Right Column Link -->
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:160px;height:420px"
-                         data-ad-client="ca-pub-2780853858393535"
-                         data-ad-test="true"
-                         data-ad-slot="5863990347"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>    
-                        
-                        
-                    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                     160x600 - RightColumn 
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:160px;height:600px"
-                         data-ad-client="ca-pub-2780853858393535"
-                         data-ad-test="true"
-                         data-ad-slot="9615563746"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>-->
-                        
-                        
-                    </div>  
-                            
-                            
-                    <div id="x_filters" class="sidebar-offcanvas col-sm-3" data-pg-name="Col-Filters"> 
+                    <div class="ads col-xs-3 hidden-sm hidden-xs x-noPL x-noPR" id="adcontainer1-16">
+                    <!--- right side Ad column ---> 
+                    </div>          
+                    <div id="x_filters" class="col-xs-3 sidebar-offcanvas" data-pg-name="Col-Filters"> 
                         <cfoutput>
                         <div class="x-emailform row" role="form"> 
                             <div class="col-xs-12">
@@ -204,82 +180,9 @@
                                 <input type="text" id="email" class="input form-control" placeholder="enter email address">
                                 <button id="addemail" class="btn btn-primary x-btn-addemail form-control">Send</button>
                             </div>                             
-                        </div> 
-    
-            <cfset qst="">
-            <cfloop collection="#url#" item="i"> 
-                 <cfoutput> 
-                 <cfif i eq 'kw' or i eq 'ef'>
-                     <cfif len(url[i])>
-                        <cfset namevalue="#i#=#url[i]#">
-                        <cfset qst = listAppend(qst, "#namevalue#","&")>
-                        <cfset qst = listAppend(qst, "radius=1","&")>
-                     </cfif>
-                 </cfif>
-                 </cfoutput> 
-            </cfloop>
-                        <h5>Nearby Cities
-                            <cfif isdefined('url.cf')>
-                            - <span class="fa fa-eraser"></span> <a href="?#qst#" class="x-clearfilter">Clear</a></span>
-                            </cfif>
-                        </h5>
-                        <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getLocs" returnvariable="locations"  data="#results#" />
-                            <ul class="x-list-unstyled"> 
-                            <cfloop array="#locations#" index="loc">
-                                    <li><a href="?l=#loc#&#qst#&cf=1">#loc#</a></li>
-                            </cfloop>
-                            
-                            </ul>
-                        <cfelse>
-                            <p>&nbsp;</p>
-                        </cfif>
-            <cfset qst="">
-            <cfloop collection="#url#" item="i"> 
-                 <cfoutput> 
-                 <cfif i eq 'l' or i eq 'cf' or i eq 'radius'>
-                     <cfif len(url[i])>
-                        <cfset namevalue="#i#=#url[i]#">
-                        <cfset qst = listAppend(qst, "#namevalue#","&")>
-                     </cfif>
-                 </cfif>
-                 </cfoutput> 
-            </cfloop>
-                        <h5>Employers 
-                             <cfif isdefined('url.ef')>
-                              - <span class="fa fa-eraser"></span> <a href="?#qst#" class="x-clearfilter">Clear</a>
-                            </cfif>
-                        </h5> 
-                        <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getEmps" returnvariable="employers"  data="#results#" />
-                            <ul class="x-list-unstyled">
-                            <cfoutput>
-                            <cfloop array="#employers#" index="emp">
-                                <li><a href="?kw=#emp#&#qst#&ef=1">#emp#</a></li>
-                            </cfloop>
-                            </cfoutput>
-                            </ul> 
-                        <cfelse>
-                            <p>&nbsp;</p>
-                        </cfif>  
-                                    
-                        <!--
-                                    
-                            <h5>Salaries</h5>
-                            <ul class="x-list-unstyled">
-                                <li>
-                                    <a href="#">Example 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Example 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Example 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Example 1</a>
-                                </li>                         
-                            </ul>--> 
+                        </div>
+                        <cfinclude template="../partials/jobs-cityfilter.cfm">
+                        <cfinclude template="../partials/jobs-companyfilter.cfm">
                        </cfoutput>
                     </div>
                  
@@ -387,12 +290,90 @@
                 text = text.replace(/ /g, "+");
                 $(this).prop('href',text);
                 });
+            
+            $(".sfblAd").css("display","none");
+
+            
         });
         </script>    
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
 	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
-	<![endif]-->         
+	<![endif]-->     
+                     
+                     
+<cfif len(url.kw) LT 3>
+    <cfset adquery="work from home">
+<cfelse>
+    <cfset adquery = "#url.kw#">
+</cfif>
+<script type="text/javascript" charset="utf-8"> 
+    
+var pageOptions = { 
+  'pubId': 'pub-2780853858393535',
+  'query': '<cfoutput>#adquery#</cfoutput>',
+  'hl': 'en',
+  'adtest': 'on',
+  'adPage': 1,
+  'location': false,
+  'plusOnes': false,
+  'sellerRatings': false,
+  'siteLinks': false
+};
+
+var adblock1 = { 
+  'container': 'adcontainer1-16',
+  'number': 6,
+  //'width': 'auto',
+  'fontFamily': 'Lato',
+  'fontSizeTitle': 16,
+  'fontSizeDescription': 14,
+  'fontSizeDomainLink': 10,
+  'colorTitleLink': '#337AB7',
+  'colorText': '#555555',
+  'colorDomainLink': '#337AB7',
+  'noTitleUnderline': true
+};
+
+var adblock2 = { 
+  'container': 'adcontainer2-16',
+  'number': 1,
+  'width': 'auto',
+  'lines': 2,
+  'fontFamily': 'Lato',
+  'fontSizeTitle': 16,
+  'fontSizeDescription': 14,
+  'fontSizeDomainLink': 10,
+  'colorTitleLink': '#337AB7',
+  'colorText': '#555555',
+  'colorDomainLink': '#337AB7',
+  'noTitleUnderline': true,
+  'longerHeadlines': true,
+  'detailedAttribution': false
+};
+
+var adblock3 = { 
+  'container': 'adcontainer3-16',
+  'width': '700px',
+  'lines': 2,
+  'fontFamily': 'Lato',
+  'fontSizeTitle': 16,
+  'fontSizeDescription': 14,
+  'fontSizeDomainLink': 10,
+  'colorTitleLink': '#337AB7',
+  'colorText': '#555555',
+  'colorDomainLink': '#337AB7',
+  'noTitleUnderline': true,
+  'longerHeadlines': true,
+  'detailedAttribution': false
+};
+
+_googCsa('ads', pageOptions, adblock1, adblock2, adblock3);
+
+</script>
+
+
+
     </body>     
 </html>
