@@ -14,7 +14,7 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico">
         <!-- Web Fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
         <!-- CSS Global Compulsory -->
         <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
         <link href="bootstrap/css/offcanvas.css" rel="stylesheet">
@@ -23,17 +23,19 @@
         <link rel="stylesheet" href="assets/css/app.css">
         <!-- CSS Implementing Plugins -->
         <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
         <link rel="stylesheet" href="assets/plugins/animate.css">
         <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/plugins/animated-headline/css/animated-headline.css">
         <style>
+            /* for validation */
             .has-error .form-control {
                 border: 1px solid #FF486F;
                 background-color: rgba(255, 72, 111, 0.24);
             }
             
-            
+            /* fix for chrome autocomplete input color */
             input:-webkit-autofill,
             input:-webkit-autofill:hover,
             input:-webkit-autofill:focus,
@@ -42,7 +44,24 @@
                 color: #FFF !important;
                 -webkit-text-fill-color: #fff;
             }
-
+            
+            x-listbox {
+                width: 80%;
+                margin:0 auto;
+            }
+            .simple-item {
+                color: #555;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: normal;
+                margin: 0 10px;
+                overflow: hidden;
+                padding: 5px 10px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: calc(33% - 20px);
+                text-align:center;
+            }
         </style>
     </head>
     <body class="x-home header-fixed">
@@ -126,7 +145,7 @@
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-2 x-reducepad-5"> 
-                                    <button id="x_search-form" class="form-control inline-block btn-primary btn-search">Find a Job</button>                                     
+                                    <button id="x_search-form" class="form-control inline-block btn-primary x-search-btn">Find a Job</button>                 
                                 </div>                                 
                             </form>                             
                         </div>                         
@@ -134,71 +153,48 @@
                 </div>
             </section>
             <!-- End Interactive Slider v2 -->
-            <!--=== Browse ===-->
-            <div class="x-browse bg-color-light">
-                <div class="container content-xs">
-                    <div class="row">
-                        <div class="col-xs-12 wow animated fadeInUp" data-wow-duration="1.5s">
-                            <div class="col-xs-12 col-sm-4"> 
-                                <div class="content-boxes-v5">
-                                    <i class="rounded-x icon-layers icon-bg-red"></i>
-                                    <div class="overflow-h">
-                                        
-                                        <h3><strong>Popular Categories</strong></h3>
-                                        <cfset catArray = ["Sales","Certified Registered Nurse", "Internship", "Accounting", "GIS", "Work From Home"] />
-                                        <ul class="list-unstyled">
-                                            <cfoutput>
-                                            <cfloop array="#catArray#" index="item">
-                                            <cfset itemlink = replace(item," ","-","all") />
-                                            <li>
-                                                <a href="/jobs/?kw=#itemlink#">#item#</a>
-                                            </li>
-                                            </cfloop>
-                                            </cfoutput>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4"> 
-                                <div class="content-boxes-v5">
-                                    <!--<i class="rounded-x icon-pointer icon-bg-green"></i>-->
-                                    <i class="rounded-x icon-custom icon-md icon-bg-black icon-line icon-directions"></i>
-                                    <div class="overflow-h">
-                                        <h3><strong>Popular Cities</strong></h3>
-                                        <cfset cityArray = ["Chicago","San Francisco", "New York City", "Atlanta", "Denver", "Miami"] />
-                                        <ul class="list-unstyled">
-                                            <cfoutput>
-                                            <cfloop array="#cityArray#" index="item">
-                                            <cfset itemlink = replace(item," ","-","all") />
-                                            <li><a href="/jobs/?l=#itemlink#">#item#</a></li>
-                                            </cfloop>
-                                            </cfoutput>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 hidden-xs"> 
-                                <div class="content-boxes-v5">
-                                    <i class="rounded-x icon-layers icon-bg-blue"></i>
-                                    <div class="overflow-h">
-                                        <h3><strong>Popular Employers</strong></h3>
-                                        <cfset empArray = ["Google","General Electric", "Chipotle", "Wal-Mart", "Kforce", "Boeing"] />
-                                        <ul class="list-unstyled">
-                                            <cfoutput>
-                                            <cfloop array="#empArray#" index="item">
-                                                <cfset itemlink = replace(item," ","-","all") />
-                                            <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
-                                            </cfloop>
-                                            </cfoutput>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <section class="bg-color-light">
+            <div class="container">
+            <div class="row service-box-v1">
+                <div class="col-md-4 col-sm-6 md-margin-bottom-40">
+					<div class="service-block service-block-default no-margin-bottom">
+						<i class="icon-lg rounded-x icon icon-badge"></i>
+						<h2 class="heading-sm">Popular Employers</h2>
+						<cfset empArray = ["Google","General Electric", "Chipotle", "Wal-Mart", "Starbucks", "Boeing"] />
+						<ul class="list-unstyled">
+							<cfoutput><cfloop array="#empArray#" index="item"><cfset itemlink = replace(item," ","+","all") />                         <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+                            </cfloop></cfoutput>
+						</ul>
+					</div>
+				</div>
+                <div class="col-md-4 col-sm-6 md-margin-bottom-40">
+					<div class="service-block service-block-default no-margin-bottom">
+						<i class="icon-lg rounded-x icon-line rounded-x icon-directions"></i>
+						<h2 class="heading-sm">Popular Cities</h2>
+						<cfset cityArray = ["Chicago","San Francisco", "New York City", "Atlanta", "Denver", "Miami"] />
+						<ul class="list-unstyled">
+                        <cfoutput><cfloop array="#cityArray#" index="item"><cfset itemlink = replace(item," ","+","all") />
+                        <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+                        </cfloop></cfoutput>
+						</ul>
                     </div>
-                </div>
+				</div>
+                
+				<div class="col-md-4 col-sm-12 md-margin-bottom-40">
+					<div class="service-block service-block-default no-margin-bottom">
+						<i class="icon-lg rounded-x icon-line rounded-x icon-layers"></i>
+						<h2 class="heading-sm">Popular Categories</h2>
+						<cfset catArray = ["Inside Sales","Certified Registered Nurse", "Internship", "Certified Account", "GIS", "Work From Home"] />
+						<ul class="list-unstyled">
+                        <cfoutput><cfloop array="#catArray#" index="item"><cfset itemlink = replace(item," ","+","all") />
+                        <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+                        </cfloop></cfoutput>
+						</ul>
+                    </div>
+				</div> 
             </div>
-            <!--=== End About Us ===-->
+            </div>
+            </section>
             <!--=== Subscribe Form ===-->
             <div class="shop-subscribe bg-color-red">
                 <div class="container">
@@ -214,7 +210,7 @@
                         <div class="col-sm-4 x-reducepad-5 form-group">
                             <input type="text" class="form-control" id="where" name="where" placeholder="What city or zipcode" required>
                         </div>
-                        <div class="col-sm-4 input-group x-reducepad-5 form-group">
+                        <div class="col-sm-4 x-reducepad-5 input-group form-group">
                             <input type="email" class="form-control" id="email" name="email" placeholder="enter email address" required>
                             <span class="input-group-btn">
                                 <button id="alertbtn" class="btn" type="submit">
@@ -230,110 +226,171 @@
             <!--/end container-->
             <!--=== Subscribe Form ===-->
             <!--=== Hire Block ===-->
-            <div class="x-hire bg-color-light hidden-sm">
+            <div class="x-hire bg-color-light hidden-xs hidden-">
                 <div class="container content-sm wow animated fadeInUp">
-                    <div class="heading heading-v1">
+                    <!--<div class="heading heading-v1">
                         <h2>WE ARE HIRING!</h2>
                     </div>
-                    <img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">
-                </div>
+                    <div class="x-listbox col-xs-12">
+                        <a class="simple-item" href="jobs?kw=amazon">Amazon.com</a>
+                        <a class="simple-item" href="jobs?kw=aramark">Aramark</a>
+                        <a class="simple-item" href="jobs?kw=bankofamerica">Bank of America</a>
+                        <a class="simple-item" href="jobs?kw=amazon">Amazon.com</a>
+                        <a class="simple-item" href="jobs?kw=aramark">Aramark</a>
+                        <a class="simple-item" href="jobs?kw=bankofamerica">Bank of America</a>
+                    </div>-->
+                    <!--<img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">-->
+                <ul class="list-inline our-clients" id="effect-2">
+				<li>
+					<figure>
+						<img src="assets/img/clients2/ea-canada.png" alt="Ea Canada">
+						<div class="img-hover">
+							<h4>Ea Canada</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/general-electric.png" alt="General Electric">
+						<div class="img-hover">
+							<h4>General Electric</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/ucweb.png" alt="UcWeb">
+						<div class="img-hover">
+							<h4>UcWeb</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/images/companylogos/deltaairlines140.png" alt="Delta Airlines">
+						<div class="img-hover">
+							<h4>Delta Airlines</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/corepreserves.png" alt="Core Preserves">
+						<div class="img-hover">
+							<h4>Core Preserves</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/images/companylogos/mcdonalds140.png" alt="McDonalds">
+						<div class="img-hover">
+							<h4>McDonalds</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/images/companylogos/dish_network140.png" alt="Dish Network">
+						<div class="img-hover">
+							<h4>Dish Network</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/baderbrau.png" alt="">
+						<div class="img-hover">
+							<h4>Baderbrau</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/emirates.png" alt="">
+						<div class="img-hover">
+							<h4>Emirates</h4>
+						</div>
+					</figure>
+				</li>
+                <li>
+					<figure>
+						<img src="assets/images/companylogos/subway140.png" alt="Subway">
+						<div class="img-hover">
+							<h4>Subway</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/fddw.png" alt="Field Days">
+						<div class="img-hover">
+							<h4>Field Days</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/images/companylogos/fedex140.png" alt="FEDEX">
+						<div class="img-hover">
+							<h4>Federal Express</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/marianos.png" alt="">
+						<div class="img-hover">
+							<h4>Mariano's</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/grifting-tree.png" alt="The Gifting Tree">
+						<div class="img-hover">
+							<h4>The Gifting Tree</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/jaguar.png" alt="Jaguar">
+						<div class="img-hover">
+							<h4>Jaguar</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/hermes.png" alt="">
+						<div class="img-hover">
+							<h4>Hermes</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/img/clients2/starbucks.png" alt="Starbucks">
+						<div class="img-hover">
+							<h4>Starbucks</h4>
+						</div>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<img src="assets/images/companylogos/chipotle140.png" alt="Chipotle">
+						<div class="img-hover">
+							<h4>Chipotle</h4>
+						</div>
+					</figure>
+				</li>
+			</ul>
             </div>
-            <!--=== End Hire Block ===-->
-            <!--=== Footer v6 ===-->
-            <div id="footer-v6" class="footer-v6">
-                <div class="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="list-inline browse-list">
-                                    <li>
-                                        <a href="#">Job Search By Job Catergory</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Job Search By Location</a>
-                                    </li>
-                                    <li class="silver">
-                                        <a href="#">Job Search By Employer</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <ul class="list-inline country-list">
-                                <li>
-                                    <img src="assets/images/icons/ca.png" class="flag">
-                                    <a href="#">Canada</a>
-                                </li>
-                                <li>
-                                    <img src="assets/images/icons/fr.png" class="flag">
-                                    <a href="#">France</a>
-                                </li>
-                                <li>
-                                    <img src="assets/images/icons/de.png" class="flag">
-                                    <a href="#">Germany</a>
-                                </li>
-                                <li>
-                                    <img src="assets/images/icons/es.png" class="flag">
-                                    <a href="#">Spain</a>
-                                </li>
-                                <li>
-                                    <img src="assets/images/icons/uk.png" class="flag">
-                                    <a href="#">United Kingdom</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 sm-margon-bottom-10">
-                                <ul class="list-inline terms-menu">
-                                    <li class="silver">Copyright © 2006-2016 | All Rights Reserved</li>
-                                    <li>
-                                        <a href="#">Terms of Use</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Privacy and Policy</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-inline dark-social pull-right space-bottom-0">
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Vine" href="#"><i class="fa fa-vine"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Google plus" href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Youtube" href="#"><i class="fa fa-youtube"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Soundcloud" href="#"><i class="fa fa-soundcloud"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--=== End Footer v6 ===-->
+        </div>
+        <!--=== End Hire Block ===-->
+        <cfinclude template="partials/footer.cfm">
+   
         </div>
         <!-- JS Global Compulsory -->
         <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
@@ -358,9 +415,7 @@
             new WOW().init();
             App.initCounter();
             App.initParallaxBg(); 
-            
-            
-            
+            // search form placeholder fix
             $('input').focus(function(){
                $(this).data('placeholder',$(this).attr('placeholder'))
                    .attr('placeholder','');
@@ -368,9 +423,6 @@
                $(this).attr('placeholder',$(this).data('placeholder'));
             });
             
-            
-
-
         }); <!--- end doc ready --->
             
             
@@ -380,13 +432,6 @@
           e.preventDefault();
         });
             
-            
-        /*$("#alert .disabled").on('click scroll touchmove mousewheel', function(e){
-          e.preventDefault();
-          e.stopPropagation();
-          return false;
-        })*/
-             
 
         $("#alert").submit(function(e){
             e.preventDefault();
@@ -398,7 +443,6 @@
             }).done(function(response) {
               console.log(response);
             });
-
 
             return false;           
         });

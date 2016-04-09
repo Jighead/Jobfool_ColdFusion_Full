@@ -206,8 +206,6 @@
         </cfquery>
     </cfif> 
 
-
-
 <!---************************** CONTROLLERS ****************************** --->
 <cfif cgi.script_name contains "/jobs" or cgi.script_name contains "/a/" or  cgi.script_name contains "/sandbox"  or  cgi.script_name contains "/layouts"   or  cgi.script_name contains "/themes">
     <!--- <cfinclude template="/controllers/sponsoredjobs.cfm"> --->
@@ -238,7 +236,7 @@
 	<cfset thistitle = "#thistitle#"> 
     <cfset uid = "#randrange(1000,99999999)#">
 </cfif>
-
+     
 <cfif isDefined('url.kw') and url.L is "L" or url.kw is "radius">
 	<cfset url.kw = "">
 </cfif>
@@ -248,6 +246,7 @@
 </cfif>
 
 <cfset variables.canonical = "/jobs/?">
+    
 <cfif cgi.script_name contains "browse-jobs">
 	<cfset variables.canonical = "/browse-jobs/index.cfm"> 
 </cfif>
@@ -261,15 +260,18 @@
 </cfif>
 
 <cfif url.L is not "" and len(url.L)>
-	<cfset variables.canonical = variables.canonical & "&L=#url.L#">
+	<cfset variables.canonical = variables.canonical & "&l=#url.L#">
 </cfif>
 
 <cfif url.CO is not "">
-	<cfset variables.canonical = variables.canonical & "&CO=#url.CO#">
+	<cfset variables.canonical = variables.canonical & "&co=#url.co#">
 </cfif>
 
 <cfset variables.canonical = replaceNocase(variables.canonical,"//", "/", "all")>
-
+    
+<cfif variables.canonical contains '?&'>
+    <cfset variables.canonical = replace(variables.canonical, "?&", "?", "all")>
+</cfif>
 
 <!---
 <cfif url.p is GT 1>
@@ -285,5 +287,4 @@
 --->
 
 <cfset variables.canonical = replacenocase(variables.canonical,"//", "/")>
-
 <cfif isDefined('url.L') and len(L)><cfset variables.Ltitle = "#ucase(url.L)#"></cfif>

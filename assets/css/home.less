@@ -2,7 +2,6 @@ body {
      min-width: 345px !important; 
 }
 
-
 // THE LOGO
 #x-home .header h1 {
     font-family:Abril Fatface;
@@ -64,58 +63,83 @@ body {
     font-weight: 400;
 }
 
+.icon-lg {
+        color: #333;
+}
+/* service blocks section */ 
+.service-box-v1 {
+    margin: 10px 0;
+}
+.service-box-v1 .service-block {
+    padding:10px;
+    padding-top: 0px;
+}
+.service-box-v1 ul {
+    padding: 0 25px ;
+}
 
-        /* hide everything under 320 */
-        @media only screen and (max-width : 340px) {
-            body {
-                display:none;
-                background-color:deepskyblue;            }
-        }
+/* hover logos section */
+.x-hire {
+    min-height: 250px;
+    //background: url("../img/map-img-v1.png") no-repeat;
+    background-position: center;
+    // flip effect logos
+    #effect-2 figure .img-hover {
+        background-color: #1B8DD3;
+    }
+    
+}
+
+
+    /* hide everything under 320 */
+    @media only screen and (max-width : 340px) {
+        body {
+            display:none;
+            background-color:deepskyblue;            }
+    }
+
+    @media only screen and (min-width:320px) and (max-width: 335px)  {
+     .x-searchbar .row { margin: 0px; }
+     .x-searchbar .container { padding-left: 0px; }
+
+    }
         
-        @media only screen and (min-width:320px) and (max-width: 335px)  {
-         .x-searchbar .row { margin: 0px; }
-         .x-searchbar .container { padding-left: 0px; }
-           
+    @media only screen and (min-width : 340px) {
+
+        .interactive-slider-v2-md { padding: 14px 0; } 
+        .x-headline { 
+            font-size: 17px;
+            margin:0px;
+            line-height: 25px;
         }
-        
-        @media only screen and (min-width : 340px) {
-            
-            .interactive-slider-v2-md { padding: 14px 0; } 
-            .x-headline { 
-                font-size: 17px;
-                margin:0px;
-                line-height: 25px;
-            }
-            .x-sub {
-                font-size: 13px;
-            }
-            
-        
-            
-            /*.interactive-slider-v2 h1.x-headline {
-                font-size: 16px; 
-                margin-bottom:0px;
-                line-height: 35px;
-            }*/
+        .x-sub {
+            font-size: 13px;
         }
+                 
+        /*.interactive-slider-v2 h1.x-headline {
+            font-size: 16px; 
+            margin-bottom:0px;
+            line-height: 35px;
+        }*/
+    }
         
-        /* Small Devices, Tablets */
-        @media only screen and (min-width :400px) {
-            .interactive-slider-v2-md { padding: 14px 0; } 
-            .x-headline {
-                font-size: 23px; 
-                margin:0px;
-                line-height: 35px;
-            }
-            .x-sub {
-                font-size: 16px;
-            }
-            #x_browse .content-boxes-v5 {
-                padding-left: 0px;
-                h3 { font-size: 17px;  }
-                ul li { font-size: 16px; }
-            }
+    /* Small Devices, Tablets */
+    @media only screen and (min-width :400px) {
+        .interactive-slider-v2-md { padding: 14px 0; } 
+        .x-headline {
+            font-size: 23px; 
+            margin:0px;
+            line-height: 35px;
         }
+        .x-sub {
+            font-size: 16px;
+        }
+        #x_browse .content-boxes-v5 {
+            padding-left: 0px;
+            h3 { font-size: 17px;  }
+            ul li { font-size: 16px; }
+        }
+    }
         
         
       /* Small Devices, Tablets */
@@ -161,7 +185,7 @@ body {
         
         
         @media only screen and (min-width : 992px) {
-            .interactive-slider-v2-md { padding: 150px 0; } 
+            .interactive-slider-v2-md { padding: 150px 0 70px 0; } 
             .x-headline {
                 font-size: 38px; 
                 margin-bottom:20px;
@@ -178,10 +202,10 @@ body {
             
         }
         
-        
-        
         @media only screen and (min-width : 1200px) {
-            .interactive-slider-v2-md { padding: 150px 0; } 
+            
+            .interactive-slider-v2-md { padding: 150px 0 70px 0; } 
+            
             .x-headline {
                 font-size: 40px; 
                 margin-bottom:20px;

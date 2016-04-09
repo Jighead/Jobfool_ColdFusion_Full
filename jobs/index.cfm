@@ -45,7 +45,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->         
         <!-- Web Fonts -->         
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play"> 
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> 
         <!-- CSS Global Compulsory -->         
         <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"> 
         <link href="/bootstrap/css/offcanvas.css" rel="stylesheet"> 
@@ -55,9 +55,14 @@
         <link rel="stylesheet" href="/assets/css/app.css">   
             
             <STYLE>
-                #adcontainer3-16 {
-                    overflow:hidden;
+                #adcontainer2-16, #adcontainer3-16 {
+                    /*overflow:hidden;*/
                 }
+                #adcontainer2-16 iframe {
+                    position: relative;
+                    left: -140px;
+                }
+                
                 #adcontainer3-16 iframe {
                     position: relative;
                     left: -140px;
@@ -153,8 +158,8 @@
         <section>
             <div class="container x-content" style="min-height:800px;"> 
                 <div class="row x-content row-offcanvas row-offcanvas-right" data-pg-name="Row:Content"> 
-                    <div class="col-xs-9 col-md-6" data-pg-name="Col-Main Content">
-                        <div class="ads col-sm-2" id="adcontainer2-16">
+                    <div class="col-xs-12 col-sm-9 col-md-6" data-pg-name="Col-Main Content">
+                        <div class="ads col-sm-2 x-noPL" id="adcontainer2-16">
                         <!--- above search results ads --->
                         </div>  
                         <div id="job-well" class="x-job-well"> 
@@ -170,14 +175,14 @@
                     <div class="ads col-xs-3 hidden-sm hidden-xs x-noPL x-noPR" id="adcontainer1-16">
                     <!--- right side Ad column ---> 
                     </div>          
-                    <div id="x_filters" class="col-xs-3 sidebar-offcanvas" data-pg-name="Col-Filters"> 
+                    <div id="x_filters" class="col-xs-3 col-sm-3 sidebar-offcanvas" data-pg-name="Col-Filters"> 
                         <cfoutput>
                         <div class="x-emailform row" role="form"> 
                             <div class="col-xs-12">
                                 <label for="email">Send me these jobs</label>
                             </div>                             
                             <div class="col-xs-12">
-                                <input type="text" id="email" class="input form-control" placeholder="enter email address">
+                                <input type="text" id="email" class="input form-control" placeholder="Enter email address">
                                 <button id="addemail" class="btn btn-primary x-btn-addemail form-control">Send</button>
                             </div>                             
                         </div>
@@ -189,88 +194,10 @@
                 </div>                 
             </div>
             <!-- //container -->             
-        </section>         
-        <!--
-<footer class="x-gradient">
-            <div class="container">
-                <div class="row x-footer" data-pg-name="Row-Footer">
-                    <div class="col-xs-12 text-center">
-                        <a href="#">Browse Jobs By Employer</a> | <a href="#">Browse Jobs By Location</a> | <a href="#">Browse Jobs Catergory</a>
-                    </div>
-                </div>
-                <div class="row x-subfooter" data-pg-name="Row-Footer">
-                    <div class="col-xs-12 text-center">
-                        <p>2016 © All Rights Reserved. JobFool Inc. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-                    </div>
-                </div>
-            </div> //container 
-        </footer>
--->         
-        <!--=== Footer v6 ===-->         
-        <div id="footer-v6" class="footer-v6"> 
-            <div class="footer"> 
-                <div class="container"> 
-                    <div class="row"> 
-                        <div class="col-xs-12"> 
-                            <ul class="list-inline browse-list"> 
-                                <li>
-                                    <a href="#">Job Search By Job Catergory</a>
-                                </li>                                 
-                                <li>
-                                    <a href="#">Job Search By Location</a>
-                                </li>                                 
-                                <li class="silver">
-                                    <a href="#">Job Search By Employer</a>
-                                </li>                                 
-                            </ul>                             
-                        </div>                         
-                    </div>                     
-                    <div class="row"> 
-                        <ul class="list-inline country-list"> 
-                            <li>
-                                <img src="/assets/images/icons/ca.png" class="flag">
-                                <a href="#">Canada</a>
-                            </li>                             
-                            <li>
-                                <img src="/assets/images/icons/fr.png" class="flag">
-                                <a href="#">France</a>
-                            </li>                             
-                            <li>
-                                <img src="/assets/images/icons/de.png" class="flag">
-                                <a href="#">Germany</a>
-                            </li>                             
-                            <li>
-                                <img src="/assets/images/icons/es.png" class="flag">
-                                <a href="#">Spain</a>
-                            </li>                             
-                            <li>
-                                <img src="/assets/images/icons/uk.png" class="flag">
-                                <a href="#">United Kingdom</a>
-                            </li>                             
-                        </ul>                         
-                    </div>                     
-                </div>                 
-            </div>             
-            <div class="copyright"> 
-                <div class="container"> 
-                    <div class="row"> 
-                        <div class="col-xs-12 sm-margin-bottom-10"> 
-                            <ul class="list-inline terms-menu"> 
-                                <li class="silver">Copyright © 2006-2016 | All Rights Reserved</li>                                 
-                                <li>
-                                    <a href="#">Terms of Use</a>
-                                </li>                                 
-                                <li>
-                                    <a href="#">Privacy and Policy</a>
-                                </li>                                 
-                            </ul>                             
-                        </div>                         
-                         
-                    </div>                     
-                </div>                 
-            </div>             
-        </div>         
-        <!--=== End Footer v6 ===-->         
+        </section>     
+                        
+        <cfinclude template="partials/footer.cfm" >               
+                
         <!-- JS Global Compulsory -->         
         <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>         
         <script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>         
@@ -285,6 +212,7 @@
         $(document).ready(function($){
             App.init();
             
+            // replace spaces with +
             $("#x_filters a").each(function() {
                 var text = $(this).attr('href')
                 text = text.replace(/ /g, "+");
@@ -293,24 +221,18 @@
             
             $(".sfblAd").css("display","none");
 
-            
         });
         </script>    
-        <!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
 	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 	<![endif]-->     
                      
                      
-<cfif len(url.kw) LT 3>
-    <cfset adquery="work from home">
-<cfelse>
-    <cfset adquery = "#url.kw#">
-</cfif>
-<script type="text/javascript" charset="utf-8"> 
-    
-var pageOptions = { 
+    <cfif len(url.kw) LT 3><cfset adquery="work from home"><cfelse><cfset adquery = "#url.kw#"></cfif>
+    <script>
+        var pageOptions = { 
   'pubId': 'pub-2780853858393535',
   'query': '<cfoutput>#adquery#</cfoutput>',
   'hl': 'en',
@@ -321,28 +243,30 @@ var pageOptions = {
   'sellerRatings': false,
   'siteLinks': false
 };
-
+//right column
 var adblock1 = { 
   'container': 'adcontainer1-16',
   'number': 6,
   //'width': 'auto',
-  'fontFamily': 'Lato',
+  'fontFamily': 'tahoma',
   'fontSizeTitle': 16,
   'fontSizeDescription': 14,
   'fontSizeDomainLink': 10,
   'colorTitleLink': '#337AB7',
   'colorText': '#555555',
   'colorDomainLink': '#337AB7',
-  'noTitleUnderline': true
+  'siteLinks' : false,
+  'noTitleUnderline': true,
+ 'domainLinkAboveDescription': true,
 };
-
+// top of search results
 var adblock2 = { 
   'container': 'adcontainer2-16',
   'number': 1,
   'width': 'auto',
   'lines': 2,
-  'fontFamily': 'Lato',
-  'fontSizeTitle': 16,
+  'fontFamily': 'tahoma',
+  'fontSizeTitle': 17,
   'fontSizeDescription': 14,
   'fontSizeDomainLink': 10,
   'colorTitleLink': '#337AB7',
@@ -352,13 +276,13 @@ var adblock2 = {
   'longerHeadlines': true,
   'detailedAttribution': false
 };
-
+// under search results
 var adblock3 = { 
   'container': 'adcontainer3-16',
   'width': '700px',
   'lines': 2,
-  'fontFamily': 'Lato',
-  'fontSizeTitle': 16,
+  'fontFamily': 'tahoma',
+  'fontSizeTitle': 17,
   'fontSizeDescription': 14,
   'fontSizeDomainLink': 10,
   'colorTitleLink': '#337AB7',
@@ -368,12 +292,8 @@ var adblock3 = {
   'longerHeadlines': true,
   'detailedAttribution': false
 };
-
 _googCsa('ads', pageOptions, adblock1, adblock2, adblock3);
+    </script>
 
-</script>
-
-
-
-    </body>     
+</body>     
 </html>
