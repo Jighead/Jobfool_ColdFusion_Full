@@ -14,21 +14,59 @@
 <cfparam name="request.intotalrecords" default="">
 <cfset foo = randrange(1, 10)>
 
+    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
 
-  <cfinvoke component="test._IJSON" method="get" argumentcollection="#url#" returnvariable="jobdata">
-
-
-
-
-
-
-
-
-
-
-
-<form method="get" action="">
-    <label>What</label><input type="text" name="kw" value="" id="kw">
-    <label>Where</label><input type="text" name="loc" value="" id="kw">
-    <input type="submit" value="search">
+<form id="alert" role="form">
+    <label>What</label><input type="text" name="kw" value="" id="kw" min-length="3" required>
+    <label>Where</label><input type="text" name="loc" value="" id="loc" min-length="3" required>
+    <label>Where</label><input type="email" name="email" value="job@gmail" id="email">
+    <button id="alertbtn" class="btn" type="submit">
+     <i class="fa fa-envelope-o">go</i>
+    </button>
 </form>
+<script>
+$(document).ready(function($){
+
+
+ 
+$("#contactform").validate({
+         ignore: ":hidden",
+         rules: {
+             kw: {
+                 required: true,
+                 minlength: 3
+             },
+             loc: {
+                 required: true
+                 minlength: 3
+             },
+             email: {
+                 required: true,
+                 message: "Please enter a valid email address."
+             }
+         },
+         submitHandler: function (form) {
+
+                 $.ajax({
+                    type: "POST",
+                    dataType:"json",
+                    url: "/controller/addalert.cfm",
+                    data: $(this).serialize()
+                }).done(function(){
+                    $('#emailform').html(
+                        "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
+                }).fail(function(){
+                          $('#emailform').html(
+                        "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
+                });
+                return false;   
+
+             }
+        });
+
+    
+ });
+</script>

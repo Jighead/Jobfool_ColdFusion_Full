@@ -1,0 +1,30 @@
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery/jquery.validate.js"></script>
+</head>
+
+<body>
+    <form id="contactform">
+    <input type="email" name="cognome" required novalidate/>
+    <br/>
+
+    <input type="submit" />
+</form>
+
+<script>
+ $(document).ready(function () {
+
+     $("#contactform").validate({
+         ignore: ":hidden",
+         rules: { },
+         submitHandler: function (form) {
+             alert('valid form submission'); // for demo
+         }
+
+     });
+
+ });
+</script>
+
