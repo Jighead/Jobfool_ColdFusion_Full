@@ -1,7 +1,7 @@
 <cfcomponent output="false">
 
  <cfinclude template="appsettings.cfm">
-
+	
 
     <cffunction name="OnApplicationStart"  access="public" returntype="boolean" output="false" hint="Fires when the application is first created.">
         <cfscript>
@@ -34,7 +34,6 @@
                   <cfinclude template="tempdown.cfm"><cfabort>
        </cfif>
         --->
-            
         <cfif isDefined('url.appdump')>
             <cfset appdump()>
         </cfif>

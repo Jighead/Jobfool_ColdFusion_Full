@@ -8,7 +8,7 @@
 <cfparam name="results.location" default="">
 <cfparam name="url.qt" default="10">  
 <cfif len(url.kw) GT 2 or len(url.l) GT 2>
-    <cfinvoke component="components.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
+    <cfinvoke component="#request.componentpath#.ijson" method="getJobs" returnvariable="results"  argumentcollection="#url#">
         <cfset total = results.totalResults>
 <!---   <script>
             var results = {};
@@ -177,13 +177,20 @@
                     </div>          
                     <div id="x_filters" class="col-xs-3 col-sm-3 sidebar-offcanvas" data-pg-name="Col-Filters"> 
                         <cfoutput>
-                        <div class="x-emailform row" role="form"> 
+                        <div id="emailform" class="x-emailform row" role="form"> 
                             <div class="col-xs-12">
                                 <label for="email">Send me these jobs</label>
                             </div>                             
                             <div class="col-xs-12">
-                                <input type="text" id="email" class="input form-control" placeholder="Enter email address">
-                                <button id="addemail" class="btn btn-primary x-btn-addemail form-control">Send</button>
+                                <form id="alert" data-toggle="validator" role="form">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="enter email address" required>
+                                <cfoutput>
+                                <input type="hidden" class="form-control" name="what" value="#url.kw#">
+                                <input type="hidden" class="form-control" name="where" value="#url.l#">
+                                </cfoutput>
+                                <button class="btn btn-primary x-btn-addemail form-control">Send</button>
+                                <input type="hidden" class="form-control" name="cfid" value="jobspage">
+                                </form> 
                             </div>                             
                         </div>
                         <cfinclude template="../partials/jobs-cityfilter.cfm">
@@ -196,7 +203,7 @@
             <!-- //container -->             
         </section>     
                         
-        <cfinclude template="partials/footer.cfm" >               
+        <cfinclude template="../partials/footer.cfm" >               
                 
         <!-- JS Global Compulsory -->         
         <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>         
@@ -205,9 +212,10 @@
         <!-- JS Implementing Plugins -->
         <script type="text/javascript" src="/bootstrap/js/offcanvas.js"></script>
         <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>         
-        <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>         
-        <!-- JS Page Level -->         
+        <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>  
+        <!-- JS Page Level -->  
         <script type="text/javascript" src="/assets/js/unify-app.js"></script>
+        <script src="/assets/js/3p/validator.min.js"></script>
         <script>
         $(document).ready(function($){
             App.init();
@@ -220,8 +228,35 @@
                 });
             
             $(".sfblAd").css("display","none");
-
         });
+            
+      
+       // using obfuscated version below http://www.danstools.com/javascript-obfuscate/index.php
+        $("#alert").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                dataType:"json",
+                url: "/controller/addalert.cfm",
+                data: $(this).serialize()
+            }).done(function(){
+                $('#emailform').html(
+                    "<div class='col-xs-12 x-alertmessage'><h4>Sweet! You're almost Done.</h4><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
+            }).fail(function(){
+                      $('#emailform').html(
+                    "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
+            });
+            return false;           
+        });
+
+        <!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php  --->
+    
+            
+            
+            
+            
+            
+            
         </script>    
     <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>

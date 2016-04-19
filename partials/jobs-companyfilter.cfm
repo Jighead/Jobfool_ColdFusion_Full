@@ -16,7 +16,7 @@
                             </cfif>
                         </h5> 
                         <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getEmps" returnvariable="employers"  data="#results#" />
+                            <cfinvoke component="#request.componentpath#.ijson" method="getEmps" returnvariable="employers"  data="#results#" />
                             <ul class="x-list-unstyled">
                             <cfoutput>
                             <cfloop array="#employers#" index="emp">

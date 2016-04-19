@@ -1,33 +1,46 @@
 <cfcomponent>
 
     <cffunction name="addAlertConfirm" access="public" output="yes" returntype="boolean" hint="I add User">
-        <cfargument name="cfid"  type="string" required="yes">
+        <cfargument name="cfid"  type="string" required="no">
         <cfargument name="email" type="string" required="yes">
-        <cfargument name="firstname" type="string" required="no">
-        <cfargument name="lastname" type="string" required="no">
-        <cfargument name="password" type="string" required="no">
         <cfargument name="kw" type="string" required="no">
         <cfargument name="loc" type="string" required="no">
+        <cfargument name="country" type="string" required="yes" default="us">
         <cfargument name="radius" type="numeric" required="no" default="50">
-        <cfargument name="salary" type="string" required="no">
-        <cfargument name="jt" type="string" required="no">
-        <cfargument name="server" type="string" required="yes">
         
-        <cfset var uuid = "JA-#randrange(1000000,9999999)#-#lsTimeFormat(now(),"hhmmss")#">
+        <cfset var uuid = "JA-#randrange(1000000,9999999)#-#lsTimeFormat(now(),"hhmmss")#">  
 
+        <cfquery name="dupcheck" datasource="#request.dsn#">
+			select * from jobalerts
+            where 
+            email = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.email#">
+            AND kw = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.kw#">
+            AND loc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.loc#">
+            AND country = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.country#">
+        </cfquery>
+        <cfif dupcheck.recordcount is 0>   
         <cftry>
         <cfquery name="add1" datasource="#request.dsn#">
             insert into jobalerts
-            (cfid, uuid, email, kw, loc, radius, createdate)
+            (cfid, uuid, email, kw, loc, radius, country, createdate)
             values 
-            ('#arguments.CFID#', '#uuid#', '#arguments.email#', '#arguments.kw#', '#arguments.loc#', '#arguments.radius#', #createODBCDateTime(now())#)
+            (
+            '#arguments.CFID#', '#uuid#'
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.email)#" maxlength="20" null="#NOT len(trim(arguments.email))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.kw)#" maxlength="50" null="#NOT len(trim(arguments.kw))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.loc)#" maxlength="50" null="#NOT len(trim(arguments.loc))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_integer" value="50" maxlength="3" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.country)#" maxlength="50" null="#NOT len(trim(arguments.country))#" />
+            ,#createODBCDateTime(now())#
+            )
         </cfquery>
-
+        
+        <!--- 
         <cfmail from="JobAlerts@thejobfool.com" to="#arguments.email#" subject="Job Alert! Please Confirm" type="html" spoolenable="no">
         
         Hello! You asked us to send you daily email alerts for these jobs:<br />
         
-		<p><strong>#arguments.kw#<cfif len(arguments.loc)> in #arguments.loc#</cfif><cfif len(arguments.salary)> - Salary: $#salary#</cfif><cfif len(arguments.jt)> - Job Type: #arguments.jt#</cfif></strong></p>
+		<p><strong>#arguments.kw#<cfif len(arguments.loc)> in #arguments.loc#</cfif><cfif isDefined("arguments.salary") and len(arguments.salary)> - Salary: $#salary#</cfif><cfif len(arguments.jt)> - Job Type: #arguments.jt#</cfif></strong></p>
         
         <strong>You have 3 days to confirm this job alert!</strong><br />
         Please click the link below to confirm you wish to receive the alerts.<br />
@@ -40,26 +53,28 @@
         http://thejobfool.com</p>
 
         </cfmail>
+     --->
  
         <cfcatch><cfdump var="#cfcatch#"><cfabort></cfcatch>
         </cftry>
-  
+        </cfif>
     <cfreturn true>
     </cffunction>
 
 
 <cffunction name="addAlert" access="public" output="yes" returntype="boolean" hint="I add User">
-        <cfargument name="cfid"  type="string" required="yes">
+        <cfargument name="cfid"  type="string" required="no">
         <cfargument name="email" type="string" required="yes">
-        <cfargument name="firstname" type="string" required="no">
-        <cfargument name="lastname" type="string" required="yes" default="0">
-        <cfargument name="password" type="string" required="yes" default="0">
+        <cfargument name="firstname" type="string" required="no" default="">
+        <cfargument name="lastname" type="string" required="no" default="">
+        <cfargument name="username" type="string" required="no" default="">
+        <cfargument name="password" type="string" required="no" default="">
         <cfargument name="kw" type="string" required="no">
         <cfargument name="loc" type="string" required="no">
         <cfargument name="radius" type="numeric" required="no" default="50">
         <cfargument name="salary" type="string" required="no" default="0">
         <cfargument name="jt" type="string" required="no" default="">
-        <cfargument name="country" type="string" required="no" default="">
+        <cfargument name="country" type="string" required="no" default="us">
       
        
         <cfset var uuid = "JA-#randrange(1000000,9999999)#-#lsTimeFormat(now(),"hhmmss")#">
@@ -84,7 +99,16 @@
             insert into jobalerts
             (cfid, uuid, email, kw, loc, radius, createdate, firstname, username, password, country)
             values 
-            ('#arguments.CFID#', '#uuid#', '#arguments.email#', '#arguments.kw#', '#arguments.loc#', '#arguments.radius#', #createODBCDateTime(now())#, '#arguments.firstname#', '#arguments.email#', '#arguments.password#', '#arguments.country#')
+            ('#arguments.CFID#', '#uuid#'
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.email)#" maxlength="20" null="#NOT len(trim(arguments.email))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.kw)#" maxlength="50" null="#NOT len(trim(arguments.kw))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.loc)#" maxlength="50" null="#NOT len(trim(arguments.loc))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_integer" value="3" maxlength="50" null="#NOT len(trim(radius))#" />
+            ,#createODBCDateTime(now())#
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.firstname)#" maxlength="20" null="#NOT len(trim(arguments.firstname))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.firstname)#" maxlength="20" null="#NOT len(trim(arguments.username))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.password)#" maxlength="20" null="#NOT len(trim(arguments.password))#" />
+            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(arguments.country)#" maxlength="20" null="#NOT len(trim(arguments.country))#" />
         </cfquery>
         
         <cfmail from="JobAlerts@thejobfool.com" to="#arguments.email#" subject="Job Alert! Please Confirm" type="html" spoolenable="no">

@@ -4,6 +4,7 @@ body {
     color: #333;
 }
 
+
 a {
    color: @jfBlue;
    text-decoration:  none;
@@ -46,4 +47,15 @@ a {
         font-weight: 600;
     }
     
+}
+
+.mobile-hidden {
+        visibility: visible;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 480px) {
+    .mobile-hidden {
+        visibility: hidden;
+    }
 }

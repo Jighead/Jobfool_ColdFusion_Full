@@ -198,28 +198,31 @@
             <!--=== Subscribe Form ===-->
             <div class="shop-subscribe bg-color-red">
                 <div class="container">
-                    <div class="row">
+                    <div id="emailform" class="row">
                         <div class=" col-xs-12">
                             <h2>Send me great new <strong>jobs by email</strong></h2>
                         </div>
-                        <div class="col=xs-12">
-                        <form id="alert" data-toggle="validator" role="form">
-                        <div class="col-sm-4 x-reducepad-5 form-group">
-                            <input type="text" class="form-control" id="what" name="what" placeholder="What Job" required>
+                        <form id="alert"  role="form">
+                        <div class="col-xs-4 x-reducepad-5 form-group">
+                            <input type="text" class="form-control" id="what" name="what" min-length="3" placeholder="What Job" required>
                         </div>
-                        <div class="col-sm-4 x-reducepad-5 form-group">
-                            <input type="text" class="form-control" id="where" name="where" placeholder="What city or zipcode" required>
-                        </div>
-                        <div class="col-sm-4 x-reducepad-5 input-group form-group">
+                        <div class="col-xs-4 x-reducepad-5 form-group">
+                            <input type="text" class="form-control" id="where" name="where" min-length="3" placeholder="What city or zipcode" required>
+                        </div> 
+                        <div class="col-xs-4 x-reducepad-5 input-group form-group">
                             <input type="email" class="form-control" id="email" name="email" placeholder="enter email address" required>
-                            <span class="input-group-btn">
+                            <span class="input-group-btn form-group">
                                 <button id="alertbtn" class="btn" type="submit">
                                     <i class="fa fa-envelope-o"></i>
                                 </button>
+                                <label></label>
                             </span>
+                            
                         </div>
+                        
+                            <input type="hidden" class="form-control" name="cfid" value="homepage">
                         </form>
-                        </div>
+                        </div>   
                     </div>
                 </div>
             </div>
@@ -390,25 +393,28 @@
         </div>
         <!--=== End Hire Block ===-->
         <cfinclude template="partials/footer.cfm">
-   
+            
+
         </div>
-        <!-- JS Global Compulsory -->
-        <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <!-- JS Implementing Plugins -->
-        <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-        <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
-        <script type="text/javascript" src="assets/plugins/jquery.parallax.js"></script>
-        <script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-        <script type="text/javascript" src="assets/plugins/counter/waypoints.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/counter/jquery.counterup.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/wow-animations/js/wow.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+        <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+        <script src="/assets/plugins/jquery/jquery.validate.js"></script>"></script>
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="assets/plugins/back-to-top.js"></script>
+        <script src="assets/plugins/smoothScroll.js"></script>
+        <script src="assets/plugins/jquery.parallax.js"></script>
+        <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+        <script src="assets/plugins/counter/waypoints.min.js"></script>
+        <script src="assets/plugins/counter/jquery.counterup.min.js"></script>
+        <script src="assets/plugins/wow-animations/js/wow.min.js"></script>
         <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>         
         <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
-        <!-- JS Page Level -->
-        <script type="text/javascript" src="assets/js/unify-app.js"></script>
-        <script src="assets/js/3p/validator.min.js"></script>
+ 
+        <script src="assets/js/unify-app.js"></script>
+
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
@@ -423,31 +429,68 @@
                $(this).attr('placeholder',$(this).data('placeholder'));
             });
             
+            
+            if( $("#alert").find(".error").length){
+                alert("errors found");
+            }
+            
+            
+    $("#alert").validate({
+        ignore: ":hidden",
+         rules: {   },
+            
+        submitHandler: function (form) {
+             
+             $.ajax({
+                type: "POST",
+                dataType:"json",
+                url: "/controller/addalert.cfm",
+                data: $(this).serialize()
+            }).done(function(){
+                $('#emailform').html(
+                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
+            }).fail(function(){
+                      $('#emailform').html(
+                    "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
+            });
+            return false;   
+             
+         }
+    });
+            
+            
+            
         }); <!--- end doc ready --->
-            
-            
-            
             
         $('#x_search-form').submit(function(e){
           e.preventDefault();
         });
-            
-
-        $("#alert").submit(function(e){
+      
+        /*$("#alert").submit(function(e){
             e.preventDefault();
+         
             $.ajax({
                 type: "POST",
-                dataType: "json",
-                url: "addalert.cfm",
+                dataType:"json",
+                url: "/controller/addalert.cfm",
                 data: $(this).serialize()
-            }).done(function(response) {
-              console.log(response);
+            }).done(function(){
+                $('#emailform').html(
+                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
+            }).fail(function(){
+                      $('#emailform').html(
+                    "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
             });
-
             return false;           
-        });
+        });*/
+      
+        <!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php 
+        eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('$("#3").s(2(e){e.r();$.q({o:"t",u:"y",x:"/w/v.n",l:$(j).m()}).k(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>i! d\'f h g.</0><p>z J b N 3, M L b a P A 4 T S.</p></1>")}).Q(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>O K 4 D.</0><p>C a 3 B E F I H.</p></1>")});G R});',56,56,'h2|div|function|alert|the|12|col|html|class|xs|email|your|emailform|You||re|Done|almost|Sweet|this|done|data|serialize|cfm|type||ajax|preventDefault|submit|POST|dataType|addalert|controller|url|json|To|click|sytems|The|Inconvenience|in|under|return|maintenance|going|activate|for|check|please|job|Sorry|and|fail|false|link|confirmation'.split('|'),0,{}))    
+        --->
+            
+            
+            
 
-              
         </script>
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>

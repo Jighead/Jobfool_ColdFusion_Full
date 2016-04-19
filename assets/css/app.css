@@ -13114,44 +13114,55 @@ body {
   font-size: 1.6rem;
   color: #333;
 }
-/* line 7, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 8, C:\Apache24\htdocs\jf16\assets\css\global.less */
 a {
   color: #36567d;
   text-decoration: none;
 }
-/* line 13, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 14, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .fa {
   color: #36567d;
 }
-/* line 18, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 19, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .form-control {
   border-radius: 5px;
 }
-/* line 23, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 24, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn {
   border-radius: 5px;
 }
-/* line 27, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 28, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn-primary {
   color: #fff;
   background-color: #36567d;
   border-color: #DDD;
 }
-/* line 33, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 34, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn-primary:hover,
 .btn-primary:focus {
   color: #fff;
   background-color: #36567d;
   border-color: #FFF;
 }
-/* line 39, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 40, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .x-search-btn {
   min-width: 100px;
 }
-/* line 44, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 45, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .privacy-wrapper h4 {
   color: #36567d;
   font-weight: 600;
+}
+/* line 52, C:\Apache24\htdocs\jf16\assets\css\global.less */
+.mobile-hidden {
+  visibility: visible;
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width: 480px) {
+  /* line 58, C:\Apache24\htdocs\jf16\assets\css\global.less */
+  .mobile-hidden {
+    visibility: hidden;
+  }
 }
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\home.less */
 body {
@@ -13228,7 +13239,7 @@ body {
 /* service blocks section */
 /* line 70, C:\Apache24\htdocs\jf16\assets\css\home.less */
 .service-box-v1 {
-  margin: 10px 0;
+  margin: 10px -15px;
 }
 /* line 73, C:\Apache24\htdocs\jf16\assets\css\home.less */
 .service-box-v1 .service-block {
@@ -13700,53 +13711,58 @@ body {
   padding: 10px;
 }
 /* line 4, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+.shop-subscribe p {
+  color: #FFF;
+  text-align: center;
+}
+/* line 9, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe h2 {
   text-align: center;
   margin: 5px;
 }
-/* line 9, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+/* line 14, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe input {
   border-right: 1px solid #fff;
 }
-/* line 13, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+/* line 18, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe .form-control {
   border-radius: 0px;
 }
-/* line 17, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+/* line 22, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe .btn {
   border-radius: 0px;
 }
-/* line 20, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+/* line 25, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe .disabled {
   opacity: 1.0;
 }
-/* line 25, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+/* line 30, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
 .shop-subscribe .input-group {
   padding-left: 15px;
   padding-right: 15px;
 }
 @media only screen and (min-width: 768px) {
-  /* line 34, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 39, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .col-sm-4 {
     width: 32.5%;
   }
 }
 @media (max-width: 480px) {
-  /* line 41, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 46, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
-  /* line 45, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 50, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe .content-boxes-v5 li {
     font-size: 16px;
   }
 }
 @media (max-width: 768px) {
-  /* line 53, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 58, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe {
     padding: 10px;
   }
-  /* line 56, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
+  /* line 61, C:\Apache24\htdocs\jf16\assets\css\comp-alert-subscribe.less */
   .shop-subscribe h2 {
     font-size: 16px;
   }
@@ -13797,36 +13813,49 @@ h1.x-jobtitle {
 .navbar-brand {
   padding-left: 15px;
 }
+/* line 38, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+.x-alertmessage {
+  background-color: coral;
+}
+/* line 41, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+.x-alertmessage h4 {
+  color: #fff;
+}
+/* line 43, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+.x-alertmessage p {
+  line-height: 1.2;
+  color: #FFF;
+}
 /* ======== filters wrapper ===== */
-/* line 39, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+/* line 51, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
 #x_filters .x-emailform {
   margin-bottom: 15px;
 }
-/* line 43, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+/* line 55, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
 #x_filters h5 {
   font-weight: bold;
   font-size: 1.8rem;
 }
-/* line 48, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+/* line 60, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
 #x_filters li {
   padding: 4px 0;
 }
 /* ======== end filters wrapper ===== */
 @media (max-width: 1024px) {
-  /* line 56, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 68, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .form-inline .form-control {
     display: inline-block !important;
     width: 40% !important;
     vertical-align: middle !important;
   }
-  /* line 61, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 73, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .email {
     width: 50% !important;
   }
 }
 /* ================ end job page styles ===================== */
 @media (max-width: 479px) {
-  /* line 69, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 81, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-reducepad-5 {
     margin-bottom: 5px;
   }
@@ -13842,27 +13871,27 @@ h1.x-jobtitle {
     }*/
 }
 @media (min-width: 360px) and (max-width: 479px) {
-  /* line 86, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 98, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-jobtitle {
     font-size: 16px;
   }
 }
 @media (min-width: 480px) and (max-width: 991px) {
-  /* line 95, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 107, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-reducepad-5 {
     margin-bottom: 5px;
   }
 }
 /* this controls (overrides bootstrap default) the offcanvas sidebar */
 @media screen and (max-width: 800px) {
-  /* line 109, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 121, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .row-offcanvas {
     position: relative;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
-  /* line 116, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 128, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .row-offcanvas-right .sidebar-offcanvas {
     right: -50%;
     margin-right: 15px;

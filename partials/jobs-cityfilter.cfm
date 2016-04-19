@@ -17,7 +17,7 @@
                             </cfif>
                         </h5>
                         <cfif isdefined('results.totalResults') and results.totalResults gt 0>
-                            <cfinvoke component="components.ijson" method="getLocs" returnvariable="locations"  data="#results#" />
+                            <cfinvoke component="#request.componentpath#.ijson" method="getLocs" returnvariable="locations"  data="#results#" />
                             <ul class="x-list-unstyled"> 
                             <cfloop array="#locations#" index="loc">
                                 <li><a href="?l=#loc#&#qst#&cf=1">#loc#</a></li>
