@@ -1,11 +1,11 @@
-            <div id="footer-v6" class="footer-v6">
+            <div id="footer-v1" class="footer-v1">
                 <div class="footer">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
                                 <ul class="list-inline browse-list">
                                     <li>
-                                        <a href="#">Job Search By Job Catergory</a>
+                                        <a href="/browse-jobs/#bycategory">Job Search By Job Category</a>
                                     </li>
                                     <li>
                                         <a href="#">Job Search By Location</a>

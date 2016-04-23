@@ -1,3 +1,4 @@
+
 <!--- ********** ADD ALERT ACTION ******************* --->
 <cfif isdefined('form.email') and isdefined('form.what') and isdefined('form.where')>
     <cfset form.kw = form.what>
@@ -5,7 +6,7 @@
     <cfset form.country = request.co> 
     <cfset form.radius = '50'>
     <!--- <cfparam name="form.firstname"  default= "-"> --->
-    <cfparam name="error" default="false" type="boolean">
+    <cfset error = false>
 	
     <!--- <cfif not isEmail(#form.email#)>
         <cfset error = true>
@@ -19,7 +20,12 @@
         <cfset error = true>
     </cfif>
         
-</cfif>
+    <cfif form.email contains '@' and form.email contains '.'>
+    <cfelse>
+        <cfset error = true>
+    </cfif>
+        
+
 
 <cfif error is false>
         <!--- save the form data --->
@@ -32,5 +38,6 @@
     error  
 </cfif>
     
+</cfif>
     
     

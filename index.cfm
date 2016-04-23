@@ -1,3 +1,16 @@
+<cfsilent>
+        <!---==== recent queries section ===== --->
+        <cftry>
+        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,30,0)#">
+            SELECT TOP 200 [keyword],[location]  
+            FROM [thejobfool].[dbo].[RecentQueries]
+            order by datetime desc
+        </cfquery>
+        <cfcatch></cfcatch>
+        </cftry>
+</cfsilent>
+
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -6,22 +19,24 @@
     <!--<![endif]-->
     <head>
         <title>Job Search</title>
-        <!-- Meta -->
+        <!--- Meta --->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <!-- Favicon -->
+        <!--- Favicon --->
         <link rel="shortcut icon" href="favicon.ico">
-        <!-- Web Fonts -->
+        <!--- Web Fonts --->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
-        <!-- CSS Global Compulsory -->
+        <!--- CSS Global Compulsory --->
         <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
         <link href="bootstrap/css/offcanvas.css" rel="stylesheet">
         <link href="assets/css/grid-ms.css" rel="stylesheet">
-        <!--all Styles -->
+        <!--- all Styles --->
+        
         <link rel="stylesheet" href="assets/css/app.css">
-        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="assets/css/u-dark-blue.css">
+        <!--- CSS Implementing Plugins --->
         <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
         <link rel="stylesheet" href="assets/plugins/animate.css">
@@ -66,13 +81,13 @@
     </head>
     <body class="x-home header-fixed">
         <div class="wrapper">
-            <!--=== Header v6 ===-->
+            <!---=== Header v6 ===--->
             <div class="header-v6 header-dark-transparent header-sticky">
-                <!-- Navbar -->
+                <!--- Navbar --->
                 <div class="navbar mega-menu" role="navigation">
                     <div class="container">
                         <div class="menu-container">
-                            <!-- Navbar Brand -->
+                            <!--- Navbar Brand --->
                             <div class="navbar-brand">
                                 <div class="col-xs-12 homelogo">
                                     <a class="x-homelink" href="/">
@@ -95,9 +110,9 @@
                                 </ul>
                                 --->
                             </div>
-                            <!-- End Header Inner Right -->
+                            <!--- End Header Inner Right --->
                         </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!--- Collect the nav links, forms, and other content for toggling --->
                         <div class="collapse navbar-collapse navbar-responsive-collapse">
                             <div class="menu-container">
                                 <!--- 
@@ -118,13 +133,13 @@
                                 --->
                             </div>
                         </div>
-                        <!--/navbar-collapse-->
+                        <!---/navbar-collapse--->
                     </div>
                 </div>
-                <!-- End Navbar -->
+                <!--- End Navbar --->
             </div>
-            <!--=== End Header v6 ===-->
-            <!-- Interactive Slider v2 -->
+            <!---=== End Header v6 ===--->
+            <!--- Interactive Slider v2 --->
             <section class="x-searchbar-home"> 
                 <div class="interactive-slider-v2 interactive-slider-v2-md img-v3">
                     <div class="container">
@@ -152,7 +167,7 @@
                     </div>
                 </div>
             </section>
-            <!-- End Interactive Slider v2 -->
+            <!--- End Interactive Slider v2 --->
             <section class="bg-color-light">
             <div class="container">
             <div class="row service-box-v1">
@@ -215,9 +230,8 @@
                                 <button id="alertbtn" class="btn" type="submit">
                                     <i class="fa fa-envelope-o"></i>
                                 </button>
-                                <label></label>
                             </span>
-                            
+                            </div>
                         </div>
                         
                             <input type="hidden" class="form-control" name="cfid" value="homepage">
@@ -226,23 +240,13 @@
                     </div>
                 </div>
             </div>
-            <!--/end container-->
-            <!--=== Subscribe Form ===-->
-            <!--=== Hire Block ===-->
+            <!--- /end container --->
+            <!--- === Subscribe Form === --->
+            <!--- === Hire Block === --->
             <div class="x-hire bg-color-light hidden-xs hidden-">
                 <div class="container content-sm wow animated fadeInUp">
-                    <!--<div class="heading heading-v1">
-                        <h2>WE ARE HIRING!</h2>
-                    </div>
-                    <div class="x-listbox col-xs-12">
-                        <a class="simple-item" href="jobs?kw=amazon">Amazon.com</a>
-                        <a class="simple-item" href="jobs?kw=aramark">Aramark</a>
-                        <a class="simple-item" href="jobs?kw=bankofamerica">Bank of America</a>
-                        <a class="simple-item" href="jobs?kw=amazon">Amazon.com</a>
-                        <a class="simple-item" href="jobs?kw=aramark">Aramark</a>
-                        <a class="simple-item" href="jobs?kw=bankofamerica">Bank of America</a>
-                    </div>-->
-                    <!--<img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">-->
+                    
+                    <!---<img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">--->
                 <ul class="list-inline our-clients" id="effect-2">
 				<li>
 					<figure>
@@ -391,7 +395,37 @@
 			</ul>
             </div>
         </div>
-        <!--=== End Hire Block ===-->
+        <!--- === End Hire Block === --->
+    
+    
+        <!---==== recent queries section ===== --->
+        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,0,30)#">
+            SELECT TOP 200 [keyword],[location]  
+            FROM [thejobfool].[dbo].[RecentQueries]
+            order by datetime desc
+        </cfquery>
+    
+  
+        <!---==== recent queries section ===== --->
+        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,0,0)#">
+            SELECT TOP 200 [keyword],[location]  
+            FROM [thejobfool].[dbo].[RecentQueries]
+            order by datetime desc
+        </cfquery>
+    
+        <section>
+            <div id="recentqueries"class="container mobile-hidden">
+
+                <cfoutput query="data">
+                        <a class="small" href="/jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">#lcase(keyword)#</a>
+                </cfoutput>
+            </div>
+       </section>
+    
+    
+    
+        
+    
         <cfinclude template="partials/footer.cfm">
             
 
@@ -448,7 +482,7 @@
                 data: $(this).serialize()
             }).done(function(){
                 $('#emailform').html(
-                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
+                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button .</p></div>");
             }).fail(function(){
                       $('#emailform').html(
                     "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
@@ -466,23 +500,7 @@
           e.preventDefault();
         });
       
-        /*$("#alert").submit(function(e){
-            e.preventDefault();
-         
-            $.ajax({
-                type: "POST",
-                dataType:"json",
-                url: "/controller/addalert.cfm",
-                data: $(this).serialize()
-            }).done(function(){
-                $('#emailform').html(
-                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation link.</p></div>");
-            }).fail(function(){
-                      $('#emailform').html(
-                    "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
-            });
-            return false;           
-        });*/
+
       
         <!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php 
         eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('$("#3").s(2(e){e.r();$.q({o:"t",u:"y",x:"/w/v.n",l:$(j).m()}).k(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>i! d\'f h g.</0><p>z J b N 3, M L b a P A 4 T S.</p></1>")}).Q(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>O K 4 D.</0><p>C a 3 B E F I H.</p></1>")});G R});',56,56,'h2|div|function|alert|the|12|col|html|class|xs|email|your|emailform|You||re|Done|almost|Sweet|this|done|data|serialize|cfm|type||ajax|preventDefault|submit|POST|dataType|addalert|controller|url|json|To|click|sytems|The|Inconvenience|in|under|return|maintenance|going|activate|for|check|please|job|Sorry|and|fail|false|link|confirmation'.split('|'),0,{}))    

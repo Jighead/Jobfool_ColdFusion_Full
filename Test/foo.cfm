@@ -19,7 +19,7 @@
 <script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
 
-<form id="alert" role="form">
+<form id="alert">
     <label>What</label><input type="text" name="kw" value="" id="kw" min-length="3" required>
     <label>Where</label><input type="text" name="loc" value="" id="loc" min-length="3" required>
     <label>Where</label><input type="email" name="email" value="job@gmail" id="email">

@@ -1,5 +1,26 @@
+<cfsilent>
 <cfparam name="url.kw" default="">
 <cfparam name="url.l" default="">
+<cfparam name="url.tl" default="A">
+<cfparam name="thistitle" default="Find Jobs" />
+    
+<cfif isdefined('url.tl')>
+	<cfquery name="getTitles" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#">
+	select jobtitle, id
+	from jobtitles
+	where jobtitle like <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim('#url.tl#%')#" />
+	order by jobtitle
+	</cfquery>	
+	<cfset thistitle = "#gettitles.jobtitle# - Jobs by Title">
+</cfif>
+    
+<cfparam name="qrydata.recordcount" default="0" >
+</cfsilent>
+    
+    
+    
+<!--- <cfdump var="#getTitles#"> --->
+    
 <!--- ================================================================================================================ --->
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -16,12 +37,12 @@
         <![endif]-->               
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> 
         <!-- CSS Global Compulsory -->         
-        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"> 
-        <link href="/bootstrap/css/offcanvas.css" rel="stylesheet"> 
+        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/plugins/animate.css"> 
         <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="/assets/css/app.css">   
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <link rel="stylesheet" href="/assets/css/u-dark-blue.css">
             
             <STYLE>
                 #adcontainer2-16, #adcontainer3-16 {
@@ -38,6 +59,12 @@
                     top: -20px;
                 }
             </STYLE>
+
+        
+        
+
+        
+        
             
     <script type="text/javascript" charset="utf-8">
       (function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
@@ -54,210 +81,106 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-    <div id="browse">
-	<h1 class="pagetitle">Browse All Full and Part-Time Jobs</h1>
-    <h2>By Job Title:</h2>	
-    <div class="letterbox">
-    <a href="job-title.cfm/tl/a">A</a> 
-    <a href="job-title.cfm/tl/a">B</a> 
-    <a href="job-title.cfm/tl/c">C</a> 
-    <a href="job-title.cfm/tl/d">D</a> 
-    <a href="job-title.cfm/tl/e">E</a> 
-    <a href="job-title.cfm/tl/f">F</a> 
-    <a href="job-title.cfm/tl/g">G</a> 
-    <a href="job-title.cfm/tl/h">H</a> 
-    <a href="job-title.cfm/tl/i">I</a> 
-    <a href="job-title.cfm/tl/j">J</a> 
-    <a href="job-title.cfm/tl/k">K</a> 
-    <a href="job-title.cfm/tl/l">L</a> 
-    <a href="job-title.cfm/tl/m">M</a> 
-    <a href="job-title.cfm/tl/n">N</a> 
-    <a href="job-title.cfm/tl/o">O</a> 
-    <a href="job-title.cfm/tl/p">P</a> 
-    <a href="job-title.cfm/tl/q">Q</a> 
-    <a href="job-title.cfm/tl/r">R</a> 
-    <a href="job-title.cfm/tl/s">S</a> 
-    <a href="job-title.cfm/tl/t">T</a> 
-    <a href="job-title.cfm/tl/u">U</a> 
-    <a href="job-title.cfm/tl/v">V</a> 
-    <a href="job-title.cfm/tl/w">W</a>
-    <a href="job-title.cfm/tl/x">X</a> 
-    <a href="job-title.cfm/tl/y">Y</a> 
-    <a href="jobtitle.cfm/tl/z">Z</a> 
-    </div>
-	<div class="browseborder">				
-		<h2>Jobs By Location:</h2>
-				<table width="100%" cellspacing="4" style="margin-bottom:50px;padding:2px;">
-					<tbody><tr>
-						<td><a href="location.cfm/l/AK">Alaska</a></td>
-						<td><a href="location.cfm/l/HI">Hawaii</a></td>
-						<td><a href="location.cfm/l/MI">Michigan</a></td>
-						<td><a href="location.cfm/l/NV">Nevada</a></td>
-						<td><a href="location.cfm/l/UT">Utah</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/AL">Alabama</a></td>
-						<td><a href="location.cfm/l/IO">Iowa</a></td>
-						<td><a href="location.cfm/l/MN">Minnesota</a></td>
-						<td><a href="location.cfm/l/NY">New York</a></td>
-						<td><a href="location.cfm/l/VA">Virginia</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/AR">Arkansas</a></td>
-						<td><a href="location.cfm/l/ID">Idaho</a></td>
-						<td><a href="location.cfm/l/MO">Missouri</a></td>
-						<td><a href="location.cfm/l/OH">Ohio</a></td>
-						<td><a href="location.cfm/l/VT">Vermont</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/AZ">Arizona</a></td>
-						<td><a href="location.cfm/l/IL">Illinois</a></td>
-						<td><a href="location.cfm/l/MS">Mississippi</a></td>
-						<td><a href="location.cfm/l/OK">Oklahoma</a></td>
-						<td><a href="location.cfm/l/WA">Washington</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/CA">California</a></td>
-						<td><a href="location.cfm/l/IN">Indiana</a></td>
-						<td><a href="location.cfm/l/MO">Montana</a></td>
-						<td><a href="location.cfm/l/OR">Oregon</a></td>
-						<td><a href="location.cfm/l/WI">Wisconsin</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/CO">Colorado</a></td>
-						<td><a href="location.cfm/l/KS">Kansas</a></td>
-						<td><a href="location.cfm/l/NC">North Carolina</a></td>
-						<td><a href="location.cfm/l/PA">Pennsylvania</a></td>
-						<td><a href="location.cfm/l/WV">West Virginia</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/CT">Connecticut</a></td>
-						<td><a href="location.cfm/l/KY">Kentucky</a></td>
-						<td><a href="location.cfm/l/ND">North Dakota</a></td>
-						<td><a href="location.cfm/l/RI">Rhode Island</a></td>
-						<td><a href="location.cfm/l/WY">Wyoming</a></td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/DC">District of Columbia</a></td>
-						<td><a href="location.cfm/l/LA">Louisiana</a></td>
-						<td><a href="location.cfm/l/NE">Nebraska</a></td>
-						<td><a href="location.cfm/l/SC">South Carolina</a></td>
-						<td>&nbsp;</td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/DE">Delaware</a></td>
-						<td><a href="location.cfm/l/MA">Massachusetts</a></td>
-						<td><a href="location.cfm/l/NH">New Hampshire</a></td>
-						<td><a href="location.cfm/l/SD">South Dakota</a></td>
 
-						<td>&nbsp;</td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/FL">Florida</a></td>
-						<td><a href="location.cfm/l/MD">Maryland</a></td>
-						<td><a href="location.cfm/l/NJ">New Jersey</a></td>
-						<td><a href="location.cfm/l/TN">Tennessee</a></td>
-						<td>&nbsp;</td>
-					</tr>
-				
-					<tr>
-						<td><a href="location.cfm/l/GA">Georgia</a></td>
-						<td><a href="location.cfm/l/ME">Maine</a></td>
-						<td><a href="location.cfm/l/NM">New Mexico</a></td>
-						<td><a href="location.cfm/l/TX">Texas</a></td>
-						<td>&nbsp;</td>
-					</tr>
-					</tbody>
-				</table>
-	</div>
-	<div class="browseborder">
-    			<h2>Jobs By Category:</h2>
-				<table id="categories" width="100%" cellspacing="4" style="margin-bottom:50px;padding:2px;">
-					<tbody><tr>
-						<td><a href="/jobs/index.cfm/kw/Accounting Finance">Accounting/Finance</a></td>
-						<td><a href="/jobs/index.cfm/kw/Healthcare">Healthcare</a></td>
-						<td><a href="/jobs/index.cfm/kw/Volunteer">Non-Profit/Volunteering</a></td>
-						
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Administrative">Administrative</a></td>
-						<td><a href="/jobs/index.cfm/kw/computer">Computer</a></td>
-						<td><a href="/jobs/index.cfm/kw/internet">Internet</a></td>
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Arts">Arts</a></td>
-						<td><a href="/jobs/index.cfm/kw/Entertainment">Entertainment</a></td>
-						<td><a href="/jobs/index.cfm/kw/publishing">Publishing</a></td>	
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/hospitality">Hospitality</a></td>
-						<td><a href="/jobs/index.cfm/kw/travel">Travel</a></td>
-						<td><a href="/jobs/index.cfm/kw/cruise">Cruise Lines</a></td>	
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Banking">Banking</a></td>
-						<td><a href="/jobs/index.cfm/kw/HR+Human+Resources">Human Resources</a></td>
-						<td><a href="/jobs/index.cfm/kw/Restaurant">Restaurant/Food Service</a></td>	
-					</tr>
-					<td><a href="/jobs/index.cfm/kw/Restaurant">Restaurant</a></td>
-					<td><a href="/jobs/index.cfm/kw/Food+Service">Food Service</a></td>
-					<td><a href="/jobs/index.cfm/kw/Chef">Chef</a></td>
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Construction%2FFacilities">Construction/Facilities</a></td>
-						<td><a href="/jobs/index.cfm/kw/Insurance">Insurance</a></td>
-						<td><a href="/jobs/index.cfm/kw/Retail">Retail</a></td>
-						
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Customer+Service">Customer Service</a></td>
-						<td><a href="/jobs/index.cfm/kw/Law+Enforcement%2FSecurity">Law Enforcement/Security</a></td>
-						<td><a href="/jobs/index.cfm/kw/Sales">Sales</a></td>
-						
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Education">Education/Training</a></td>
-						<td><a href="/jobs/index.cfm/kw/Legal">Legal</a></td>
-						<td><a href="/jobs/index.cfm/kw/Telecommunications">Telecommunications</a></td>
-						
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Engineering%2FArchitecture">Engineering/Architecture</a></td>
-						<td><a href="/jobs/index.cfm/kw/Manufacturing%2FMechanical">Manufacturing/Mechanical</a></td>
-						<td><a href="/jobs/index.cfm/kw/Transportation%2FLogistics">Transportation/Logistics</a></td>
-						
-					</tr>
-					
-					<tr>
-						<td><a href="/jobs/index.cfm/kw/Government+Military">Government/Military</a></td>
-						<td><a href="/jobs/index.cfm/kw/Marketing+Advertising">Marketing/Advertising/PR</a></td>
-						<td><a href="/jobs/index.cfm/kw/Senior+Management">Senior Management/Consulting</a></td>	
-					</tr>
-				</tbody>
-                </table>
-				</div>
-		</div>
+            <div class="tab-v1">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Jobs By Location</a></li>
+                    <li class=""><a href="#byTitle" data-toggle="tab" aria-expanded="false">Jobs By Job Title</a></li>
+                    <li class=""><a href="#bycategory" data-toggle="tab" aria-expanded="false">Jobs By Category</a></li>
+                    <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="home">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>Jobs By Location:</h2>
+                                <cfinclude template="../partials/browse-jobs-bylocation.cfm">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="byTitle">
+                        <h2>By Job Title:</h2>	
+                        <div class="row">
+                        <div class="col-xs-4 grid x-noPR"> 
+                        <a href="job-title.cfm/tl/a"><button class="btn-primary">A</button></a> 
+                        <a href="job-title.cfm/tl/a"><button class="btn-primary">B</button></a> 
+                        <a href="job-title.cfm/tl/c"><button class="btn-primary">C</button></a> 
+                        <a href="job-title.cfm/tl/d"><button class="btn-primary">D</button></a> 
+                        <a href="job-title.cfm/tl/e"><button class="btn-primary">E</button></a>
+                        <a href="job-title.cfm/tl/f"><button class="btn-primary">F</button></a> 
+                        <a href="job-title.cfm/tl/g"><button class="btn-primary">G</button></a> 
+                        <a href="job-title.cfm/tl/h"><button class="btn-primary">H</button></a> 
+                        <a href="job-title.cfm/tl/i"><button class="btn-primary">I</button></a> 
+                        </div>
+                        <div class="col-xs-4 grid x-noPR"> 
+                        <a href="job-title.cfm/tl/j"><button class="btn-primary">J</button></a> 
+                        <a href="job-title.cfm/tl/k"><button class="btn-primary">K</button></a> 
+                        <a href="job-title.cfm/tl/l"><button class="btn-primary">L</button></a> 
+                        <a href="job-title.cfm/tl/m"><button class="btn-primary">M</button></a> 
+                        <a href="job-title.cfm/tl/n"><button class="btn-primary">N</button></a> 
+                        <a href="job-title.cfm/tl/o"><button class="btn-primary">O</button></a> 
+                        <a href="job-title.cfm/tl/p"><button class="btn-primary">P</button></a> 
+                        <a href="job-title.cfm/tl/q"><button class="btn-primary">Q</button></a> 
+                        <a href="job-title.cfm/tl/r"><button class="btn-primary">R</button></a> 
+                        </div>
+                        <div class="col-xs-4 grid  x-noPR"> 
+                        <a href="job-title.cfm/tl/s"><button class="btn-primary">S</button></a> 
+                        <a href="job-title.cfm/tl/t"><button class="btn-primary">T</button></a> 
+                        <a href="job-title.cfm/tl/u"><button class="btn-primary">U</button></a> 
+                        <a href="job-title.cfm/tl/v"><button class="btn-primary">V</button></a> 
+                        <a href="job-title.cfm/tl/w"><button class="btn-primary">W</button></a>
+                        <a href="job-title.cfm/tl/x"><button class="btn-primary">X</button></a> 
+                        <a href="job-title.cfm/tl/y"><button class="btn-primary">Y</button></a> 
+                        <a href="jobtitle.cfm/tl/z"><button class="btn-primary">Z</button></a> 
+                        </div>
+                        </div>
+
+                        <div class="row x-PT20">
+                            <div class="col-xs-12 x-titles">
+                                <cfoutput query="gettitles">
+                                    <a class="x-title-item col-xs-6 col-sm-4 col-md-4 col-lg-3" href="/jobs/?kw=#jobtitle#">
+                                        <button class="btn-u btn-u-default">#jobtitle#</button>
+                                    </a>
+                                </cfoutput>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="bycategory">
+                    <h2>Jobs By Category:</h2>
+
+                            <style>
+                                .col {
+                                    float:left;
+                                    border:0px solid black;
+                                    margin: 0 15px;
+                                    padding: 5px;
+                                    width: calc(100% / 3 - 45px);
+                                    white-space: nowrap;
+                                    min-width: 200px;
+                                    min-height: 1px;
+                                }
+                            </style>
+                        
+                    <cfquery name="categories"  datasource="#request.dsn#">
+                        select category from categories order by category asc
+                    </cfquery>
+                    <cfoutput query="categories">
+                        <div class ="col"><a href="../jobs/?kw=#category#">#category#</a></div>
+                    </cfoutput>
+                        
     
+                    </div>
+                </div>
+                      
+                    
             </div>
         </div>
-    </div>
-</section>    
-    
+    </div>  
+</section>
 <cfinclude template="../partials/footer.cfm" />
     
 <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>         
@@ -272,11 +195,15 @@
         App.init();
 
         // replace spaces with +
-        $("#x_filters a").each(function() {
+        $(".tab-content a").each(function() {
             var text = $(this).attr('href')
             text = text.replace(/ /g, "+");
             $(this).prop('href',text);
         });
+        
+        var hash = window.location.hash;
+        $('ul.nav a[href="' + hash + '"]').tab('show');
+        
     });
 </script>    
     <!--[if lt IE 9]>
