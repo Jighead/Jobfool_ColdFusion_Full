@@ -19,24 +19,17 @@
     <!--<![endif]-->
     <head>
         <title>Job Search</title>
-        <!--- Meta --->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <!--- Favicon --->
         <link rel="shortcut icon" href="favicon.ico">
-        <!--- Web Fonts --->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
-        <!--- CSS Global Compulsory --->
         <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-        <link href="bootstrap/css/offcanvas.css" rel="stylesheet">
+        <link rel="stylesheet" href="bootstrap/css/offcanvas.css">
         <link href="assets/css/grid-ms.css" rel="stylesheet">
-        <!--- all Styles --->
-        
         <link rel="stylesheet" href="assets/css/app.css">
-        <link rel="stylesheet" href="assets/css/u-dark-blue.css">
-        <!--- CSS Implementing Plugins --->
+        <!--<link rel="stylesheet" href="assets/css/u-dark-blue.css">-->
         <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
         <link rel="stylesheet" href="assets/plugins/animate.css">
@@ -50,15 +43,7 @@
                 background-color: rgba(255, 72, 111, 0.24);
             }
             
-            /* fix for chrome autocomplete input color */
-            input:-webkit-autofill,
-            input:-webkit-autofill:hover,
-            input:-webkit-autofill:focus,
-            input:-webkit-autofill:active {
-                transition: background-color 5000s ease-in-out 0s;
-                color: #FFF !important;
-                -webkit-text-fill-color: #fff;
-            }
+
             
             x-listbox {
                 width: 80%;
@@ -92,7 +77,7 @@
                                 <div class="col-xs-12 homelogo">
                                     <a class="x-homelink" href="/">
                                         <div class="x-text-logo">
-                                            <h1><span class="x-job">JOB</span><span class="x-fool">FOOL</span></h1>
+                                            <h1 title="Job Search"><span class="x-job">JOB</span><span class="x-fool">FOOL</span></h1>
                                         </div>
                                     </a>
                                 </div>
@@ -170,7 +155,7 @@
             <!--- End Interactive Slider v2 --->
             <section class="bg-color-light">
             <div class="container">
-            <div class="row service-box-v1">
+            <div class="row service-box-v1 wow fadeInUp animated">
                 <div class="col-md-4 col-sm-6 md-margin-bottom-40">
 					<div class="service-block service-block-default no-margin-bottom">
 						<i class="icon-lg rounded-x icon icon-badge"></i>
@@ -239,15 +224,15 @@
                         </div>   
                     </div>
                 </div>
-            </div>
-            <!--- /end container --->
+            </div><!--- /end container --->
             <!--- === Subscribe Form === --->
+    
             <!--- === Hire Block === --->
             <div class="x-hire bg-color-light hidden-xs hidden-">
-                <div class="container content-sm wow animated fadeInUp">
+                <div class="container content-sm">
                     
                     <!---<img class="img-responsive img-center" src="assets/img/map-img-v1.png" alt="">--->
-                <ul class="list-inline our-clients" id="effect-2">
+                <ul class="list-inline our-clients wow fadeInUp animated" id="effect-2">
 				<li>
 					<figure>
 						<img src="assets/img/clients2/ea-canada.png" alt="Ea Canada">
@@ -396,45 +381,36 @@
             </div>
         </div>
         <!--- === End Hire Block === --->
-    
-    
-        <!---==== recent queries section ===== --->
-        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,0,30)#">
-            SELECT TOP 200 [keyword],[location]  
-            FROM [thejobfool].[dbo].[RecentQueries]
-            order by datetime desc
-        </cfquery>
-    
-  
+
+                <cfsilent>
         <!---==== recent queries section ===== --->
         <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,0,0)#">
             SELECT TOP 200 [keyword],[location]  
             FROM [thejobfool].[dbo].[RecentQueries]
             order by datetime desc
         </cfquery>
-    
-        <section>
-            <div id="recentqueries"class="container mobile-hidden">
-
+        </cfsilent>
+  
+        <div class="container">
+            <div class="row">
+                <div id="recentqueries" class="mobile-hidden">
                 <cfoutput query="data">
-                        <a class="small" href="/jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">#lcase(keyword)#</a>
+                    <a class="small" href="/jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">#lcase(keyword)#</a>
                 </cfoutput>
+                </div>
             </div>
-       </section>
-    
-    
-    
-        
-    
+        </div>
+
+
         <cfinclude template="partials/footer.cfm">
-            
 
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>-->
+        <script src="assets/plugins/jquery/jquery223.min.js"></script>
         <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
-        <script src="/assets/plugins/jquery/jquery.validate.js"></script>"></script>
+        <script src="assets/plugins/jquery/additional-methods.js"></script>
+        <script src="assets/plugins/jquery/jquery.validate.js"></script>"></script>
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
         <script src="assets/plugins/back-to-top.js"></script>
@@ -455,6 +431,7 @@
             new WOW().init();
             App.initCounter();
             App.initParallaxBg(); 
+            
             // search form placeholder fix
             $('input').focus(function(){
                $(this).data('placeholder',$(this).attr('placeholder'))
@@ -500,15 +477,6 @@
           e.preventDefault();
         });
       
-
-      
-        <!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php 
-        eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('$("#3").s(2(e){e.r();$.q({o:"t",u:"y",x:"/w/v.n",l:$(j).m()}).k(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>i! d\'f h g.</0><p>z J b N 3, M L b a P A 4 T S.</p></1>")}).Q(2(){$(\'#c\').7("<1 8=\'6-9-5\'><0>O K 4 D.</0><p>C a 3 B E F I H.</p></1>")});G R});',56,56,'h2|div|function|alert|the|12|col|html|class|xs|email|your|emailform|You||re|Done|almost|Sweet|this|done|data|serialize|cfm|type||ajax|preventDefault|submit|POST|dataType|addalert|controller|url|json|To|click|sytems|The|Inconvenience|in|under|return|maintenance|going|activate|for|check|please|job|Sorry|and|fail|false|link|confirmation'.split('|'),0,{}))    
-        --->
-            
-            
-            
-
         </script>
         <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>

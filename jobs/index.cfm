@@ -53,7 +53,7 @@
         <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
         <link rel="stylesheet" href="/assets/css/app.css">   
-        <link rel="stylesheet" href="/assets/css/u-dark-blue.css">    
+        <!--<link rel="stylesheet" href="/assets/css/u-dark-blue.css">-->    
             <STYLE>
                 #adcontainer2-16, #adcontainer3-16 {
                     /*overflow:hidden;*/
@@ -228,6 +228,15 @@
                 });
             
             $(".sfblAd").css("display","none");
+            
+            // search form placeholder fix
+            $('input').focus(function(){
+               $(this).data('placeholder',$(this).attr('placeholder'))
+                   .attr('placeholder','');
+            }).blur(function(){
+               $(this).attr('placeholder',$(this).data('placeholder'));
+            });
+            
         });
             
       

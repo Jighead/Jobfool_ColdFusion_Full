@@ -30,14 +30,16 @@
         <!-- START PRIVACY POLICY CODE -->
         <h1>Privacy Policy</h1>
         <h4>Last Updated: May 9, 2016</h4>
-        <p>Protecting your private information is our priority. This Statement of Privacy applies to the thejobfool.com and JobFool LLC. and governs data collection and usage. For the purposes of this Privacy Policy, unless otherwise noted, all references to JobFool LLC. include thejobfool.com and subsidiary. The JobFool LLC. website is a job search site. By using the JobFool LLC. website, you consent to the data practices described in this statement.</p>
+        <p>This Statement of Privacy applies to the thejobfool.com and JobFool LLC. and governs data collection and usage. For the purposes of this Privacy Policy, unless otherwise noted, all references to JobFool LLC. include thejobfool.com and subsidiary. The JobFool LLC. website is a job search site. By using the JobFool LLC. website, you consent to the data practices described in this statement.</p>
 
         <h4>Collection of your Personal Information</h4>
         <p>JobFool LLC. may collect personally identifiable information, such as your name and address when applicable. Please read this Policy carefully before providing us with any information. Information about your computer hardware and software may be automatically collected by JobFool LLC.. This information can include: your IP address, browser type, domain names, access times and referring website addresses. This information is used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use of the JobFool LLC. website.
-        We may also collect information from you when you register on our site, place an order, respond to a survey or fill out a form.  <br /><br />When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address, phone number or credit card information.  If you purchase JobFool LLC.'s products and services, we collect billing and credit card information. This information is used to complete the purchase transaction. JobFool LLC. may also collect anonymous demographic information, which is not unique to you, such as your age, gender and geographic location. We may gather additional personal or non-personal information in the future.</p>
+        We may also collect information from you when you register on our site, place an order, respond to a survey or fill out a form.  <!---<br />When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address, phone number or credit card information.  If you purchase JobFool LLC.'s products and services, we collect billing and credit card information. This information is used to complete the purchase transaction.---> JobFool LLC. may also collect anonymous demographic information, which is not unique to you, such as your age, gender and geographic location. <!--- We may gather additional personal or non-personal information in the future.---></p>
 
         <p>Please keep in mind that if you directly disclose personally identifiable information or personally sensitive data through JobFool LLC.'s public resume tools and database(s), this information may be collected and used by others.</p>
-
+        
+        <h4>Resumes</h4>
+        <p>As a career site, the Job Fool gives you the option of putting your resume in our database, which gives all parties with access to our resume database (or copies thereof) access to your resume. We attempt to limit access to our resume database (or copies thereof) only to paying employers, recruiters, hiring managers, and human resource professionals, as well as law enforcement and national security agencies, but cannot guarantee that other parties will not gain access to this database. We are not responsible for the use made of resumes by third parties who access such resumes while they are in our database. You may remove your resume from our database at any time. However, employers, recruiters and others who have paid for access to that database or to obtain a copy of that database, as well as parties who have otherwise gained access to the database, may have retained a copy of your resume in their own files or databases. We are not responsible for the retention, use or privacy of resumes in these instances. As such, we strongly recommend you do not submit resumes with addresses or phone numbers if you do not feel comfortable sharing this information with the general public.</p>
 
         <h4>What do we use your information for?</h4>
         <p>Any of the information we collect from you may be used in one of the following ways:</p>
@@ -50,11 +52,11 @@
         </ul>
 
         <p>Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
-          <h4>How do we protect your information?</h4>
+         <!-- <h4>How do we protect your information?</h4>
           <p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information.</p>
           <p>We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our Payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to?keep the information confidential.</p>
-          <p>After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>
-          <h4>Do we use cookies?</h4>
+          <p>After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>-->
+        <h4>Do we use cookies?</h4>
         <p>Yes, a cookie is a snippet of text that is sent from a website’s servers and stored on your computers hard drive through your Web browser (if you allow) that enables the sites or service systems to recognize your browser and capture and remember certain information.
         Like most websites and search engines, The Job Fool uses cookies in order to provide a better user experience and to serve relevant search results. We may occasionally contract with third-party service providers to assist us in better understanding our visitors trends. These service providers are not permitted to use the information collected on our behalf except to help us conduct and improve our business.</p>
 
@@ -67,7 +69,7 @@
 
         <p>JobFool LLC. may also use your personally identifiable information to inform you of other products or services available from JobFool LLC. and its affiliates. JobFool LLC. may also contact you via surveys to conduct research about your opinion of current services or of potential new services that may be offered.</p>
 
-        <p>JobFool LLC. may sell, rent, or lease customer information to third parties for the following reasons: Access to your resume / cv specifically for the purpose of possible employment.</p>
+        <p>JobFool LLC. may sell, rent, or lease customer information to third parties for the following reasons: Access to your resume / cv specifically for the purpose of possible employment.</p>
 
         <p>JobFool LLC. may share data with trusted partners to help perform statistical analysis, send you email or postal mail, provide customer support, or arrange for deliveries. All such third parties are prohibited from using your personal information except to provide these services to JobFool LLC., and they are required to maintain the confidentiality of your information.</p>
 

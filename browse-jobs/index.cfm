@@ -87,13 +87,11 @@
                     <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Jobs By Location</a></li>
                     <li class=""><a href="#byTitle" data-toggle="tab" aria-expanded="false">Jobs By Job Title</a></li>
                     <li class=""><a href="#bycategory" data-toggle="tab" aria-expanded="false">Jobs By Category</a></li>
-                    <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Settings</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade active in" id="home">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h2>Jobs By Location:</h2>
                                 <cfinclude template="../partials/browse-jobs-bylocation.cfm">
                             </div>
                         </div>
@@ -101,7 +99,6 @@
 
 
                     <div class="tab-pane fade" id="byTitle">
-                        <h2>By Job Title:</h2>	
                         <div class="row">
                         <div class="col-xs-4 grid x-noPR"> 
                         <a href="job-title.cfm/tl/a"><button class="btn-primary">A</button></a> 
@@ -150,21 +147,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="bycategory">
-                    <h2>Jobs By Category:</h2>
-
-                            <style>
-                                .col {
-                                    float:left;
-                                    border:0px solid black;
-                                    margin: 0 15px;
-                                    padding: 5px;
-                                    width: calc(100% / 3 - 45px);
-                                    white-space: nowrap;
-                                    min-width: 200px;
-                                    min-height: 1px;
-                                }
-                            </style>
-                        
+                    
                     <cfquery name="categories"  datasource="#request.dsn#">
                         select category from categories order by category asc
                     </cfquery>

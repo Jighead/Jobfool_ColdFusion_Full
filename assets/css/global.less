@@ -7,6 +7,7 @@ body {
     height:1px;
     padding:0;
     margin:0;
+    overflow: hidden;
 }
 a {
    color: @jfBlue;
@@ -51,6 +52,16 @@ a {
 
 .mobile-hidden {
         visibility: visible;
+}
+
+/* fix for chrome autocomplete input color */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        color: #333 !important;
+        -webkit-text-fill-color: #333;
 }
 
 /* Small Devices, Tablets */

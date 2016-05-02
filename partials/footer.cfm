@@ -45,22 +45,22 @@
                 <div class="copyright">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8 sm-margon-bottom-10">
+                            <div class="col-xs-12 sm-margin-bottom-10 text-center">
                                 <ul class="list-inline terms-menu">
                                     <li class="silver">Copyright &copy; 2016 All Rights Reserved</li>
                                     <li><a href="/privacy/">Privacy Policy - Terms of Use</a></li>
                                     <li><a href="/about/">About Us</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-4">
-                                <ul class="list-inline dark-social pull-right space-bottom-0">
+                            <div class="col-xs-12 text-center">
+                                <ul class="list-inline dark-social space-bottom-0">
                                     <li>
                                         <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
                                     </li>
                                     <li>
                                         <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
                                     </li>
-                                    <li>
+                                    <!--<li>
                                         <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Vine" href="#"><i class="fa fa-vine"></i></a>
                                     </li>
                                     <li>
@@ -80,7 +80,7 @@
                                     </li>
                                     <li>
                                         <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Soundcloud" href="#"><i class="fa fa-soundcloud"></i></a>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>

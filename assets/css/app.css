@@ -13013,53 +13013,64 @@ body {
   height: 1px;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
-/* line 11, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 12, C:\Apache24\htdocs\jf16\assets\css\global.less */
 a {
   color: #36567d;
   text-decoration: none;
 }
-/* line 16, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 17, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .fa {
   color: #36567d;
 }
-/* line 20, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 21, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .form-control {
   border-radius: 5px;
 }
-/* line 24, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 25, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn {
   border-radius: 5px;
 }
-/* line 28, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 29, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn-primary {
   color: #fff;
   background-color: #36567d;
   border-color: #DDD;
 }
-/* line 34, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 35, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .btn-primary:hover,
 .btn-primary:focus {
   color: #fff;
   background-color: #36567d;
   border-color: #FFF;
 }
-/* line 40, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 41, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .x-search-btn {
   min-width: 100px;
 }
-/* line 45, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 46, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .privacy-wrapper h4 {
   color: #36567d;
   font-weight: 600;
 }
-/* line 52, C:\Apache24\htdocs\jf16\assets\css\global.less */
+/* line 53, C:\Apache24\htdocs\jf16\assets\css\global.less */
 .mobile-hidden {
   visibility: visible;
 }
+/* fix for chrome autocomplete input color */
+/* line 58, C:\Apache24\htdocs\jf16\assets\css\global.less */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  color: #333 !important;
+  -webkit-text-fill-color: #333;
+}
 /* Small Devices, Tablets */
 @media only screen and (min-width: 480px) {
-  /* line 58, C:\Apache24\htdocs\jf16\assets\css\global.less */
+  /* line 69, C:\Apache24\htdocs\jf16\assets\css\global.less */
   .mobile-hidden {
     visibility: hidden;
   }
@@ -13817,7 +13828,22 @@ h1.x-jobtitle {
   width: 38px;
   height: 42px;
 }
-/* line 8, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 7, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.tab-v1 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+/* line 11, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.col {
+  float: left;
+  margin: 0 15px;
+  padding: 5px;
+  width: calc(-11.666666666666664%);
+  white-space: nowrap;
+  min-width: 200px;
+  min-height: 1px;
+}
+/* line 20, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 .x-title-item {
   display: inline-block;
   font-size: 16px;
@@ -13828,13 +13854,13 @@ h1.x-jobtitle {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 22, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 34, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 #byTitle button {
   margin: 4px 0px;
   width: 95%;
   border-radius: 5px;
 }
-/* line 29, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 41, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 .x-title-item .fa {
   float: left;
 }
@@ -13972,4 +13998,1749 @@ footer {
 /* line 85, C:\Apache24\htdocs\jf16\assets\css\comp-footer.less */
 .x-subfooter {
   padding: 10px 0 5px 0;
+}
+/*
+* Version: 1.8
+* Dark Blue Color: #4765a0;
+* Dark Blue Hover Color: #324c80;
+* Additional color: #cad9f6;
+* rgba(71, 101, 160, 1);
+*/
+/* line 13, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+a {
+  color: #5b81cc;
+}
+/* line 16, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+a:focus,
+a:hover,
+a:active {
+  color: #5b81cc;
+}
+/* line 21, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.color-green {
+  color: #5b81cc;
+}
+/* line 24, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+a.read-more:hover {
+  color: #5b81cc;
+}
+/* line 27, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.linked:hover {
+  color: #5b81cc;
+}
+/* Headers Default
+------------------------------------*/
+/* line 33, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-nav > .active > a {
+  color: #5b81cc;
+}
+/* line 36, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-nav > .active > a {
+  border-color: #5b81cc;
+}
+/* line 39, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .dropdown-menu {
+  border-top: solid 2px #5b81cc;
+}
+/* line 42, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-nav > li:hover > a {
+  color: #36567d;
+}
+/* line 45, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .nav > li > .search:hover {
+  border-bottom-color: #36567d;
+  color: #36567d;
+}
+/* line 49, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-nav > li > a:hover,
+.header .navbar-nav > .active > a {
+  border-bottom-color: #5b81cc;
+}
+/* line 53, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-toggle {
+  border-color: #36567d;
+}
+/* line 56, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-toggle,
+.header .navbar-toggle:hover,
+.header .navbar-toggle:focus {
+  background: #5b81cc;
+}
+/* line 61, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-toggle:hover {
+  background: #36567d !important;
+}
+/* line 64, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header .navbar-nav > .open > a,
+.header .navbar-nav > .open > a:hover,
+.header .navbar-nav > .open > a:focus {
+  color: #5b81cc;
+}
+/* Design for max-width: 991px */
+@media (max-width: 991px) {
+  /* line 72, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header .navbar-nav > .active > a,
+  .header .navbar-nav > .active > a:hover,
+  .header .navbar-nav > .active > a:focus {
+    background: #5b81cc;
+    color: #fff !important;
+  }
+  /* line 78, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header .navbar-nav > .active > a {
+    border-color: #eee;
+  }
+  /* line 81, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header .nav > li > .search:hover {
+    background: #5b81cc;
+  }
+}
+/* Headers v1
+------------------------------------*/
+/*Fix hover color for the little icons v1.9*/
+/* line 89, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .topbar-v1 .top-v1-data li a:hover i {
+  color: #5b81cc;
+}
+/* line 93, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar-default .navbar-nav > .active > a,
+.header-v1 .navbar-default .navbar-nav > li > a:hover,
+.header-v1 .navbar-default .navbar-nav > li > a:focus {
+  color: #5b81cc;
+}
+/* line 98, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .dropdown-menu {
+  border-color: #5b81cc;
+}
+/* line 101, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar-default .navbar-nav > li:hover > a {
+  color: #5b81cc;
+}
+/* line 104, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar .nav > li > .search:hover {
+  color: #5b81cc;
+}
+/* line 107, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar .nav > li > .search:hover {
+  color: #5b81cc;
+}
+/* line 110, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar-default .navbar-toggle {
+  border-color: #36567d;
+}
+/* line 113, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar-toggle,
+.header-v1 .navbar-default .navbar-toggle:hover,
+.header-v1 .navbar-default .navbar-toggle:focus {
+  background: #5b81cc;
+}
+/* line 118, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v1 .navbar-toggle:hover {
+  background: #36567d !important;
+}
+/* Design for max-width: 991px */
+@media (max-width: 991px) {
+  /* line 124, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v1 .navbar-default .navbar-nav > li:hover > a {
+    border-color: #eee;
+  }
+  /* line 127, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v1 .navbar-default .navbar-nav > .active > a,
+  .header-v1 .navbar-default .navbar-nav > .active > a:hover,
+  .header-v1 .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #5b81cc;
+  }
+  /* line 132, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v1 .navbar-default .navbar-nav > .active > a {
+    border-color: #eee;
+  }
+  /* line 135, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v1 .navbar .nav > li > .search:hover {
+    background-color: #5b81cc;
+  }
+}
+/* Headers v2
+------------------------------------*/
+/* line 142, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v2 .dropdown-menu {
+  border-color: #5b81cc;
+}
+/* line 145, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v2 .navbar-default .navbar-toggle {
+  border-color: #36567d;
+}
+/* line 148, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v2 .navbar-toggle,
+.header-v2 .navbar-default .navbar-toggle:hover,
+.header-v2 .navbar-default .navbar-toggle:focus {
+  background: #5b81cc;
+}
+/* line 153, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v2 .navbar-toggle:hover {
+  background: #36567d !important;
+}
+/* Design for max-width: 991px */
+@media (max-width: 991px) {
+  /* line 159, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v2 .navbar-default .navbar-nav > .active > a,
+  .header-v2 .navbar-default .navbar-nav > .active > a:hover,
+  .header-v2 .navbar-default .navbar-nav > .active > a:focus {
+    background: #5b81cc;
+    color: #fff !important;
+  }
+  /* line 165, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v2 .navbar-default .navbar-nav > li > a:hover {
+    color: #5b81cc;
+  }
+}
+/* Headers v3
+------------------------------------*/
+/* line 172, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar-default .navbar-nav > .active > a {
+  color: #5b81cc;
+}
+/* line 175, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar-default .navbar-nav > li:hover > a {
+  color: #36567d;
+}
+/* line 178, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .dropdown-menu {
+  border-color: #5b81cc;
+}
+/* line 181, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar-default .navbar-toggle {
+  border-color: #36567d;
+}
+/* line 184, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar-toggle,
+.header-v3 .navbar-default .navbar-toggle:hover,
+.header-v3 .navbar-default .navbar-toggle:focus {
+  background: #5b81cc;
+}
+/* line 189, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar-toggle:hover {
+  background: #36567d !important;
+}
+/* line 192, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v3 .navbar .nav > li > .search:hover {
+  background: inherit;
+  color: #5b81cc;
+}
+/* Design for max-width: 991px */
+@media (max-width: 991px) {
+  /* line 200, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v3 .navbar-default .navbar-nav > .active > a,
+  .header-v3 .navbar-default .navbar-nav > .active > a:hover,
+  .header-v3 .navbar-default .navbar-nav > .active > a:focus {
+    background: #5b81cc;
+    color: #fff !important;
+  }
+  /* line 206, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v3 .navbar-default .navbar-nav > .active > a {
+    border-color: #eee;
+  }
+  /* line 209, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v3 .navbar .nav > li > .search:hover {
+    background: #5b81cc;
+  }
+}
+/* Headers v4
+------------------------------------*/
+/*Fix hover color for the little icons v1.9*/
+/* line 217, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.topbar-v1 .top-v1-data li a:hover i {
+  color: #5b81cc;
+}
+/* line 220, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v4 .navbar-default .navbar-nav > li > a:hover,
+.header-v4 .navbar-default .navbar-nav > .active > a {
+  border-color: #5b81cc;
+}
+/* line 224, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v4 .navbar-default .navbar-nav > .active > a {
+  color: #5b81cc;
+}
+/* line 227, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v4 .navbar-default .navbar-nav > li:hover > a {
+  border-color: #5b81cc;
+  color: #36567d;
+}
+/* line 231, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v4 .navbar .nav > li > .search:hover {
+  color: #5b81cc;
+}
+/* line 234, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v4 .navbar-default .navbar-nav > .open > a,
+.header-v4 .navbar-default .navbar-nav > .open > a:hover,
+.header-v4 .navbar-default .navbar-nav > .open > a:focus {
+  color: #5b81cc;
+}
+/* Design for max-width: 991px */
+@media (max-width: 991px) {
+  /* line 242, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v4 .navbar-default .navbar-nav > li:hover > a {
+    border-color: #eee;
+  }
+  /* line 245, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v4 .navbar-default .navbar-nav > .active > a,
+  .header-v4 .navbar-default .navbar-nav > .active > a:hover,
+  .header-v4 .navbar-default .navbar-nav > .active > a:focus {
+    color: #5b81cc !important;
+  }
+  /* line 250, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v4 .navbar-default .navbar-nav > .active > a {
+    border-color: #eee;
+  }
+  /* line 253, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v4 .navbar .nav > li > .search:hover {
+    background: #5b81cc;
+  }
+}
+/* Headers v5
+------------------------------------*/
+/*bug fixed v1.9*/
+@media (min-width: 992px) {
+  /* line 262, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v5 .navbar-default .navbar-nav > li > a:hover,
+  .header-v5 .navbar-default .navbar-nav > .active > a {
+    border-top: 2px solid #5b81cc;
+  }
+}
+/* line 267, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .navbar-default .navbar-nav > .active > a {
+  color: #5b81cc;
+}
+/* line 270, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .navbar-default .navbar-nav > li:hover > a {
+  color: #5b81cc;
+}
+/* line 273, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .navbar-default .navbar-nav > .open > a,
+.header-v5 .navbar-default .navbar-nav > .open > a:hover,
+.header-v5 .navbar-default .navbar-nav > .open > a:focus {
+  color: #5b81cc;
+}
+/* line 278, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .dropdown-menu li > a:hover {
+  background: #5b81cc;
+}
+/* line 281, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .dropdown-menu .active > a,
+.header-v5 .dropdown-menu li > a:hover {
+  background: #5b81cc;
+}
+/* line 285, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .dropdown-menu {
+  border-color: #5b81cc;
+}
+/* line 288, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .dropdown-menu li.dropdown-submenu:hover > a {
+  background: #5b81cc;
+}
+/* line 291, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .dropdown-menu .style-list li > a:hover {
+  background: none;
+}
+/* line 294, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .style-list li a:hover {
+  color: #5b81cc;
+}
+/*bug fixed v1.9*/
+/* line 299, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .subtotal .subtotal-cost {
+  color: #5b81cc;
+}
+/*bug fixed v1.9*/
+@media (max-width: 991px) {
+  /*Responsive code for max-width: 991px*/
+  /* line 306, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v5 .navbar-default .navbar-nav > .active > a,
+  .header-v5 .navbar-default .navbar-nav > .active > a:hover,
+  .header-v5 .navbar-default .navbar-nav > .active > a:focus {
+    background: #5b81cc !important;
+  }
+}
+/* Shopping cart
+------------------------------------*/
+/*Keeping the cart gray v1.9*/
+/*.header-v5 .shop-badge.badge-icons i {
+  color: @defaultcolor;
+}*/
+/* line 319, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .shop-badge span.badge-sea {
+  background: #5b81cc;
+}
+/* line 322, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v5 .badge-open {
+  border-top: 2px solid #5b81cc;
+  box-shadow: 0 5px 5px 0 rgba(71, 101, 160, 0.075);
+}
+/* Header v6
+------------------------------------*/
+/* Search */
+/* line 330, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v6 .shopping-cart .shopping-cart-open {
+  border-top-color: #5b81cc !important;
+}
+/* line 333, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v6 li.menu-icons span.badge {
+  background: #5b81cc;
+}
+/* Dropdown Menu */
+/* line 337, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v6 .dropdown-menu {
+  border-top-color: #5b81cc;
+}
+/* Media Queries */
+@media (max-width: 991px) {
+  /* Navbar Nav */
+  /* line 344, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .navbar-nav > .active > a,
+  .header-v6 .navbar-nav > .active > a:hover,
+  .header-v6 .navbar-nav > .active > a:focus {
+    color: #5b81cc !important;
+  }
+  /* line 349, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .nav .open > a,
+  .header-v6 .nav .open > a:hover,
+  .header-v6 .nav .open > a:focus {
+    border-color: #eee;
+  }
+  /* line 354, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .navbar-nav > li > a:hover,
+  .header-v6 .navbar-nav .open .dropdown-menu > li > a:hover,
+  .header-v6 .navbar-nav .open .dropdown-menu > li > a:focus,
+  .header-v6 .navbar-nav .open .dropdown-menu > .active > a,
+  .header-v6 .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .header-v6 .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #5b81cc !important;
+  }
+  /* line 362, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .mega-menu .equal-height-list li a:hover {
+    color: #5b81cc !important;
+  }
+  /* Classic Dark */
+  /* line 367, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .mega-menu .equal-height-list li a:hover {
+    color: #5b81cc;
+  }
+  /* Dark Responsive Navbar */
+  /* line 372, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6.header-dark-res-nav .navbar-nav > li a:hover,
+  .header-v6.header-dark-res-nav .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #5b81cc;
+  }
+  /* line 376, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6.header-dark-res-nav .nav .open > a,
+  .header-v6.header-dark-res-nav .nav .open > a:hover,
+  .header-v6.header-dark-res-nav .nav .open > a:focus {
+    border-color: #555;
+  }
+}
+@media (min-width: 992px) {
+  /* Default Style */
+  /* line 385, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-fixed .header-v6.header-fixed-shrink .navbar-nav .active > a,
+  .header-fixed .header-v6.header-fixed-shrink .navbar-nav li > a:hover {
+    color: #5b81cc !important;
+  }
+  /* line 389, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6 .dropdown-menu .active > a,
+  .header-v6 .dropdown-menu li > a:hover,
+  .header-fixed .header-v6.header-fixed-shrink .dropdown-menu .active > a,
+  .header-fixed .header-v6.header-fixed-shrink .dropdown-menu li > a:hover {
+    color: #5b81cc !important;
+  }
+  /* line 395, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-fixed .header-v6.header-fixed-shrink .navbar-nav .active > a,
+  .header-fixed .header-v6.header-fixed-shrink .navbar-nav li > a:hover {
+    color: #5b81cc;
+  }
+  /* Classic White */
+  /* line 401, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-fixed .header-v6.header-classic-white .navbar-nav .active > a,
+  .header-fixed .header-v6.header-classic-white .navbar-nav li > a:hover {
+    color: #5b81cc;
+  }
+  /* Classic Dark */
+  /* line 407, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6.header-classic-dark .navbar-nav .active > a,
+  .header-v6.header-classic-dark .navbar-nav li > a:hover,
+  .header-fixed .header-v6.header-classic-dark.header-fixed-shrink .navbar-nav .active > a,
+  .header-fixed .header-v6.header-classic-dark.header-fixed-shrink .navbar-nav li > a:hover {
+    color: #5b81cc;
+  }
+  /* line 413, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6.header-classic-dark .dropdown-menu .active > a,
+  .header-v6.header-classic-dark .dropdown-menu li > a:hover {
+    color: #5b81cc !important;
+  }
+  /* Dark Dropdown */
+  /* line 419, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-v6.header-dark-dropdown .dropdown-menu .active > a,
+  .header-v6.header-dark-dropdown .dropdown-menu li > a:hover {
+    color: #5b81cc;
+  }
+  /* Dark Scroll */
+  /* line 425, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+  .header-fixed .header-v6.header-dark-scroll.header-fixed-shrink .navbar-nav .active > a,
+  .header-fixed .header-v6.header-dark-scroll.header-fixed-shrink .navbar-nav li > a:hover {
+    color: #5b81cc;
+  }
+}
+/* Header v7
+------------------------------------*/
+/* line 433, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v7 .navbar-default .navbar-nav > li > a:hover,
+.header-v7 .navbar-default .navbar-nav > li.active > a {
+  color: #5b81cc !important;
+}
+/* line 437, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v7 .dropdown-menu .active > a,
+.header-v7 .dropdown-menu li > a:focus,
+.header-v7 .dropdown-menu li > a:hover {
+  color: #5b81cc !important;
+}
+/* line 442, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v7 .navbar-default .navbar-nav > li > a:hover,
+.header-v7 .navbar-default .navbar-nav > li > a:focus,
+.header-v7 .navbar-default .navbar-nav > .active > a,
+.header-v7 .navbar-default .navbar-nav > .active > a:hover,
+.header-v7 .navbar-default .navbar-nav > .active > a:focus {
+  color: #5b81cc;
+}
+/* line 449, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-socials li a:hover {
+  color: #5b81cc;
+}
+/* Sliders
+------------------------------------*/
+/* Main Parallax Sldier */
+/* line 456, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.da-slide h2 i {
+  background-color: rgba(71, 101, 160, 0.8);
+}
+/* Sequence Parallax Sldier */
+/* line 461, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sequence-inner {
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#71a1ff));
+  background: -webkit-linear-gradient(#ffffff, #71a1ff);
+  background: -moz-linear-gradient(#ffffff, #71a1ff);
+  background: -ms-linear-gradient(#ffffff, #71a1ff);
+  background: -o-linear-gradient(#ffffff, #71a1ff);
+  background: linear-gradient(#ffffff, #71a1ff);
+}
+/* line 469, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+#sequence-theme h2 {
+  background: rgba(71, 101, 160, 0.8);
+}
+/* line 472, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+#sequence-theme .info p {
+  background: rgba(71, 101, 160, 0.8);
+}
+/* Buttons
+------------------------------------*/
+/* line 478, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u {
+  background: #5b81cc;
+}
+/* line 481, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u:hover,
+.btn-u:focus,
+.btn-u:active,
+.btn-u.active,
+.open .dropdown-toggle.btn-u {
+  background: #36567d;
+  color: #fff;
+}
+/* Buttons Color */
+/* line 491, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u-split.dropdown-toggle {
+  border-left: solid 1px #36567d;
+}
+/* Bordered Buttons */
+/* line 496, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u.btn-brd {
+  border-color: #5b81cc;
+}
+/* line 499, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u.btn-brd:hover {
+  color: #36567d;
+  border-color: #36567d;
+}
+/* line 503, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.btn-u.btn-brd.btn-brd-hover:hover {
+  background: #36567d;
+}
+/* Service
+------------------------------------*/
+/* line 509, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service .service-icon {
+  color: #5b81cc;
+}
+/* Service Blocks */
+/* line 514, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-alternative .service:hover {
+  background: #5b81cc;
+}
+/* Thumbnail (Recent Work)
+------------------------------------*/
+/* line 520, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.thumbnail-style h3 a:hover {
+  color: #5b81cc;
+}
+/* line 523, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.thumbnail-style a.btn-more {
+  background: #5b81cc;
+}
+/* line 526, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.thumbnail-style a.btn-more:hover {
+  box-shadow: 0 0 0 2px #36567d;
+}
+/* Typography
+------------------------------------*/
+/* Heading */
+/* line 533, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.headline h2,
+.headline h3,
+.headline h4 {
+  border-bottom: 2px solid #5b81cc;
+}
+/* Blockquote */
+/* line 540, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+blockquote:hover {
+  border-left-color: #5b81cc;
+}
+/* line 543, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.hero {
+  border-left-color: #5b81cc;
+}
+/* line 546, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+blockquote.hero.hero-default {
+  background: #5b81cc;
+}
+/* line 549, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+blockquote.hero.hero-default:hover {
+  background: #36567d;
+}
+/* Carousel
+------------------------------------*/
+/* line 555, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.carousel-arrow a.carousel-control:hover {
+  color: #5b81cc;
+}
+/* Footer
+------------------------------------*/
+/* line 561, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer a,
+.copyright a,
+.footer a:hover,
+.copyright a:hover {
+  color: #5b81cc;
+}
+/* Footer Blog */
+/* line 569, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer .dl-horizontal a:hover {
+  color: #5b81cc !important;
+}
+/* Blog Posts
+------------------------------------*/
+/* line 575, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.posts .dl-horizontal a:hover {
+  color: #5b81cc;
+}
+/* line 578, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.posts .dl-horizontal:hover dt img,
+.posts .dl-horizontal:hover dd a {
+  color: #5b81cc;
+  border-color: #5b81cc !important;
+}
+/* Post Comment */
+/* line 585, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.post-comment h3,
+.blog-item .media h3,
+.blog-item .media h4.media-heading span a {
+  color: #5b81cc;
+}
+/* Tabs
+------------------------------------*/
+/* Tabs v1 */
+/* line 594, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v1 .nav-tabs {
+  border-bottom: solid 2px #5b81cc;
+}
+/* line 597, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v1 .nav-tabs > .active > a,
+.tab-v1 .nav-tabs > .active > a:hover,
+.tab-v1 .nav-tabs > .active > a:focus {
+  background: #5b81cc;
+}
+/* line 602, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v1 .nav-tabs > li > a:hover {
+  background: #5b81cc;
+}
+/* Tabs v2 */
+/* line 607, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v2 .nav-tabs li.active a {
+  border-top: solid 2px #5b81cc;
+}
+/* Tabs v3 */
+/* line 612, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v3 .nav-pills li a:hover,
+.tab-v3 .nav-pills li.active a {
+  background: #5b81cc;
+  border: solid 1px #36567d;
+}
+/* Tabs v6 */
+/* line 619, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v6 .nav-tabs > li.active > a,
+.tab-v6 .nav-tabs > li.active > a:hover,
+.tab-v6 .nav-tabs > li.active > a:focus {
+  border-color: #5b81cc;
+}
+/* line 625, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tab-v6 .nav-tabs > li > a:hover {
+  border-bottom: 1px solid #5b81cc;
+}
+/* Accardion
+------------------------------------*/
+/* line 631, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.acc-home a.active,
+.acc-home a.accordion-toggle:hover {
+  color: #5b81cc;
+}
+/* line 635, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.acc-home .collapse.in {
+  border-bottom: solid 1px #5b81cc;
+}
+/* Testimonials
+------------------------------------*/
+/* line 641, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials .testimonial-info {
+  color: #5b81cc;
+}
+/* line 644, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials .carousel-arrow i:hover {
+  background: #5b81cc;
+}
+/* Info Blocks
+------------------------------------*/
+/* line 650, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.info-blocks:hover i.icon-info-blocks {
+  color: #5b81cc;
+}
+/* Breadcrumb
+------------------------------------*/
+/* line 656, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.breadcrumb li.active,
+.breadcrumb li a:hover {
+  color: #5b81cc;
+}
+/* About Page
+------------------------------------*/
+/* line 663, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.team .thumbnail-style:hover h3 a {
+  color: #5b81cc !important;
+}
+/* Social Icons */
+/* line 668, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.team ul.team-socail li i:hover {
+  background: #5b81cc;
+}
+/* Right Sidebar
+------------------------------------*/
+/* Right Sidebar */
+/* line 675, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.who li i,
+.who li:hover i,
+.who li:hover a {
+  color: #5b81cc;
+}
+/* Privacy Page
+------------------------------------*/
+/* line 683, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.privacy a:hover {
+  color: #5b81cc;
+}
+/* Portfolio Page
+------------------------------------*/
+/* Portfolio v1 */
+/* line 690, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.view a.info:hover {
+  background: #5b81cc;
+}
+/* Portfolio v2 */
+/* line 695, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sorting-block .sorting-nav li.active {
+  color: #5b81cc;
+  border-bottom: solid 1px #5b81cc;
+}
+/* line 699, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sorting-block .sorting-grid li a:hover span.sorting-cover {
+  background: #5b81cc;
+}
+/* Blog Page
+------------------------------------*/
+/* line 705, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog h3 {
+  color: #5b81cc;
+}
+/* line 708, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog li a:hover {
+  color: #5b81cc;
+}
+/* Blog Tags */
+/* line 713, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+ul.blog-tags a:hover {
+  background: #5b81cc;
+}
+/* line 716, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-post-tags ul.blog-tags a:hover {
+  background: #5b81cc;
+}
+/* Blog Photos */
+/* line 721, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-photos li img:hover {
+  box-shadow: 0 0 0 2px #5b81cc;
+}
+/* Blog Latest Tweets */
+/* line 726, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-twitter .blog-twitter-inner:hover {
+  border-color: #5b81cc;
+  border-top-color: #5b81cc;
+}
+/* line 730, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-twitter .blog-twitter-inner:hover:after {
+  border-top-color: #5b81cc;
+}
+/* line 733, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-twitter .blog-twitter-inner a {
+  color: #5b81cc;
+}
+/* Blog Item Page
+------------------------------------*/
+/* line 739, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-item h4.media-heading span a {
+  color: #5b81cc;
+}
+/* Coming Soon Page
+------------------------------------*/
+/* line 745, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.coming-soon-border {
+  border-top: solid 3px #5b81cc;
+}
+/* Search Page
+------------------------------------*/
+/* line 751, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.booking-blocks p a {
+  color: #5b81cc;
+}
+/* Icons Page
+------------------------------------*/
+/* line 757, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.icon-page li:hover {
+  color: #5b81cc;
+}
+/* Glyphicons */
+/* line 762, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.glyphicons-demo a:hover {
+  color: #5b81cc;
+  text-decoration: none;
+}
+/* Social Icons
+------------------------------------*/
+/* line 769, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.social-icons-v1 i:hover {
+  color: #fff;
+  background: #5b81cc;
+}
+/* Magazine Page
+------------------------------------*/
+/* Magazine News */
+/* line 777, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.magazine-news .by-author strong {
+  color: #5b81cc;
+}
+/* line 781, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.magazine-news a.read-more {
+  color: #5b81cc;
+}
+/* Magazine Mini News */
+/* line 786, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.magazine-mini-news .post-author strong {
+  color: #5b81cc;
+}
+/* line 789, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-read-more i {
+  background: #5b81cc;
+}
+/* Sidebar Features */
+/* line 794, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.magazine-page h3 a:hover {
+  color: #5b81cc;
+}
+/* Page Features
+------------------------------------*/
+/* Tag Boxes v1 */
+/* line 801, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tag-box-v1 {
+  border-top: solid 2px #5b81cc;
+}
+/* Tag Boxes v2 */
+/* line 806, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tag-box-v2 {
+  border-left: solid 2px #5b81cc;
+}
+/* Tag Boxes v7 */
+/* line 811, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.tag-box-v7 {
+  border-bottom: solid 2px #5b81cc;
+}
+/* Font Awesome Icon Page Style */
+/* line 816, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.fa-icons li:hover {
+  color: #5b81cc;
+}
+/* line 819, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.fa-icons li:hover i {
+  background: #5b81cc;
+}
+/* GLYPHICONS Icons Page Style */
+/* line 824, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.bs-glyphicons li:hover {
+  color: #5b81cc;
+}
+/* Navigation
+------------------------------------*/
+/* Pagination */
+/* line 831, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #5b81cc;
+  border-color: #5b81cc;
+}
+/* line 840, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pagination li a:hover {
+  background: #36567d;
+  border-color: #36567d;
+}
+/* Pager */
+/* line 846, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pager li > a:hover,
+.pager li > a:focus {
+  background: #36567d;
+  border-color: #36567d;
+}
+/* line 851, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pager.pager-v2 li > a:hover,
+.pager.pager-v2 li > a:focus,
+.pager.pager-v3 li > a:hover,
+.pager.pager-v3 li > a:focus {
+  color: #fff;
+  background: #5b81cc;
+}
+/* Registration and Login Page v2
+------------------------------------*/
+/* line 861, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.reg-block {
+  border-top: solid 2px #5b81cc;
+}
+/*Image Hover
+------------------------------------*/
+/* Image-hover */
+/* line 868, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+#effect-2 figure .img-hover {
+  background: #5b81cc;
+}
+/* Blog Large Page
+------------------------------------*/
+/* line 874, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog h2 a:hover {
+  color: #5b81cc;
+}
+/* Timeline v1 Page
+------------------------------------*/
+/* line 880, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.timeline-v1 > li > .timeline-badge i:hover {
+  color: #5b81cc;
+}
+/* line 883, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.timeline-v1 .timeline-footer .likes:hover i {
+  color: #5b81cc;
+}
+/* Timeline v2 Page
+------------------------------------*/
+/* The icons */
+/* line 890, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.timeline-v2 > li .cbp_tmicon {
+  background: #5b81cc;
+}
+/* Progress Bar
+------------------------------------*/
+/* line 896, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.progress-bar-u {
+  background: #5b81cc;
+}
+/* Job Inner Page
+------------------------------------*/
+/* line 902, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.job-description .save-job a:hover,
+.block-description .save-job a:hover {
+  color: #5b81cc;
+}
+/* line 907, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.job-description .p-chart .overflow-h li i,
+.job-description .p-chart .overflow-h li a,
+.block-description .p-chart .overflow-h li i,
+.block-description .p-chart .overflow-h li a {
+  color: #5b81cc;
+}
+/* Colorful-ul */
+/* line 915, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.job-description .colorful-ul li a {
+  color: #5b81cc;
+}
+/* Search Inner Page
+------------------------------------*/
+/* line 921, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.s-results .related-search a:hover {
+  color: #5b81cc;
+}
+/* line 924, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.s-results .inner-results h3 a:hover {
+  color: #5b81cc;
+}
+/* line 927, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.s-results .up-ul li a:hover {
+  color: #5b81cc;
+}
+/* line 930, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.s-results .down-ul li a {
+  color: #5b81cc;
+}
+/* Funny Boxes
+------------------------------------*/
+/* line 936, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.funny-boxes p a {
+  color: #5b81cc;
+}
+/* line 939, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.funny-boxes .funny-boxes-img li i {
+  color: #5b81cc;
+}
+/* line 942, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.funny-boxes-colored p,
+.funny-boxes-colored h2 a,
+.funny-boxes-colored .funny-boxes-img li,
+.funny-boxes-colored .funny-boxes-img li i {
+  color: #fff;
+}
+/* Sidebar Sub Navigation
+------------------------------------*/
+/* line 948, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sidebar-nav-v1 ul li:hover a,
+.sidebar-nav-v1 ul li.active a {
+  color: #5b81cc;
+}
+/* Blockquote
+------------------------------------*/
+/* line 955, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+blockquote.bq-green {
+  border-color: #5b81cc;
+}
+/* line 958, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+blockquote:hover,
+blockquote.text-right:hover {
+  border-color: #5b81cc;
+}
+/* line 962, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.quote-v1 p::before {
+  color: #5b81cc;
+}
+/* Green Left Bordered Funny Box */
+/* line 967, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.funny-boxes-left-green {
+  border-left: solid 2px #5b81cc;
+}
+/* line 970, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.funny-boxes-left-green:hover {
+  border-left-color: #5b81cc;
+}
+/* Testimonials Default
+------------------------------------*/
+/* Testimonials */
+/* line 977, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials .carousel-arrow i:hover {
+  background: #5b81cc;
+}
+/* Testimonials Default */
+/* line 982, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-bg-default .item p {
+  background: #5b81cc;
+}
+/* line 985, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials.testimonials-bg-default .item p:after,
+.testimonials.testimonials-bg-default .item p:after {
+  border-top-color: #5b81cc;
+}
+/* line 989, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-bg-default .carousel-arrow i {
+  background: #5b81cc;
+}
+/* line 992, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials.testimonials-bg-default .carousel-arrow i:hover {
+  background: #36567d;
+}
+/* Promo Page
+------------------------------------*/
+/* Promo Box */
+/* line 999, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.promo-box:hover strong,
+.promo-box:hover strong a {
+  color: #5b81cc;
+}
+/* Typography
+------------------------------------*/
+/* line 1006, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.dropcap {
+  color: #5b81cc;
+}
+/* line 1010, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.dropcap-bg {
+  color: #fff;
+  background: #5b81cc;
+}
+/* Breadcrumbs
+------------------------------------*/
+/* line 1017, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+span.label-u,
+span.badge-u {
+  background: #5b81cc;
+}
+/* Icons
+------------------------------------*/
+/* Icon Link*/
+/* line 1025, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.link-icon:hover i {
+  color: #5b81cc;
+  border: solid 1px #5b81cc;
+}
+/* line 1030, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.link-bg-icon:hover i {
+  color: #5b81cc;
+  background: #5b81cc !important;
+  border-color: #5b81cc;
+}
+/* Icons Backgroun Color
+------------------------------------*/
+/* line 1038, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+i.icon-color-u {
+  color: #5b81cc;
+  border: solid 1px #5b81cc;
+}
+/* line 1042, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+i.icon-bg-u {
+  background: #5b81cc;
+}
+/* Line Icon Page
+------------------------------------*/
+/* line 1048, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.line-icon-page .item:hover {
+  color: #5b81cc;
+}
+/* Colored Content Boxes
+------------------------------------*/
+/* line 1054, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-block-u {
+  background: #5b81cc;
+}
+/* Panels (Portlets)
+------------------------------------*/
+/* line 1060, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.panel-u {
+  border-color: #5b81cc;
+}
+/* line 1063, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.panel-u > .panel-heading {
+  background: #5b81cc;
+}
+/* Owl Carousel
+------------------------------------*/
+/* line 1069, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.owl-btn:hover {
+  background: #5b81cc;
+}
+/* Counter
+------------------------------------*/
+/* line 1075, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.counters span.counter-icon i {
+  background: #5b81cc;
+}
+/* line 1078, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.counters span.counter-icon i:after {
+  border-top: 7px solid #5b81cc;
+}
+/* SKy-Forms
+------------------------------------*/
+/* Buttons */
+/* line 1085, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sky-form .button {
+  background: #5b81cc;
+}
+/* Rating */
+/* line 1090, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sky-form .rating input:checked ~ label {
+  color: #5b81cc;
+}
+/* Message */
+/* line 1095, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sky-form .message {
+  color: #5b81cc;
+}
+/* line 1098, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sky-form .message i {
+  border-color: #5b81cc;
+}
+/* Profile
+------------------------------------*/
+/* line 1104, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.profile .profile-post:hover span.profile-post-numb {
+  color: #5b81cc;
+}
+/* line 1107, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.profile .date-formats {
+  background: #5b81cc;
+}
+/* line 1110, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.profile .name-location span i,
+.profile .name-location span a:hover {
+  color: #5b81cc;
+}
+/* line 1114, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.share-list li i {
+  color: #5b81cc;
+}
+/* line 1117, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.profile .comment-list-v2 li:hover i,
+.profile .comment-list li:hover i {
+  color: #5b81cc;
+}
+/* line 1121, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.profile .profile-post.color-one {
+  border-color: #5b81cc;
+}
+/* Pricing Page
+------------------------------------*/
+/* Pricing Head */
+/* line 1128, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing:hover h4 {
+  color: #5b81cc;
+}
+/* line 1131, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-head h3 {
+  background: #5b81cc;
+  text-shadow: 0 1px 0 #36567d;
+}
+/* line 1135, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-head h4 {
+  color: #999;
+  background: #fcfcfc;
+  border-bottom: solid 1px #71a1ff;
+}
+/* Pricing Content */
+/* line 1142, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-content li {
+  border-bottom: solid 1px #71a1ff;
+}
+/* line 1145, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-content li i {
+  color: #5b81cc;
+}
+/* Pricing Extra */
+/* line 1150, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.sticker-left {
+  background: #5b81cc;
+}
+/* Pricing Footer */
+/* line 1155, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-footer a:hover,
+.pricing-footer button:hover {
+  background: #36567d;
+}
+/* Pricing Active */
+/* line 1161, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.price-active h4 {
+  color: #5b81cc;
+}
+/* line 1164, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.no-space-pricing .price-active .pricing-head h4,
+.no-space-pricing .pricing:hover .pricing-head h4 {
+  color: #5b81cc;
+}
+/* Mega Pricing Tables
+------------------------------------*/
+/* line 1171, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v1 .pricing-head h3,
+.pricing-mega-v2 .pricing-head h3,
+.pricing-mega-v3 .pricing-head h3 {
+  text-shadow: 0 1px 0 #36567d;
+}
+/* Pricing Table Mega v1 Version
+------------------------------------*/
+/* line 1179, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v1 .pricing:hover h4 i {
+  color: #5b81cc;
+}
+/* line 1182, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v1 .pricing-content li i {
+  color: #5b81cc;
+}
+/* Pricing Table Colored Background Version
+------------------------------------*/
+/* line 1188, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-bg-colored .pricing:hover {
+  background: #5b81cc;
+}
+/* line 1191, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-bg-colored .pricing-head i {
+  color: #5b81cc;
+}
+/* line 1194, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-bg-colored .pricing-footer .btn-u {
+  border: 1px solid #fff;
+}
+/* line 1197, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-bg-colored .pricing-head p {
+  border-bottom: 1px solid #71a1ff;
+}
+/* Pricing Table Mega v2
+------------------------------------*/
+/* line 1203, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v2 .block:hover .bg-color {
+  background: #5b81cc;
+}
+/* line 1206, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v2 .block:hover h3,
+.pricing-mega-v2 .block:hover h4,
+.pricing-mega-v2 .block:hover li,
+.pricing-mega-v2 .block:hover li i,
+.pricing-mega-v2 .block:hover h4 i {
+  background: #5b81cc;
+}
+/* Pricing Table Mega v3
+------------------------------------*/
+/* line 1216, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v1 .btn-group .dropdown-menu,
+.pricing-mega-v3 .btn-group .dropdown-menu {
+  background: #5b81cc !important;
+}
+/* line 1221, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.pricing-mega-v1 .btn-group .dropdown-menu li a:hover,
+.pricing-mega-v3 .btn-group .dropdown-menu li a:hover {
+  background: #36567d;
+}
+/* Grid Block v2
+------------------------------------*/
+/* line 1228, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.grid-block-v2 li:hover .grid-block-v2-info {
+  border-color: #5b81cc;
+}
+/* Testimonials v3 Title
+------------------------------------*/
+/* line 1234, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-v3 .testimonials-v3-title p {
+  color: #5b81cc;
+}
+/* line 1238, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-v3 .owl-buttons .owl-prev:hover,
+.testimonials-v3 .owl-buttons .owl-next:hover {
+  background: #5b81cc;
+}
+/* Content Boxes v4
+------------------------------------*/
+/* line 1245, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.content-boxes-v4 i {
+  color: #5b81cc;
+}
+/* Thumbnails v1
+------------------------------------*/
+/* line 1251, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.thumbnails-v1 .read-more {
+  color: #5b81cc;
+}
+/* Thumbnails v6
+------------------------------------*/
+/* line 1257, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-v6 .testimonials-info:hover {
+  border-color: #5b81cc;
+}
+/* Team v1
+------------------------------------*/
+/* line 1263, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.team-v1 li:hover > p:before {
+  background: #5b81cc;
+}
+/* Team v4
+------------------------------------*/
+/* line 1269, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.team-v4 .team-social-v4 a:hover {
+  color: #5b81cc;
+}
+/* Team v5 & v6 & v7
+------------------------------------*/
+/* line 1275, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.team-v5 small,
+.team-v6 small,
+.team-v7 .team-v7-position {
+  color: #5b81cc;
+}
+/* Headliner Center
+------------------------------------*/
+/* line 1283, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.headline-center h2:after {
+  background: #5b81cc;
+}
+/* Headliner Left
+------------------------------------*/
+/* line 1289, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.headline-left .headline-brd:after {
+  background: #5b81cc;
+}
+/* Portfolio Box
+------------------------------------*/
+/* line 1295, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.portfolio-box .portfolio-box-in i {
+  background: #5b81cc;
+}
+/* Flat Background Block v1
+------------------------------------*/
+/* line 1301, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.flat-bg-block-v1 .checked-list i {
+  color: #5b81cc;
+}
+/* Owl Carousel v5
+------------------------------------*/
+/* line 1307, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.owl-carousel-v5 .owl-controls .owl-page.active span,
+.owl-carousel-v5 .owl-controls.clickable .owl-page:hover span {
+  background: #5b81cc;
+}
+/* Content Boxes v5
+------------------------------------*/
+/* line 1314, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.content-boxes-v5:hover i {
+  background: #5b81cc;
+}
+/* Block Grid v1
+------------------------------------*/
+/* line 1320, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.block-grid-v1:hover {
+  border-color: #5b81cc;
+}
+/* Block Grid v2
+------------------------------------*/
+/* line 1326, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.block-grid-v2 li:hover .block-grid-v2-info {
+  border-color: #5b81cc;
+}
+/* Content Boxes v6
+------------------------------------*/
+/* line 1332, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.content-boxes-v6:hover i:after {
+  border-color: #5b81cc;
+}
+/* line 1335, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.content-boxes-v6:hover i {
+  background: #5b81cc;
+}
+/* Portfolio Box-v2
+------------------------------------*/
+/* line 1341, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.portfolio-box-v2 .portfolio-box-v2-in i {
+  background: rgba(71, 101, 160, 0.8);
+}
+/* line 1344, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.portfolio-box-v2 .portfolio-box-v2-in i:hover {
+  background: #5b81cc;
+}
+/* Service Block v1
+------------------------------------*/
+/* line 1350, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-block-v1 i {
+  background: #5b81cc;
+}
+/* Service Block v4
+------------------------------------*/
+/* line 1356, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-block-v4 .service-desc i {
+  color: #5b81cc;
+}
+/* Service Block v7
+------------------------------------*/
+/* line 1362, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-block-v7 i {
+  background: #5b81cc;
+}
+/* Service Block v8
+------------------------------------*/
+/* line 1368, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.service-block-v8 .service-block-desc h3::after {
+  background: #5b81cc;
+}
+/* Testimonials bs
+------------------------------------*/
+/* line 1374, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.testimonials-bs .carousel-control-v2 i:hover {
+  border-color: #5b81cc;
+  color: #5b81cc;
+}
+/* Fusion Portfolio
+------------------------------------*/
+/* line 1381, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.fusion-portfolio #filters-container .cbp-filter-item-active {
+  background: #5b81cc;
+  border-color: #5b81cc;
+}
+/* line 1386, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.fusion-portfolio #filters-container .cbp-filter-item:hover {
+  color: #5b81cc;
+}
+/* line 1390, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog_masonry_3col h3 a:hover {
+  color: #5b81cc;
+}
+/* Cube Portfolio
+------------------------------------*/
+/* line 1396, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.cube-portfolio .cbp-l-filters-text .cbp-filter-item.cbp-filter-item-active,
+.cube-portfolio .cbp-l-filters-text .cbp-filter-item:hover {
+  color: #5b81cc;
+}
+/* line 1399, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.cube-portfolio .link-captions li i:hover {
+  color: #fff;
+  background: #5b81cc;
+}
+/* line 1403, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.cube-portfolio .cbp-caption-activeWrap.default-transparent-hover {
+  background: rgba(71, 101, 160, 0.9) !important;
+}
+/* Recent Works
+------------------------------------*/
+/* line 1409, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.owl-work-v1 .item a:hover span {
+  border-bottom-color: #5b81cc;
+}
+/* Footer Default
+------------------------------------*/
+/* line 1415, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-default .footer .dl-horizontal a:hover {
+  color: #5b81cc !important;
+}
+/* line 1418, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-default .footer a {
+  color: #5b81cc;
+}
+/* line 1421, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-default .footer a:hover {
+  color: #36567d;
+}
+/* line 1424, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-default .copyright a {
+  color: #5b81cc;
+}
+/* line 1427, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-default .copyright a:hover {
+  color: #36567d;
+}
+/* Footer v4
+------------------------------------*/
+/* line 1433, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v4 .copyright a {
+  color: #5b81cc;
+}
+/* Title v1
+------------------------------------*/
+/* line 1439, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.title-v1 h1:after,
+.title-v1 h2:after {
+  background-color: #5b81cc;
+}
+/* Copyright Section
+------------------------------------*/
+/* line 1445, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.copyright-section i.back-to-top:hover {
+  color: #5b81cc;
+}
+/* Top Control
+------------------------------------*/
+/* line 1451, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+#topcontrol:hover {
+  background-color: #5b81cc;
+}
+/* News Info
+------------------------------------*/
+/* line 1457, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v1 .news-v1-info li a:hover {
+  color: #5b81cc;
+}
+/* line 1460, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v1 h3 a:hover {
+  color: #5b81cc;
+}
+/* line 1463, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v2 .news-v2-desc h3 a:hover {
+  color: #5b81cc !important;
+}
+/* line 1466, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v3 .post-shares li span {
+  background: #5b81cc;
+}
+/* line 1469, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v3 .posted-info li a:hover {
+  color: #5b81cc !important;
+}
+/* line 1472, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.news-v3 h2 a:hover {
+  color: #5b81cc !important;
+}
+/* Blog Trending
+------------------------------------*/
+/* line 1478, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-trending small a:hover {
+  color: #5b81cc;
+}
+/* Blog Masonry
+------------------------------------*/
+/* line 1484, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog_masonry_3col ul.grid-boxes-news li a:hover {
+  color: #5b81cc;
+}
+/* List v1
+------------------------------------*/
+/* line 1490, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.lists-v1 i {
+  background: #5b81cc;
+}
+/* List v2
+------------------------------------*/
+/* line 1496, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.lists-v2 i {
+  color: #5b81cc;
+}
+/* Process v1
+------------------------------------*/
+/* line 1502, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.process-v1 .process-in > li i {
+  background: #5b81cc;
+}
+/* Featured Blog
+------------------------------------*/
+/* line 1508, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.featured-blog h2::after {
+  background: #5b81cc;
+}
+/* line 1511, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.featured-blog .featured-img i:hover {
+  color: #fff;
+  background: #5b81cc;
+}
+/* line 1516, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.rgba-default {
+  background-color: #4765a0;
+}
+/* Blog Latest Posts
+------------------------------------*/
+/* line 1522, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-latest-posts h3 a:hover {
+  color: #5b81cc !important;
+}
+/* Blog Trending
+------------------------------------*/
+/* line 1528, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-trending h3 a:hover {
+  color: #5b81cc !important;
+}
+/*Blog Thumb Colors
+------------------------------------*/
+/* line 1534, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-thumb .blog-thumb-hover:hover:after {
+  background: rgba(71, 101, 160, 0.9);
+}
+/* line 1537, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.blog-grid .blog-grid-grad i:hover {
+  background: #4765a0;
+}
+/*Footer Theme Color
+------------------------------------*/
+/* line 1543, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .column-one a:hover {
+  color: #5b81cc;
+}
+/* line 1546, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .tags-v4 a:hover {
+  border-color: #5b81cc;
+  background-color: #5b81cc;
+}
+/* line 1550, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .footer-lists li a:hover {
+  color: #5b81cc;
+}
+/* line 1553, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .latest-news h3 a:hover {
+  color: #5b81cc;
+}
+/* line 1556, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .input-group-btn .input-btn {
+  background: #5b81cc;
+}
+/* line 1559, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.footer-v8 .footer .social-icon-list li i:hover {
+  background: #5b81cc;
+  border-color: #5b81cc;
+}
+/*Header Theme Color
+------------------------------------*/
+/* line 1566, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .dropdown-menu {
+  border-top: solid 3px #5b81cc;
+}
+/* line 1569, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .dropdown-menu .active > a,
+.header-v8 .dropdown-menu li > a:hover {
+  color: #5b81cc;
+}
+/* line 1573, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .navbar-nav .open .dropdown-menu > li > a:hover,
+.header-v8 .navbar-nav .open .dropdown-menu > li > a:focus {
+  color: #5b81cc;
+}
+/* line 1577, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .navbar-nav .open .dropdown-menu > .active > a,
+.header-v8 .navbar-nav .open .dropdown-menu > .active > a:hover,
+.header-v8 .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #5b81cc;
+}
+/* line 1583, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .navbar-nav .open .dropdown-menu > .disabled > a,
+.header-v8 .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.header-v8 .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+  color: #5b81cc;
+}
+/* line 1588, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .navbar-nav > li > a:hover {
+  color: #5b81cc;
+}
+/* line 1591, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .navbar-nav > .active > a,
+.header-v8 .navbar-nav > .active > a:hover,
+.header-v8 .navbar-nav > .active > a:focus {
+  color: #5b81cc !important;
+}
+/* line 1596, C:\Apache24\htdocs\jf16\assets\css\u-dark-blue.less */
+.header-v8 .mega-menu .mega-menu-fullwidth .dropdown-link-list li a:hover {
+  color: #5b81cc;
 }
