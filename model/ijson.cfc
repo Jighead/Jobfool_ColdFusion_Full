@@ -92,9 +92,9 @@
             
         <cfset pubid = trim(getPublisher())>
         <cfif pubid is ''>
-            pubid failed!
-        <cfabort>
-            </cfif>
+            <!--- do it again --->
+            <cfset pubid = trim(getPublisher())>
+        </cfif>
             
         <cfset link="http://api.indeed.com/ads/apisearch?publisher=#pubid#&v=2&format=json&cache=true&q=#variables.q#&l=#variables.l#&st=#variables.st#&start=#variables.start#&limit=#variables.qt#&fromage=#variables.fromage#&salary=#variables.salary#&sort=#variables.sb#&filter=1&latlong=1&co=#variables.co#&chnl=&radius=#variables.radius#&filter=1&userip=#cgi.REMOTE_ADDR#&useragent=#cgi.HTTP_USER_AGENT#">
 
@@ -127,10 +127,9 @@
 
 
 
-    <cffunction name="getPublisher" returntype="string" output="false" access="private">
+    <cffunction name="getPublisher" returntype="string" output="true" access="private">
 
-    <cfset idlist="
-                   2059896800093889,
+    <cfset idlist="2059896800093889,
                    7570038743238473,
                    4957686695268887,
                    4957686695268887,
@@ -158,17 +157,16 @@
                    145021333590586,
                    2838105322279545,
                    8609926619731182,
-                   3832358952142376,
-                   ">
+                   3832358952142376,">
 
-    <cfset objRandom=ArrayNew(1)>
-    <cfset objRandom=ListToArray(idlist)>
-    <cfset arraylen = ArrayLen(objRandom)>
-    <!--- <cfset ArraySort(objRandom,"textnocase","ASC")> --->
-    <!--- random number b/n 1 and length of list/array --->
-    <cfset randpubid = objRandom[RandRange(1, arraylen, "SHA1PRNG")]>
-
-    <cfreturn randpubid>
+        <cfset objRandom=ArrayNew(1)>
+        <cfset objRandom=ListToArray(idlist)>
+        <cfset arraylen = ArrayLen(objRandom)>
+        <!--- <cfset ArraySort(objRandom,"textnocase","ASC")> --->
+        <!--- random number b/n 1 and length of list/array --->
+        <cfset randpubid = objRandom[RandRange(1, arraylen, "SHA1PRNG")]>
+            
+        <cfreturn randpubid>
     </cffunction>
 
     <cffunction name="getJobData" access="private" returntype="any">

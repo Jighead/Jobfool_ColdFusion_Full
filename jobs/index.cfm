@@ -79,7 +79,7 @@
             
             
     </head>     
-    <body class="header-fixed"> 
+    <body class="x-home header-fixed"> 
         <header> 
             <div class="header header-v6"> 
                 <div class="container" data-pg-name="Container-Outer Main"> 
@@ -159,13 +159,13 @@
             <div class="container x-content" style="min-height:800px;"> 
                 <div class="row x-content row-offcanvas row-offcanvas-right" data-pg-name="Row:Content"> 
                     <div class="col-xs-12 col-sm-9 col-md-6" data-pg-name="Col-Main Content">
-                        <div class="ads col-sm-2 x-noPL" id="adcontainer2-16">
+                        <div class="ads col-sm-2 x-noPL hidden-xs" id="adcontainer2-16">
                         <!--- above search results ads --->
                         </div>  
                         <div id="job-well" class="x-job-well"> 
                             <cfinclude template="../partials/jobs-jobwell.cfm">
                         </div> 
-                        <div class="x-ads" id="adcontainer3-16">
+                        <div class="x-ads hidden-xs" id="adcontainer3-16">
                         <!--- below search results ads --->
                         </div>
                         <div class=".x-pagination col-xs-12 x-noPL">
@@ -237,6 +237,8 @@
                $(this).attr('placeholder',$(this).data('placeholder'));
             });
             
+            $('.sfblSellerNameWrapper').css('display','none');
+            
         });
             
       
@@ -266,26 +268,29 @@
             
             
             
-        </script>    
+</script>    
     <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
 	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 	<![endif]-->     
-                     
-                     
+              
     <cfif len(url.kw) LT 3><cfset adquery="work from home"><cfelse><cfset adquery = "#url.kw#"></cfif>
     <script>
-        var pageOptions = { 
+    var w = window.innerWidth;
+    if (w < 480) { adwith = '480px'} else {adwith = 'auto'}        
+  var pageOptions = { 
   'pubId': 'pub-2780853858393535',
   'query': '<cfoutput>#adquery#</cfoutput>',
   'hl': 'en',
   'adtest': 'on',
   'adPage': 1,
+  'adSafe': 'off',
   'location': false,
   'plusOnes': false,
   'sellerRatings': false,
-  'siteLinks': false
+  'clickToCall' : false,
+  'siteLinks': false 
 };
 //right column
 var adblock1 = { 
@@ -293,26 +298,28 @@ var adblock1 = {
   'number': 6,
   //'width': 'auto',
   'fontFamily': 'tahoma',
-  'fontSizeTitle': 16,
+  'fontSizeTitle': 17,
   'fontSizeDescription': 14,
-  'fontSizeDomainLink': 10,
+  'fontSizeDomainLink': 8,
   'colorTitleLink': '#337AB7',
   'colorText': '#555555',
   'colorDomainLink': '#337AB7',
   'siteLinks' : false,
   'noTitleUnderline': true,
- 'domainLinkAboveDescription': true,
+  'domainLinkAboveDescription': true,
+  'attributionText' : "Advertisement"
+
 };
 // top of search results
 var adblock2 = { 
   'container': 'adcontainer2-16',
   'number': 1,
-  'width': 'auto',
+  'width': adwith,
   'lines': 2,
   'fontFamily': 'tahoma',
   'fontSizeTitle': 17,
   'fontSizeDescription': 14,
-  'fontSizeDomainLink': 10,
+  'fontSizeDomainLink': 8,
   'colorTitleLink': '#337AB7',
   'colorText': '#555555',
   'colorDomainLink': '#337AB7',
@@ -323,12 +330,12 @@ var adblock2 = {
 // under search results
 var adblock3 = { 
   'container': 'adcontainer3-16',
-  'width': '700px',
+  'width': adwith,
   'lines': 2,
   'fontFamily': 'tahoma',
   'fontSizeTitle': 17,
   'fontSizeDescription': 14,
-  'fontSizeDomainLink': 10,
+  'fontSizeDomainLink': 8,
   'colorTitleLink': '#337AB7',
   'colorText': '#555555',
   'colorDomainLink': '#337AB7',

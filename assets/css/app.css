@@ -12784,6 +12784,11 @@ a:hover {
  ========= start color variables ========
 ========================================= */
 /*============== end colors ===============*/
+/* line 8, C:\Apache24\htdocs\jf16\assets\css\type.less */
+.x-home h4 {
+  margin-top: 1.5em;
+  color: #FFF;
+}
 /* ========================================
  ========= start pads and margins  ========
 ========================================= */
@@ -13528,19 +13533,24 @@ body {
   border-radius: 5px;
 }
 /* line 5, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
+.btn-u-default {
+  background-color: #EFEFEF;
+  border: 1px solid #CCC;
+}
+/* line 9, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
 .btn-primary {
   color: #fff;
   background-color: #36567d;
   border-color: #DDD;
 }
-/* line 11, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
+/* line 15, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
 .btn-primary:hover,
 .btn-primary:focus {
   color: #fff;
   background-color: #36567d;
   border-color: #FFF;
 }
-/* line 17, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
+/* line 21, C:\Apache24\htdocs\jf16\assets\css\comp-buttons.less */
 .x-search-btn {
   min-width: 100px;
 }
@@ -13762,26 +13772,31 @@ h1.x-jobtitle {
 }
 /* line 60, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
 #x_filters li {
-  padding: 4px 0;
+  padding: 2px 0;
+  margin-left: 10px;
 }
 /* ======== end filters wrapper ===== */
 @media (max-width: 1024px) {
-  /* line 68, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 69, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .form-inline .form-control {
     display: inline-block !important;
     width: 40% !important;
     vertical-align: middle !important;
   }
-  /* line 73, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 74, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .email {
     width: 50% !important;
   }
 }
 /* ================ end job page styles ===================== */
-@media (max-width: 479px) {
-  /* line 81, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+@media (max-width: 480px) {
+  /* line 82, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-reducepad-5 {
     margin-bottom: 5px;
+  }
+  /* line 86, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  .list-inline {
+    margin-left: 5px;
   }
   /* .x-logo
     {
@@ -13795,27 +13810,39 @@ h1.x-jobtitle {
     }*/
 }
 @media (min-width: 360px) and (max-width: 479px) {
-  /* line 98, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 102, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-jobtitle {
     font-size: 16px;
   }
 }
 @media (min-width: 480px) and (max-width: 991px) {
-  /* line 107, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 111, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .x-reducepad-5 {
     margin-bottom: 5px;
   }
 }
+@media (min-width: 640px) {
+  /* line 119, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  .x-well-ad1 {
+    display: none;
+  }
+}
+@media (max-width: 641px) {
+  /* line 125, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  .x-well-ad4 {
+    display: none;
+  }
+}
 /* this controls (overrides bootstrap default) the offcanvas sidebar */
-@media screen and (max-width: 800px) {
-  /* line 121, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+@media screen and (max-width: 767px) {
+  /* line 133, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .row-offcanvas {
     position: relative;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
-  /* line 128, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
+  /* line 140, C:\Apache24\htdocs\jf16\assets\css\jobs.less */
   .row-offcanvas-right .sidebar-offcanvas {
     right: -50%;
     margin-right: 15px;
@@ -13833,17 +13860,24 @@ h1.x-jobtitle {
   margin-top: 40px;
   margin-bottom: 20px;
 }
-/* line 11, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
-.col {
-  float: left;
-  margin: 0 15px;
-  padding: 5px;
-  width: calc(-11.666666666666664%);
-  white-space: nowrap;
-  min-width: 200px;
-  min-height: 1px;
+/* line 12, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.nav-tabs li {
+  background: #EFEFEF;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
-/* line 20, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 19, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.tab-v1 .nav-tabs > .active > a,
+.tab-v1 .nav-tab {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+/* line 26, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.x-titles,
+.x-categories {
+  margin-bottom: 40px;
+}
+/* line 29, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 .x-title-item {
   display: inline-block;
   font-size: 16px;
@@ -13854,15 +13888,19 @@ h1.x-jobtitle {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 34, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 40, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 #byTitle button {
   margin: 4px 0px;
   width: 95%;
   border-radius: 5px;
 }
-/* line 41, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+/* line 47, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
 .x-title-item .fa {
   float: left;
+}
+/* line 51, C:\Apache24\htdocs\jf16\assets\css\browse-jobs.less */
+.x-categories .grid {
+  margin: 5px 0px;
 }
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\jobwell.less */
 .x-job-well {
@@ -13903,6 +13941,12 @@ h1.x-jobtitle {
   background: none;
   border: none;
   box-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  /* line 9, C:\Apache24\htdocs\jf16\assets\css\salaries.less */
+  .x-salaries {
+    min-height: 800px;
+  }
 }
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\comp-footer.less */
 footer {

@@ -176,6 +176,17 @@
 
     </cfif>
 </cfif>
+
+    
+
+<cfif cgi.path_info contains 'kw/' or cgi.path_info contains '/kw/' or cgi.path_info contains 'l/' or cgi.path_info contains '/l/'>
+    <cfset redir = '/jobs/?kw=#url.kw#&l=#url.l#'>
+    <cfheader statuscode="301" statustext="Moved permanently">
+    <cflocation url="#redir#" addtoken="no">
+</cfif>
+
+        
+  
 </cfoutput>
  <cftry>
     <cfif cgi.REMOTE_ADDR is '173.245.56.131'>
@@ -288,3 +299,4 @@
 
 <cfset variables.canonical = replacenocase(variables.canonical,"//", "/")>
 <cfif isDefined('url.L') and len(L)><cfset variables.Ltitle = "#ucase(url.L)#"></cfif>
+

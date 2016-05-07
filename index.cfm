@@ -129,7 +129,7 @@
                 <div class="interactive-slider-v2 interactive-slider-v2-md img-v3">
                     <div class="container">
                         <h1 class="x-headline">Find Your Perfect Job Today</h1>
-                        <p class="x-sub">Find millions of local jobs from one place</p>
+                        <p class="x-sub">Find Millions of Local Jobs From One Place</p>
                         <div class="row" data-pg-name="Row-Searchbar"> 
                             <form method="get" action="/jobs/"> 
                                 <div class="col-sm-5 x-reducepad-5"> 
@@ -148,7 +148,8 @@
                                     <button id="x_search-form" class="form-control inline-block btn-primary x-search-btn">Find a Job</button>                 
                                 </div>                                 
                             </form>                             
-                        </div>                         
+                        </div> 
+                        <h4>Job Listings From Thousands of Carreer Websites in One Simple Search!</h4>
                     </div>
                 </div>
             </section>

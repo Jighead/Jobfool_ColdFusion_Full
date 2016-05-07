@@ -26,7 +26,7 @@
             <cfset structClear(application)>
         </cfif>
         <cfinclude template="/system/config/settings.cfm">
-        <!--- <cfinclude template="/system/customtags/urlparser.cfm"> --->
+        <cfinclude template="/system/customtags/urlparser.cfm">
         <cfinclude template="/system/config/DomainAliasManager.cfm">
         <cfinclude template="/system/udf/lib.cfm">
         <!---

@@ -22,11 +22,15 @@
   </cfif>
 </cfif>
 
+<!---
 <cfif len(cgi.query_string) and cgi.query_string contains "=">
 	<cfset qstring=reReplaceNoCase(cgi.query_string, "[=?&]", "/", "all")> 
 	<cfheader statuscode="301" statustext="Moved permanently"><!--- good seo to use 301 redirect --->
 	<cflocation url="#lcase(cgi.script_name)#/#lcase(qstring)#" addtoken="no"><!--- good seo to use consistent case --->
-</cfif> 
+</cfif>
+--->     
+          
+          
 
 <!--- rebuild the cgi.query_string from a SEO url 
 <cfif ListLast(CGI.PATH_INFO,".") NEQ "cfm">

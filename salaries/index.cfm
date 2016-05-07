@@ -3,7 +3,7 @@
 --->
 <cfparam name="url.qry" default="ux developer">
 <cfparam name="url.loc" default="chicago">
-<cfinvoke component="components.salarysearch" method="getSalary" argumentcollection="#url#" returnvariable="results">
+<cfinvoke component="#request.componentpath#.salarysearch" method="getSalary" argumentcollection="#url#" returnvariable="results">
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> 
@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/assets/plugins/animated-headline/css/animated-headline.css">
     </head>
-	<body class="x-home header-fixed">
+	<body class="x-salaries header-fixed">
     <cfinclude template="/partials/header.cfm">
 
         <section class="x-searchbar-jobs x-contentpattern">
@@ -104,7 +104,7 @@
                             </div>
                             </cfoutput>
                         </cfloop>
-                             <cfcatch><p>No Data Available</p></cfcatch>
+                             <cfcatch><p>No data available for your search.</p></cfcatch>
                         </cftry> 
                     </div>                     
                 </div>                 

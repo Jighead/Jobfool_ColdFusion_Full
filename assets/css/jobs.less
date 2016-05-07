@@ -58,7 +58,8 @@ h1.x-jobtitle {
     }
     
     li {
-        padding: 4px 0;
+        padding: 2px 0;
+        margin-left: 10px
     }
     
 } /* ======== end filters wrapper ===== */
@@ -77,11 +78,14 @@ h1.x-jobtitle {
 
 /* ================ end job page styles ===================== */
 
-@media (max-width: 479px){
+@media (max-width: 480px){
     .x-reducepad-5  {
         margin-bottom: 5px;
     }
      
+    .list-inline {
+        margin-left: 5px;
+    }
    /* .x-logo
     {
         text-align: center;
@@ -111,13 +115,21 @@ h1.x-jobtitle {
         margin-bottom: 5px;
     }
 }
+@media (min-width: 640px) {
+    .x-well-ad1 {
+        display:none;
+    }
+}
 
-@media (min-width: 768px) {
+@media (max-width: 641px) {
+    .x-well-ad4 {
+        display:none;
+    }
     
 }
 
 /* this controls (overrides bootstrap default) the offcanvas sidebar */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 767px) {
         .row-offcanvas {
             position: relative;
             -webkit-transition: all .25s ease-out;

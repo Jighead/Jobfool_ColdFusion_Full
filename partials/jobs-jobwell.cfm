@@ -2,6 +2,21 @@
                 <cfif results.totalresults GT 0>
                 <cfoutput>
                 <cfset cnt = 0>
+
+                <div class="x-well-ad1"><!--- mobile ad only controlled by media queri --->
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Display ads - mid page and bottom -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2780853858393535"
+                     data-ad-slot="8038727549"
+                     data-ad-test="true"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                </div>
+
                 <cfloop array="#results.results#" index="item">                
                     <cfset url.kwlink = trim(Replace(url.kw, " ", "+", "all"))>
                     <cfset item.companylink = trim(Replace(item.company, " ", "+", "all"))>
@@ -14,22 +29,10 @@
                     </cfif>      
                     <cfset key = item.jobkey> 
                 <!--- <cfset key = encrypt(item.jobkey, "foobar", "CFMX_COMPAT", "Base64") /> --->
+
                         <cfif cnt is 4>
-                            <div class="x-well">
-                                
-                        <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                         In Page Link ads 
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-2780853858393535"
-                             data-ad-slot="9604689142"
-                             data-ad-test="on"
-                             data-ad-format="link"></ins>
-                        <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>-->
-                                
-                                
+                            <div class="x-well-ad4">
+  
                             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                             <!-- Display ads - mid page and bottom -->
                             <ins class="adsbygoogle"
@@ -42,12 +45,10 @@
                             (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
 
-                                
-
                             </div>
                         </cfif>
                     <div class="x-well"> 
-                        <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#" rel="nofollow">#item.jobtitle#</a></p> 
+                        <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#" rel="nofollow" target="_blank">#item.jobtitle#</a></p> 
                         <p class="x-serpsnip">#item.snippet#</p>
                         <p class="x-serpcompany"><span<cfif url.kw eq item.company> class="x-matchhilite"</cfif>>#item.company#</span>
                         <cfif len(item.formattedLocationFull)>

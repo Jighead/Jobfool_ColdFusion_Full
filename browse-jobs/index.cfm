@@ -1,26 +1,13 @@
 <cfsilent>
-<cfparam name="url.kw" default="">
-<cfparam name="url.l" default="">
-<cfparam name="url.tl" default="A">
-<cfparam name="thistitle" default="Find Jobs" />
-    
-<cfif isdefined('url.tl')>
-	<cfquery name="getTitles" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#">
-	select jobtitle, id
-	from jobtitles
-	where jobtitle like <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim('#url.tl#%')#" />
-	order by jobtitle
-	</cfquery>	
-	<cfset thistitle = "#gettitles.jobtitle# - Jobs by Title">
-</cfif>
-    
-<cfparam name="qrydata.recordcount" default="0" >
+    <cfparam name="url.kw" default="">
+    <cfparam name="url.l" default="">
+    <cfparam name="url.tl" default="A">
+    <cfparam name="thistitle" default="Find Jobs" />
+    <cfparam name="qrydata.recordcount" default="0" >
+    <cfinclude template="../controller/browsejobsbycategory.cfm" />
+    <cfinclude template="../controller/browsejobsbylocation.cfm" />
+    <cfinclude template="../controller/browsejobsbytitle.cfm" /> 
 </cfsilent>
-    
-    
-    
-<!--- <cfdump var="#getTitles#"> --->
-    
 <!--- ================================================================================================================ --->
 <!DOCTYPE html> 
 <html lang="en"> 
@@ -60,12 +47,6 @@
                 }
             </STYLE>
 
-        
-        
-
-        
-        
-            
     <script type="text/javascript" charset="utf-8">
       (function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
        arguments)},G[g]['t']=1*new Date;L=o.createElement(O),e=o.getElementsByTagName(
@@ -84,78 +65,93 @@
 
             <div class="tab-v1">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Jobs By Location</a></li>
-                    <li class=""><a href="#byTitle" data-toggle="tab" aria-expanded="false">Jobs By Job Title</a></li>
-                    <li class=""><a href="#bycategory" data-toggle="tab" aria-expanded="false">Jobs By Category</a></li>
+                    <li class="active"><a href="#by-job-location" data-toggle="tab" aria-expanded="true">Jobs By Location</a></li>
+                    <li class=""><a href="#by-job-title" data-toggle="tab" aria-expanded="false">Jobs By Job Title</a></li>
+                    <li class=""><a href="#by-job-category" data-toggle="tab" aria-expanded="false">Jobs By Category</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade active in" id="home">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <cfinclude template="../partials/browse-jobs-bylocation.cfm">
+                    <div class="tab-pane fade active in" id="by-job-location">
+                        <!--- <cfinclude template="../partials/browse-jobs-bylocation.cfm"> --->
+                        <cfif len(url.l) GTE 4 and not isNumeric(url.l)>
+                            <div class="row x-PT20">
+                                <div class="col-xs-12 x-titles">
+                                    <cfoutput query="cities">
+                                    <div class="grid col-lg-3 col-md-3 col-sm-4 col-xs-6 x-noP">
+                                        <a href="/jobs/?l=#city#, #url.l#">#city#</a>
+                                    </div>
+                                    </cfoutput>
+                                </div>
                             </div>
-                        </div>
+                        <cfelse>
+                            <div class="row x-PT20">
+                                <div class="col-xs-12 x-titles">
+                                    <cfoutput query="states">
+                                    <div class="grid col-lg-3 col-md-3 col-sm-4 col-xs-6 x-noP">
+                                        <a href="/browse-jobs/?l=#state###by-job-location">#state#</a>
+                                    </div>
+                                    </cfoutput>
+                                </div>
+                            </div>
+                        </cfif>        
                     </div>
-
-
-                    <div class="tab-pane fade" id="byTitle">
+                    <div class="tab-pane fade" id="by-job-title">
                         <div class="row">
                         <div class="col-xs-4 grid x-noPR"> 
-                        <a href="job-title.cfm/tl/a"><button class="btn-primary">A</button></a> 
-                        <a href="job-title.cfm/tl/a"><button class="btn-primary">B</button></a> 
-                        <a href="job-title.cfm/tl/c"><button class="btn-primary">C</button></a> 
-                        <a href="job-title.cfm/tl/d"><button class="btn-primary">D</button></a> 
-                        <a href="job-title.cfm/tl/e"><button class="btn-primary">E</button></a>
-                        <a href="job-title.cfm/tl/f"><button class="btn-primary">F</button></a> 
-                        <a href="job-title.cfm/tl/g"><button class="btn-primary">G</button></a> 
-                        <a href="job-title.cfm/tl/h"><button class="btn-primary">H</button></a> 
-                        <a href="job-title.cfm/tl/i"><button class="btn-primary">I</button></a> 
+                        <a href="/browse-jobs/?tl=a#by-job-title"><button class="btn-primary">A</button></a> 
+                        <a href="/browse-jobs/?tl=b#by-job-title"><button class="btn-primary">B</button></a> 
+                        <a href="/browse-jobs/?tl=c#by-job-title"><button class="btn-primary">C</button></a> 
+                        <a href="/browse-jobs/?tl=d#by-job-title"><button class="btn-primary">D</button></a> 
+                        <a href="/browse-jobs/?tl=e#by-job-title"><button class="btn-primary">E</button></a>
+                        <a href="/browse-jobs/?tl=f#by-job-title"><button class="btn-primary">F</button></a> 
+                        <a href="/browse-jobs/?tl=g#by-job-title"><button class="btn-primary">G</button></a> 
+                        <a href="/browse-jobs/?tl=h#by-job-title"><button class="btn-primary">H</button></a> 
+                        <a href="/browse-jobs/?tl=i#by-job-title"><button class="btn-primary">I</button></a> 
                         </div>
                         <div class="col-xs-4 grid x-noPR"> 
-                        <a href="job-title.cfm/tl/j"><button class="btn-primary">J</button></a> 
-                        <a href="job-title.cfm/tl/k"><button class="btn-primary">K</button></a> 
-                        <a href="job-title.cfm/tl/l"><button class="btn-primary">L</button></a> 
-                        <a href="job-title.cfm/tl/m"><button class="btn-primary">M</button></a> 
-                        <a href="job-title.cfm/tl/n"><button class="btn-primary">N</button></a> 
-                        <a href="job-title.cfm/tl/o"><button class="btn-primary">O</button></a> 
-                        <a href="job-title.cfm/tl/p"><button class="btn-primary">P</button></a> 
-                        <a href="job-title.cfm/tl/q"><button class="btn-primary">Q</button></a> 
-                        <a href="job-title.cfm/tl/r"><button class="btn-primary">R</button></a> 
+                        <a href="/browse-jobs/?tl=j#by-job-title"><button class="btn-primary">J</button></a> 
+                        <a href="/browse-jobs/?tl=k#by-job-title"><button class="btn-primary">K</button></a> 
+                        <a href="/browse-jobs/?tl=l#by-job-title"><button class="btn-primary">L</button></a> 
+                        <a href="/browse-jobs/?tl=m#by-job-title"><button class="btn-primary">M</button></a> 
+                        <a href="/browse-jobs/?tl=n#by-job-title"><button class="btn-primary">N</button></a> 
+                        <a href="/browse-jobs/?tl=o#by-job-title"><button class="btn-primary">O</button></a> 
+                        <a href="/browse-jobs/?tl=p#by-job-title"><button class="btn-primary">P</button></a> 
+                        <a href="/browse-jobs/?tl=q#by-job-title"><button class="btn-primary">Q</button></a> 
+                        <a href="/browse-jobs/?tl=r#by-job-title"><button class="btn-primary">R</button></a> 
                         </div>
                         <div class="col-xs-4 grid  x-noPR"> 
-                        <a href="job-title.cfm/tl/s"><button class="btn-primary">S</button></a> 
-                        <a href="job-title.cfm/tl/t"><button class="btn-primary">T</button></a> 
-                        <a href="job-title.cfm/tl/u"><button class="btn-primary">U</button></a> 
-                        <a href="job-title.cfm/tl/v"><button class="btn-primary">V</button></a> 
-                        <a href="job-title.cfm/tl/w"><button class="btn-primary">W</button></a>
-                        <a href="job-title.cfm/tl/x"><button class="btn-primary">X</button></a> 
-                        <a href="job-title.cfm/tl/y"><button class="btn-primary">Y</button></a> 
-                        <a href="jobtitle.cfm/tl/z"><button class="btn-primary">Z</button></a> 
+                        <a href="/browse-jobs/?tl=s#by-job-title"><button class="btn-primary">S</button></a> 
+                        <a href="/browse-jobs/?tl=t#by-job-title"><button class="btn-primary">T</button></a> 
+                        <a href="/browse-jobs/?tl=u#by-job-title"><button class="btn-primary">U</button></a> 
+                        <a href="/browse-jobs/?tl=v#by-job-title"><button class="btn-primary">V</button></a> 
+                        <a href="/browse-jobs/?tl=w#by-job-title"><button class="btn-primary">W</button></a>
+                        <a href="/browse-jobs/?tl=x#by-job-title"><button class="btn-primary">X</button></a> 
+                        <a href="/browse-jobs/?tl=y#by-job-title"><button class="btn-primary">Y</button></a> 
+                        <a href="/browse-jobs/?tl=z#by-job-title"><button class="btn-primary">Z</button></a> 
                         </div>
                         </div>
 
                         <div class="row x-PT20">
                             <div class="col-xs-12 x-titles">
                                 <cfoutput query="gettitles">
-                                    <a class="x-title-item col-xs-6 col-sm-4 col-md-4 col-lg-3" href="/jobs/?kw=#jobtitle#">
-                                        <button class="btn-u btn-u-default">#jobtitle#</button>
-                                    </a>
+                                    <div class="grid col-lg-3 col-md-3 col-sm-4 col-xs-6 x-noP">
+                                    <a class="x-title-item" href="/jobs/?kw=#jobtitle#">#jobtitle#</a>
+                                    </div>
                                 </cfoutput>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="tab-pane fade" id="bycategory">
                     
-                    <cfquery name="categories"  datasource="#request.dsn#">
-                        select category from categories order by category asc
-                    </cfquery>
-                    <cfoutput query="categories">
-                        <div class ="col"><a href="../jobs/?kw=#category#">#category#</a></div>
-                    </cfoutput>
-                        
-    
+                    <div class="tab-pane fade" id="by-job-category">
+                        <div class="row x-PT20">
+                            <div class="col-xs-12 x-categories">
+                            <cfoutput query="categories">
+                                <div class="grid col-lg-3 col-md-3 col-sm-4 col-xs-6 x-noP">
+                                    <a href="../jobs/?kw=#category#">#category#</a>
+                                </div>
+                                </cfoutput>
+                            </div>
+                        </div>
                     </div>
                 </div>
                       
@@ -168,13 +164,14 @@
     
 <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>         
 <script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>         
-<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>         
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/stickytabs/stickytabs.js"></script>  
 <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>         
 <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>         
 <!-- JS Page Level -->         
 <script type="text/javascript" src="/assets/js/unify-app.js"></script>
 <script>
-    $(document).ready(function($){
+    $(function(){
         App.init();
 
         // replace spaces with +
@@ -184,8 +181,7 @@
             $(this).prop('href',text);
         });
         
-        var hash = window.location.hash;
-        $('ul.nav a[href="' + hash + '"]').tab('show');
+        $('.nav-tabs').stickyTabs();
         
     });
 </script>    

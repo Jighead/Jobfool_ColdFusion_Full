@@ -5,13 +5,13 @@
                             <div class="col-xs-12">
                                 <ul class="list-inline browse-list">
                                     <li>
-                                        <a href="/browse-jobs/#bycategory">Job Search By Job Category</a>
+                                        <a href="/browse-jobs/#by-job-category">Job Search By Job Category</a>
                                     </li>
                                     <li>
-                                        <a href="#">Job Search By Location</a>
+                                        <a href="/browse-jobs/#by-job-location">Job Search By Location</a>
                                     </li>
                                     <li class="silver">
-                                        <a href="#">Job Search By Employer</a>
+                                        <a href="/browse-jobs/#by-job-title">Job Search By Title</a>
                                     </li>
                                 </ul>
                             </div>
