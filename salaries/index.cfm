@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="/assets/plugins/animated-headline/css/animated-headline.css">
     </head>
 	<body class="x-salaries header-fixed">
+    <cfinclude template="../partials/googletagmanager.cfm">
     <cfinclude template="/partials/header.cfm">
 
         <section class="x-searchbar-jobs x-contentpattern">
@@ -127,7 +128,7 @@
         <script src="/assets/plugins/animated-headline/js/animated-headline.js"></script>         
         <script src="/assets/plugins/animated-headline/js/modernizr.js"></script>
         <!-- JS Page Level -->
-        <script type="text/javascript" src="assets/js/unify-app.js"></script>
+        <script type="text/javascript" src="/assets/js/unify-app.js"></script>
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
@@ -141,9 +142,9 @@
              
         </script>
         <!--[if lt IE 9]>
-	<script src="assets/plugins/respond.js"></script>
-	<script src="assets/plugins/html5shiv.js"></script>
-	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+	<script src="../assets/plugins/respond.js"></script>
+	<script src="../assets/plugins/html5shiv.js"></script>
+	<script src="../assets/plugins/placeholder-IE-fixes.js"></script>
 	<![endif]-->
 	</body>
 </html>

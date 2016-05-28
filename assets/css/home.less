@@ -1,5 +1,5 @@
 body { 
-     min-width: 345px !important; 
+     min-width: 300px !important; 
 }
 
 // THE LOGO
@@ -47,7 +47,7 @@ body {
 }
 
 .x-headline, .x-sub {
-    font-family: Montserrat;
+    font-family: 'Open Sans', Arial, sans-serif;
     font-weight:700;
     text-transform: none;
     font-size: 14px;
@@ -78,6 +78,10 @@ body {
     padding: 0 25px ;
 }
 
+.bg-color-red {
+    background-color: #ff5252;
+}
+
 /* hover logos section */
 .x-hire {
     min-height: 250px;
@@ -90,11 +94,26 @@ body {
     
 }
 
+.navbar-brand h1 {
+    display:none;
+}
+
     /* hide everything under 320 */
-    @media only screen and (max-width : 340px) {
-        body {
+    @media only screen and (max-width : 320px) {
+        .x-headline {
+            font-size: 18px; 
+            margin:0px;
+            line-height: 35px;
+        }
+        .interactive-slider-v2-md {
+        padding: 20px 0;
+        }
+        .x-sub {
+          font-size: 12px;
+        }
+        h4 {
             display:none;
-            background-color:deepskyblue;            }
+        }
     }
 
     @media only screen and (min-width:320px) and (max-width: 335px)  {

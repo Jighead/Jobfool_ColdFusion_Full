@@ -45,6 +45,15 @@ h1.x-jobtitle {
         color: #FFF;
     }
 }
+.alertmessage {
+    background-color: #F2FAD4;
+}
+
+.error {
+    color: @jfRed;
+    font-weight: normal;
+}
+
 
 /* ======== filters wrapper ===== */
 #x_filters {
@@ -78,6 +87,12 @@ h1.x-jobtitle {
 
 /* ================ end job page styles ===================== */
 
+@media (max-width: 479px){
+    // hide pagination page buttons for under 480. only show previous and next.
+    ul li .page {
+        display:none;
+    }
+}
 @media (max-width: 480px){
     .x-reducepad-5  {
         margin-bottom: 5px;
@@ -86,16 +101,6 @@ h1.x-jobtitle {
     .list-inline {
         margin-left: 5px;
     }
-   /* .x-logo
-    {
-        text-align: center;
-        background-image: url('../images/Logo200-11.png');
-        background-repeat: no-repeat;
-        width: 240px;
-        min-width: 240px;
-        height: 70px;
-        display: block;
-    }*/
 }
 
 @media (min-width: 360px) and (max-width: 479px){
@@ -110,8 +115,6 @@ h1.x-jobtitle {
     }
     .x-reducepad-5
     {
-       // padding-right: 5px !important;
-       // padding-left: 5px !important;
         margin-bottom: 5px;
     }
 }
@@ -124,6 +127,7 @@ h1.x-jobtitle {
 @media (max-width: 641px) {
     .x-well-ad4 {
         display:none;
+        width:560px;
     }
     
 }

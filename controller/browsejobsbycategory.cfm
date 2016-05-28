@@ -1,7 +1,6 @@
 <cfsilent>
 
-    <cfinvoke component="#request.componentpath#.browsejobs" 
-              method="getCategories" 
+    <cfinvoke component="#request.componentpath#.browsejobs"   method="getCategories" 
               returnvariable="categories">	
 	<cfset thistitle = "Job Search - Jobs By Category">
 

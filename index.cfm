@@ -1,16 +1,3 @@
-<cfsilent>
-        <!---==== recent queries section ===== --->
-        <cftry>
-        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,30,0)#">
-            SELECT TOP 200 [keyword],[location]  
-            FROM [thejobfool].[dbo].[RecentQueries]
-            order by datetime desc
-        </cfquery>
-        <cfcatch></cfcatch>
-        </cftry>
-</cfsilent>
-
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -18,53 +5,43 @@
 <html lang="en"> 
     <!--<![endif]-->
     <head>
-        <title>Job Search</title>
+        <title>Job Search 2016</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="description" content="Job Search">
+        <meta name="author" content="thejobfool.com">
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-touch-icon-72x72.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-touch-icon-76x76.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-touch-icon-120x120.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-touch-icon-144x144.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-touch-icon-152x152.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon-180x180.png?v=qAAN6qKbbY">
+        <link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png?v=qAAN6qKbbY" sizes="32x32">
+        <link rel="icon" type="image/png" href="assets/favicons/favicon-194x194.png?v=qAAN6qKbbY" sizes="194x194">
+        <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png?v=qAAN6qKbbY" sizes="96x96">
+        <link rel="icon" type="image/png" href="assets/favicons/android-chrome-192x192.png?v=qAAN6qKbbY" sizes="192x192">
+        <link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png?v=qAAN6qKbbY" sizes="16x16">
+        <link rel="manifest" href="..">
+        <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg?v=qAAN6qKbbY" color="#000000">
+        <link rel="shortcut icon" href="assets/favicons/favicon.ico?v=qAAN6qKbbY">
+        <link rel="shortcut icon" href="/favicon.ico?v=qAAN6qKbbY">
+        <meta name="apple-mobile-web-app-title" content="The Job Fool">
+        <meta name="application-name" content="The Job Fool">
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png?v=qAAN6qKbbY">
+        <meta name="msapplication-config" content="assets/favicons/browserconfig.xml?v=qAAN6qKbbY">
+        <meta name="theme-color" content="#efefef">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
-        <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bootstrap/css/offcanvas.css">
-        <link href="assets/css/grid-ms.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/app.css">
-        <!--<link rel="stylesheet" href="assets/css/u-dark-blue.css">-->
-        <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-        <link rel="stylesheet" href="assets/plugins/image-hover/css/img-hover.css">
-        <link rel="stylesheet" href="assets/plugins/animate.css">
+        <link rel="stylesheet" href="assets/css/plugins.css">
         <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/plugins/animated-headline/css/animated-headline.css">
-        <style>
-            /* for validation */
-            .has-error .form-control {
-                border: 1px solid #FF486F;
-                background-color: rgba(255, 72, 111, 0.24);
-            }
-            
-
-            
-            x-listbox {
-                width: 80%;
-                margin:0 auto;
-            }
-            .simple-item {
-                color: #555;
-                display: inline-block;
-                font-size: 16px;
-                font-weight: normal;
-                margin: 0 10px;
-                overflow: hidden;
-                padding: 5px 10px;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                width: calc(33% - 20px);
-                text-align:center;
-            }
-        </style>
+        <link rel="stylesheet" href="assets/css/app.css">
     </head>
     <body class="x-home header-fixed">
+    <cfinclude template="partials/googletagmanager.cfm">
         <div class="wrapper">
             <!---=== Header v6 ===--->
             <div class="header-v6 header-dark-transparent header-sticky">
@@ -75,15 +52,16 @@
                             <!--- Navbar Brand --->
                             <div class="navbar-brand">
                                 <div class="col-xs-12 homelogo">
+                                    <!--<h1>Job Search</h1>-->
                                     <a class="x-homelink" href="/">
                                         <div class="x-text-logo">
-                                            <h1 title="Job Search"><span class="x-job">JOB</span><span class="x-fool">FOOL</span></h1>
+                                            <img src="assets/images/job_search.png" alt="Job Search" />
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <!-- ENd Navbar Brand -->
-                            <!-- Header Inner Right -->
+                            <!--- ENd Navbar Brand --->
+                            <!--- Header Inner Right --->
                             <div class="header-inner-right">
                                 <!---
                                     <ul class="menu-icons-list">
@@ -131,11 +109,13 @@
                         <h1 class="x-headline">Find Your Perfect Job Today</h1>
                         <p class="x-sub">Find Millions of Local Jobs From One Place</p>
                         <div class="row" data-pg-name="Row-Searchbar"> 
-                            <form method="get" action="/jobs/"> 
+                            <form method="get" action="jobs/"> 
                                 <div class="col-sm-5 x-reducepad-5"> 
                                     <div class="input-group"> 
-                                        <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span> 
-                                        <input type="text" name="kw" id="x-what" placeholder="what job you are looking for" class="form-control x-what">
+                                        <span class="input-group-addon"><i class="fa fa-lg fa-tag x-blue"></i></span>
+                                        <input type="text" name="kw" 
+                                               id="x-what" placeholder="what job you are looking for" 
+                                               class="form-control x-what">
                                     </div>                                     
                                 </div>                                 
                                 <div class="col-sm-5 x-reducepad-5"> 
@@ -149,7 +129,7 @@
                                 </div>                                 
                             </form>                             
                         </div> 
-                        <h4>Job Listings From Thousands of Carreer Websites in One Simple Search!</h4>
+                        <h4>Job Listings From Thousands of Career Websites in One Simple Search!</h4>
                     </div>
                 </div>
             </section>
@@ -163,7 +143,7 @@
 						<h2 class="heading-sm">Popular Employers</h2>
 						<cfset empArray = ["Google","General Electric", "Chipotle", "Wal-Mart", "Starbucks", "Boeing"] />
 						<ul class="list-unstyled">
-							<cfoutput><cfloop array="#empArray#" index="item"><cfset itemlink = replace(item," ","+","all") />                         <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+							<cfoutput><cfloop array="#empArray#" index="item"><cfset itemlink = replace(item," ","+","all") />                         <li><a href="jobs/?kw=#itemlink#">#item#</a></li>
                             </cfloop></cfoutput>
 						</ul>
 					</div>
@@ -175,7 +155,7 @@
 						<cfset cityArray = ["Chicago","San Francisco", "New York City", "Atlanta", "Denver", "Miami"] />
 						<ul class="list-unstyled">
                         <cfoutput><cfloop array="#cityArray#" index="item"><cfset itemlink = replace(item," ","+","all") />
-                        <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+                        <li><a href="jobs/?kw=#itemlink#">#item#</a></li>
                         </cfloop></cfoutput>
 						</ul>
                     </div>
@@ -188,7 +168,7 @@
 						<cfset catArray = ["Inside Sales","Certified Registered Nurse", "Internship", "Certified Account", "GIS", "Work From Home"] />
 						<ul class="list-unstyled">
                         <cfoutput><cfloop array="#catArray#" index="item"><cfset itemlink = replace(item," ","+","all") />
-                        <li><a href="/jobs/?kw=#itemlink#">#item#</a></li>
+                        <li><a href="jobs/?kw=#itemlink#">#item#</a></li>
                         </cfloop></cfoutput>
 						</ul>
                     </div>
@@ -203,22 +183,26 @@
                         <div class=" col-xs-12">
                             <h2>Send me great new <strong>jobs by email</strong></h2>
                         </div>
-                        <form id="alert"  role="form">
-                        <div class="col-xs-4 x-reducepad-5 form-group">
+                        <noscript>
+                            <style>#alert{display:none;}</style>
+                            <p center>Please enable JavaScript to use the form.</p>
+                        </noscript>
+                        <form id="alert" role="form">
+                        <div class="col-xs-12 col-sm-4 x-reducepad-5 form-group">
                             <input type="text" class="form-control" id="what" name="what" min-length="3" placeholder="What Job" required>
                         </div>
-                        <div class="col-xs-4 x-reducepad-5 form-group">
+                        <div class="col-xs-12 col-sm-4 x-reducepad-5 form-group">
                             <input type="text" class="form-control" id="where" name="where" min-length="3" placeholder="What city or zipcode" required>
                         </div> 
-                        <div class="col-xs-4 x-reducepad-5 input-group form-group">
+                        <div class="col-xs-12 col-sm-4 x-reducepad-5 input-group form-group">
                             <input type="email" class="form-control" id="email" name="email" placeholder="enter email address" required>
                             <span class="input-group-btn form-group">
                                 <button id="alertbtn" class="btn" type="submit">
                                     <i class="fa fa-envelope-o"></i>
                                 </button>
                             </span>
-                            </div>
                         </div>
+                  </div>
                         
                             <input type="hidden" class="form-control" name="cfid" value="homepage">
                         </form>
@@ -383,9 +367,9 @@
         </div>
         <!--- === End Hire Block === --->
 
-                <cfsilent>
+       <cfsilent>
         <!---==== recent queries section ===== --->
-        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,0,0)#">
+        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,30,0)#">
             SELECT TOP 200 [keyword],[location]  
             FROM [thejobfool].[dbo].[RecentQueries]
             order by datetime desc
@@ -396,7 +380,13 @@
             <div class="row">
                 <div id="recentqueries" class="mobile-hidden">
                 <cfoutput query="data">
-                    <a class="small" href="/jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">#lcase(keyword)#</a>
+                <cfif currentrow LT 4 >
+                    <a class="small" href="jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">
+                    #lcase(keyword)#</a>
+                <cfelse>
+                	<a class="small" href="jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>">
+                    #lcase(keyword)#</a>
+                </cfif>
                 </cfoutput>
                 </div>
             </div>
@@ -406,26 +396,26 @@
         <cfinclude template="partials/footer.cfm">
 
         </div>
-
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>-->
+           
         <script src="assets/plugins/jquery/jquery223.min.js"></script>
         <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
         <script src="assets/plugins/jquery/additional-methods.js"></script>
-        <script src="assets/plugins/jquery/jquery.validate.js"></script>"></script>
+        <script src="assets/plugins/jquery/jquery.validate.js"></script></script>
         <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
+        <script src="assets/js/plugins.js"></script>
+        <!--
         <script src="assets/plugins/back-to-top.js"></script>
         <script src="assets/plugins/smoothScroll.js"></script>
+        -->
         <script src="assets/plugins/jquery.parallax.js"></script>
-        <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+        <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>  
         <script src="assets/plugins/counter/waypoints.min.js"></script>
         <script src="assets/plugins/counter/jquery.counterup.min.js"></script>
         <script src="assets/plugins/wow-animations/js/wow.min.js"></script>
-        <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>         
+        <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>
         <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
- 
-        <script src="assets/js/unify-app.js"></script>
-
+        <script src="assets/js/unify-app.js"></script>   
+    
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
@@ -433,7 +423,6 @@
             App.initCounter();
             App.initParallaxBg(); 
             
-            // search form placeholder fix
             $('input').focus(function(){
                $(this).data('placeholder',$(this).attr('placeholder'))
                    .attr('placeholder','');
@@ -441,45 +430,37 @@
                $(this).attr('placeholder',$(this).data('placeholder'));
             });
             
+			$("#alert").validate({
+				ignore: ":hidden",
+				 rules: {   },
+					
+				submitHandler: function (form) {
+					 
+					 $.ajax({
+						type: "POST",
+						dataType:"json",
+						url: "controller/addalert.cfm",
+						data: $(this).serialize()
+					}).done(function(){
+						$('#emailform').html(
+							"<div class='col-xs-12'><h2>Sweet! You're Almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button.</p></div>");
+					}).fail(function(){
+							  $('#emailform').html(
+							"<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
+					});
+					return false;   
+					 
+				 }
+			});
             
-            if( $("#alert").find(".error").length){
-                alert("errors found");
-            }
-            
-            
-    $("#alert").validate({
-        ignore: ":hidden",
-         rules: {   },
-            
-        submitHandler: function (form) {
-             
-             $.ajax({
-                type: "POST",
-                dataType:"json",
-                url: "/controller/addalert.cfm",
-                data: $(this).serialize()
-            }).done(function(){
-                $('#emailform').html(
-                    "<div class='col-xs-12'><h2>Sweet! You're almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button .</p></div>");
-            }).fail(function(){
-                      $('#emailform').html(
-                    "<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert sytems in under going maintenance.</p></div>");
-            });
-            return false;   
-             
-         }
-    });
-            
-            
-            
-        }); <!--- end doc ready --->
+        }); <!--- end ready --->
             
         $('#x_search-form').submit(function(e){
           e.preventDefault();
         });
       
-        </script>
-        <!--[if lt IE 9]>
+    </script>
+    <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
 	<script src="assets/plugins/placeholder-IE-fixes.js"></script>

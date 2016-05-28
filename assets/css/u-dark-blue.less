@@ -6,8 +6,12 @@
 * rgba(71, 101, 160, 1);
 */
 
-@defaultcolor: #5B81CC;
-@hovercolor: #36567D;
+/*@defaultcolor: #36567D;
+@hovercolor: #5B81CC; 
+@addtionalcolor: #71A1FF;*/
+
+@defaultcolor: #4765a0;
+@hovercolor: #0066cc; 
 @addtionalcolor: #71A1FF;
 
 a {
@@ -16,8 +20,19 @@ a {
 a:focus,
 a:hover,
 a:active {
-	color: @defaultcolor;
+	color: @hovercolor;
 }
+
+#x_filters {
+    li a {
+        color: @defaultcolor;
+    }
+
+    li a:focus, li a:hover, li a:active {
+        color: @hovercolor;
+    }
+}
+
 .color-green {
 	color: @defaultcolor;
 }
@@ -838,8 +853,8 @@ ul.blog-tags a:hover {
   border-color: @defaultcolor;
 }
 .pagination li a:hover {
-  background: @hovercolor;
-  border-color: @hovercolor;
+  background: @defaultcolor;
+  border-color: @defaultcolor;
 }
 
 /* Pager */

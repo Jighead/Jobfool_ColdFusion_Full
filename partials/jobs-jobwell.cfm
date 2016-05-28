@@ -10,7 +10,7 @@
                      style="display:block"
                      data-ad-client="ca-pub-2780853858393535"
                      data-ad-slot="8038727549"
-                     data-ad-test="true"
+                     data-ad-test="false"
                      data-ad-format="auto"></ins>
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -39,7 +39,7 @@
                                  style="display:block"
                                  data-ad-client="ca-pub-2780853858393535"
                                  data-ad-slot="8038727549"
-                                 data-ad-test="true"
+                                 data-ad-test="false"
                                  data-ad-format="auto"></ins>
                             <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
@@ -48,20 +48,20 @@
                             </div>
                         </cfif>
                     <div class="x-well"> 
-                        <p class="x-serptitle"><a href="/jobs/view.cfm?do=1&amp;jobid=#key#" rel="nofollow" target="_blank">#item.jobtitle#</a></p> 
+                        <p class="x-serptitle"><a href="../jobs/view.cfm?do=1&amp;jobid=#key#" rel="nofollow" target="_blank">#item.jobtitle#</a></p> 
                         <p class="x-serpsnip">#item.snippet#</p>
                         <p class="x-serpcompany"><span<cfif url.kw eq item.company> class="x-matchhilite"</cfif>>#item.company#</span>
                         <cfif len(item.formattedLocationFull)>
                             <span class="x-serplocation" itemtype="http://schema.org/Postaladdress">
                             <cfif len(url.kw) or len(item.company)>- </cfif>
-                            <cfif len(url.kw) gt 2><a href="/jobs/index.cfm?kw=#url.kwlink#&l=#item.loclink#"<cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
+                            <cfif len(url.kw) gt 2><a href="../jobs/index.cfm?kw=#url.kwlink#&l=#item.loclink#"<cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
                             <cfelse>
-                                <a href="/jobs/index.cfm?l=#item.loclink#" <cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
+                                <a href="../jobs/index.cfm?l=#item.loclink#" <cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
                             </cfif> 
                             </span>
                         </cfif>
                         </p>
-                        <p>Show me all jobs at <a href="/jobs/index.cfm?kw=#item.company#&l=#item.loclink#">#item.company#</a></p>
+                        <p>Show me all jobs at <a href="../jobs/index.cfm?kw=#item.company#&l=#item.loclink#">#item.company#</a></p>
                         <p class="x-serppostee"><i>#item.formattedRelativeTime#</i></p>
                        <!--- <p><a class="savejob" id="#key#" href="/jobs/savejob.cfm?jobid=#key#">Save Job</a></p> --->
                     </div>

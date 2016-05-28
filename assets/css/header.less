@@ -5,18 +5,37 @@
 
 
 .x-text-logo {
-        width: 228px;
         padding:6px;
         border: 1px solid #FFF;
 }
 
+.header-v6 .navbar-brand  {
+   padding-top: 8px;
+}
+.x-text-logo img {
+  //  -webkit-filter: invert();
+  //filter: invert();
+    
+}
+
+/*.x-text-logo img::before{
+  content:"invert()"
+}
+
+
+.x-text-logo img {
+  -webkit-filter: invert();
+  filter:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' ><filter id='invert'><feComponentTransfer><feFuncR type='linear' slope='-1' intercept='1'/><feFuncG type='linear' slope='-1' intercept='1' /><feFuncB type='linear' slope='-1' intercept='1' /></feComponentTransfer></filter></svg>#invert");
+  filter:invert();
+}*/
+
 .x-text-logo h1 {
-        margin: 0;
-        //font-family: Lato;
-        font-family: 'Lato', sans-serif;
-        //font-family: 'Bevan', cursive;
+    display: inline-block;
+    margin: 0;
+    padding-top: 10px;
+    font-family: 'Abril Fatface', sans-serif;
         letter-spacing: 0.0em;
-        font-size: 47px;
+        font-size: 38px;
         color: #FFF;
 }
 
@@ -37,7 +56,6 @@
     color: @headerColor;
     text-transform: uppercase;
 }
-
 
 .x-logo
 {

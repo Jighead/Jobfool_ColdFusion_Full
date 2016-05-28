@@ -22,6 +22,7 @@
 	<cfset P = 1>
 </cfif>
 
+
 <cfscript>
 	pgs = int(Attributes.Recordcount / Attributes.perPage);
 		
@@ -44,7 +45,7 @@
 			end = pgs;
 		}
 	}
-	qst = cgi.query_string;
+	//qst = cgi.query_string;
 	//autovars = cgi.query_string;
 	//if (refind("[Pp][Nn]=[0-9]+", autovars) gt 0)
 	//	autovars = rereplace(autovars, "[Pp][Nn]=[0-9]+", "", "ALL");
@@ -54,9 +55,9 @@
 	showend =  showst + Attributes.perPage;
 </cfscript>
 
-
+<!---
 		<cfif cgi.path_info eq cgi.script_name>
-		<!--- we have a standard url, do nothing --->
+		- we have a standard url, do nothing -
 		<cfelse>
 			<cfset qst="">
             <cfloop collection="#url#" item="i"> 
@@ -70,7 +71,22 @@
                  </cfoutput> 
             </cfloop>
 		</cfif>
-</cfsilent>
+--->  
+    
+
+			<cfset qst="">
+            <cfloop collection="#url#" item="i"> 
+                 <cfoutput> 
+                 <cfif i neq "p" and i neq "qt" and i neq "st" and i neq "co" and i neq "SB" and i neq "END" and i neq "radius" and i neq "kwlink">
+                     <cfif len(url[i])>
+                        <cfset namevalue="#i#=#url[i]#">
+                        <cfset qst = listAppend(qst, "#namevalue#","&")>
+                        <!---#namevalue#<br>--->
+                     </cfif>
+                 </cfif>
+                 </cfoutput> 
+            </cfloop>          
+                
 <!---
 <cfset qst1 = reReplace(qst, "[Pp]=[0-9]+", "", "all")>
 <cfset qst2 = reReplace(qst1, "[Ss][Tt]=[0-9]+", "", "all")>
@@ -82,9 +98,11 @@
 <cfset qstr = replacenocase(qstr, "?", "/", "all")>
 <cfset qstr = replacenocase(qstr, "=", "/", "all")>
 --->
+                       
 <cfset qst = replacenocase(qst, " ", "+", "all")>
+    
+</cfsilent>  
 <cfoutput>
-
             <div id="pagination">
             <ul class="pagination">
                 <cfif P gt 1>	

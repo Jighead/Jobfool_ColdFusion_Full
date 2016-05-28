@@ -25,10 +25,10 @@
         <cfif isDefined("url.reinit")>
             <cfset structClear(application)>
         </cfif>
-        <cfinclude template="/system/config/settings.cfm">
-        <cfinclude template="/system/customtags/urlparser.cfm">
-        <cfinclude template="/system/config/DomainAliasManager.cfm">
-        <cfinclude template="/system/udf/lib.cfm">
+        <cfinclude template="system/config/settings.cfm">
+        <cfinclude template="system/customtags/urlparser.cfm">
+        <cfinclude template="system/config/DomainAliasManager.cfm">
+        <cfinclude template="system/udf/lib.cfm">
         <!---
        <cfif not cgi.REMOTE_ADDR is not "97.102.160.56">
                   <cfinclude template="tempdown.cfm"><cfabort>
@@ -70,7 +70,7 @@
 </cftry>
 
 </cffunction>
-<!---
+
 <cffunction name="onError" returnType="void" output="true">
     <cfargument name="exception" required="true">
     <cfargument name="eventname" type="string" required="true">
@@ -93,14 +93,10 @@
 
     <cfmail to="jobfool@gmail.com" from="errors@thejobfool.com" subject="Error: #arguments.exception.message#" type="html">
         #errortext#
+        <cfdump var="#arguments.exception#">
     </cfmail>
-
-    - <cflocation url="error.cfm"> -
-
+    <cfabort>
 </cffunction>
---->
-
-
 
     <cffunction name="appdump" output="true">
         <cfdump var="#this#"><cfabort>

@@ -236,7 +236,7 @@ var App = function () {
 		jQuery('.popovers-toggle').popover('toggle');
 		jQuery('.popovers-destroy').popover('destroy');
 	}
-            
+     /*      
      function disabledKeys() {
         $('#x-what, #x-where').bind('keypress', function (event) {
             var regex = new RegExp("^[a-zA-Z0-9\\-\\s]+$");
@@ -247,7 +247,7 @@ var App = function () {
             }
         });
     }
-        
+      */  
 
 	return {
 		init: function () {
@@ -265,7 +265,7 @@ var App = function () {
 			handleValignMiddle();
 			handleEqualHeightColumns();
 			handleEqualHeightColumns__Images();
-            disabledKeys();
+            //disabledKeys();
 		},
 
 		// Counters

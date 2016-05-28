@@ -44,13 +44,46 @@
 <cfparam name="jobdata.recordcount" default="0">
 <cfset url.end = url.st + url.qt>
 <cfparam name="thistitle" default="Job Search | The Job Fool">
-<cfparam name="desc.description" default="Speed up your job search and find better employment! The Job Fool searches millions of jobs from thousands of sites. New Jobs are posted hourly. Find hot new jobs, advance your career, develop new and better employer relations. Job search made simple.">
+<cfparam name="desc.description" default=" on TheJobfool.com. Job listings from thousands of career websites with one simple search!">
     
 <cfparam name="canonical" default="http://thejobfool/jobs/?">
 
 <cfif len(url.kw) LT 2 and len(url.l) lt 2>
-    <cfset url.kw = 'hiring'>
+
+<cfswitch expression="#request.co#">
+
+<cfcase value="ca">
+	<cfset url.kw = ''>
+	<cfset url.l = 'Toronto'>
+</cfcase>
+
+<cfcase value="es">
+	<cfset url.kw = ''>
+	<cfset url.l = 'Madrid'>
+</cfcase>
+
+<cfcase value="de">
+	<cfset url.kw = ''>
+	<cfset url.l = 'Berlin'>
+</cfcase>
+
+<cfcase value="fr">
+	<cfset url.kw = ''>
+	<cfset url.l = 'Paris'>
+</cfcase>
+
+<cfcase value="gb">
+	<cfset url.kw = ''>
+	<cfset url.l = 'London'>
+</cfcase>
+
+<cfdefaultcase>
+	<cfset url.kw = 'hiring'>
     <cfset url.l = 'United States'>
+</cfdefaultcase>
+
+</cfswitch>
+
 </cfif>
 
 <!--- ::::::::: if search form was submitted we need to check for a keyword and location ::::: --->
@@ -156,7 +189,9 @@
                         insert into RecentQueries  
                         (keyword, location, country)  
                         values   
-                        ('#trim(keyword)#', '#trim(URL.l)#', 'US')
+                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+                         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
+                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />)
                         </cfquery>
                     </cfif>
 
@@ -167,8 +202,12 @@
                     <cfquery name="insert" datasource="jobs">
                     insert into RecentQueries  
                     (keyword, location, country, ipaddress, useragent)  
-                    values   
-                    ('#trim(variables.keyword)#', '#trim(URL.l)#', 'US', '#cgi.REMOTE_ADDR#', '#cgi.HTTP_USER_AGENT#')
+                          values   
+                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+                         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
+                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />
+                         ,<cfqueryparam maxlength="20" cfsqltype="cf_sql_varchar" value="#trim(cgi.REMOTE_ADDR)#" />
+                         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cgi.HTTP_USER_AGENT)#" />)
                     </cfquery>
                    <cfcatch></cfcatch>
                 </cftry>	
@@ -200,8 +239,12 @@
             <cfquery name="insert" datasource="jobs">
             insert into RecentQueries  
             (keyword, location, country, ipaddress, useragent)  
-            values   
-            ('#trim(keyword)#', '#trim(url.l)#', 'US', '#cgi.REMOTE_ADDR#', '#cgi.HTTP_USER_AGENT#')
+                  values   
+        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
+         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />
+         ,<cfqueryparam maxlength="20" cfsqltype="cf_sql_varchar" value="#trim(cgi.REMOTE_ADDR)#" />
+         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cgi.HTTP_USER_AGENT)#" />)
             </cfquery>
         </cfif>
     </cfif>  
@@ -211,9 +254,13 @@
 	<cfif cgi.REMOTE_ADDR is '108.162.212.104'>
         <cfquery name="insert" datasource="jobs">
         insert into RecentQueries 
-        (keyword, location, country, ipaddress, useragent)  
+        (keyword, location, country, ipaddress, useragent)    
         values   
-        ('#trim(variables.keyword)#', '#trim(url.l)#', 'US', '#cgi.REMOTE_ADDR#', '#cgi.HTTP_USER_AGENT#')
+        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
+         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />
+         ,<cfqueryparam maxlength="20" cfsqltype="cf_sql_varchar" value="#trim(cgi.REMOTE_ADDR)#" />
+         ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cgi.HTTP_USER_AGENT)#" />)
         </cfquery>
     </cfif> 
 

@@ -20,23 +20,27 @@
                             <ul class="list-inline country-list">
                                 <li>
                                     <img src="/assets/images/icons/ca.png" class="flag">
-                                    <a href="#">Canada</a>
+                                    <a href="https://can.thejobfool.com">Canada</a>
                                 </li>
                                 <li>
                                     <img src="/assets/images/icons/fr.png" class="flag">
-                                    <a href="#">France</a>
+                                    <a href="https://fr.thejobfool.com">France</a>
                                 </li>
                                 <li>
                                     <img src="/assets/images/icons/de.png" class="flag">
-                                    <a href="#">Germany</a>
+                                    <a href="https://de.thejobfool.com">Germany</a>
                                 </li>
                                 <li>
                                     <img src="/assets/images/icons/es.png" class="flag">
-                                    <a href="#">Spain</a>
+                                    <a href="https://es.thejobfool.com">Spain</a>
                                 </li>
                                 <li>
                                     <img src="/assets/images/icons/uk.png" class="flag">
-                                    <a href="#">United Kingdom</a>
+                                    <a href="https://uk.thejobfool.com">United Kingdom</a>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/icons/us.png" class="flag">
+                                    <a href="https://thejobfool.com">United States</a>
                                 </li>
                             </ul>
                         </div>

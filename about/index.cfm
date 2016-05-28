@@ -6,31 +6,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="About The Job Fool">
         <meta name="author" content="JobFool LLC">
+        <cfinclude template="../partials/faviconmeta.cfm" />
         <title>About The Job Fool</title>
-        <!-- Bootstrap core CSS -->
         <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> 
-        <!-- CSS Global Compulsory -->         
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">     
         <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="/assets/plugins/animate.css"> 
         <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="/assets/css/app.css"> 
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2780853858393535",
+            enable_page_level_ads: true
+          });
+        </script>
+        <!--- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
+    <cfinclude template="../partials/googletagmanager.cfm">
         <cfinclude template="../partials/header.cfm">
+            
+            
+        <div class="breadcrumbs-v3 breadcrumbs-lg img-v2">
+			<div class="container">
+				<h1>Our Story</h1>
+				<!---<p>CEO, Director</p>--->
+			</div>
+		</div>
+  
         <div class="content">
             <div class="container">
-                <h1>Our Story</h1>
-                <p>The Job Fool was founded in 2006.<br><br>
+                
+                <!--<h1>Our Story</h1>-->
+                <h2>Founded in 2006.</h2>
         We are fortunate to have the opportunity to significantly impact the lives of people and businesses each day. We are in the business of connecting job seekers with the right opportunities and employers with the best, most qualified candidates for their job openings. We facilitate this process through technology platforms such as job search, job distribution, and job boards, as well as through superior technology such as spidering / importing data, career resources, advertising, and job network communities.</p>
                 <br>
-                <h1>Job Seekers</h1>
+                <h2>Job Seekers</h2>
                 <p>Searching for a job has never been more complicated. There are newspapers, generalist job boards like Monster.com, thousands of niche job boards, job aggregators, Twitter, Facebook, LinkedIn, Networking, and more! To complicate things, jobs are rarely posted in only one area and many of the most desirable jobs are posted to very specific job sites making them difficult to find.
         The Job Fool can help. We've aggregated jobs from thousands of sources and made them available from one centralized job site.<br><br><span class="red">No foolin around!</span> Now your job search can be simplified.</p>
                 <br>
@@ -42,14 +59,19 @@
             
     <cfinclude template="../partials/footer.cfm">
         
-    <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>         
-    <script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>         
-    <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="../assets/plugins/jquery/jquery.min.js"></script>         
+    <script type="text/javascript" src="../assets/plugins/jquery/jquery-migrate.min.js"></script>         
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
     <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
+    <!--[if lt IE 9]>
+	<script src="../assets/plugins/respond.js"></script>
+	<script src="../assets/plugins/html5shiv.js"></script>
+	<script src="../assets/plugins/placeholder-IE-fixes.js"></script>
+	<![endif]-->     
     <script>
         $(document).ready(function($){
 
         });
-    </script>   
+    </script>
     </body>
 </html>

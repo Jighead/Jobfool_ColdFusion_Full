@@ -1,3 +1,4 @@
+<cfparam name="url.do" default="1">
 <cfif url.do eq 1 and isdefined('url.jobid')><!--- indeed jobs only --->  
 <cftry>
 <cfsilent>

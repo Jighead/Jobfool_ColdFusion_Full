@@ -8,22 +8,21 @@
         <meta name="description" content="About The Job Fool">
         <meta name="author" content="JobFool LLC">
         <title>Privacy Policy and Terms of Use | The Job Fool</title>
-        <!-- Bootstrap core CSS -->
+        <cfinclude template="../partials/faviconmeta.cfm" />
         <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> 
-        <!-- CSS Global Compulsory -->         
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">      
         <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="/assets/plugins/animate.css"> 
         <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
         <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
         <link rel="stylesheet" href="/assets/css/app.css"> 
     </head>
-<body>     
+<body>
+<cfinclude template="../partials/googletagmanager.cfm">
 <cfinclude template="../partials/header.cfm">
 <div class="content privacy-wrapper">    
     <div class="container">
@@ -115,6 +114,6 @@
         $(document).ready(function($){
 
         });
-    </script>    
+    </script>
 </body>
 </html>
