@@ -4,7 +4,7 @@
  * @author Aidan Lister <aidan@php.net>
  * @version 1.2.0
  */
-(function ( $ ) {
+jQuery(document).ready(function ( $ ) {
     $.fn.stickyTabs = function( options ) {
         var context = this
 

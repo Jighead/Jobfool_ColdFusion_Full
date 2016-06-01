@@ -75,6 +75,13 @@
     <cfset this.mappings["/modelglue"] = this.baseDir & "plugins\modelglue\">
     <cfset this.mappings["/reactor"] = this.baseDir & "plugins\reactor\">
     <cfset this.mappings["/transfer"] = this.baseDir & "plugins\transfer\"> --->
+        
+        
+<cfset request.mailAttributes = {
+    server="mail.thejobfool.com",
+    username="jobfool",
+    password="5hamburg5"
+} />
 
 </cfsilent>
 <!--- <cfdump var="#this#"><cfabort> --->

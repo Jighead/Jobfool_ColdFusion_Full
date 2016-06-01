@@ -32,7 +32,7 @@ gulp.task('obfuscate', function() {
 });
 
 gulp.task('uglifyJS', function() {
-  return gulp.src('assets/js/unify-app.js')
+  return gulp.src('assets/js/app.js')
     .pipe(uglify())
     .pipe(gulp.dest('dist/assets/js/'));
 });
@@ -46,23 +46,6 @@ gulp.task('csso-app', function() {
 });
 
 
-gulp.task('csso-plugins', function() {
-  var files = ['assets/plugins/bootstrap/css/bootstrap.min.css'
-               ,'bootstrap/css/offcanvas.css'
-               ,'assets/css/grid-ms.css'
-               ,'assets/plugins/owl-carousel/owl-carousel/owl.carousel.css'
-               ,'assets/plugins/image-hover/css/img-hover.css'
-               ,'assets/plugins/animate.css'
-               ,'assets/plugins/line-icons/line-icons.css'
-               ,'assets/plugins/font-awesome/css/font-awesome.min.css'
-               ,'assets/plugins/animated-headline/css/animated-headline.css'
-              ];
-  return gulp.src(files)
-    //.pipe(sourcemaps.init())
-    .pipe(csso())
-    //.pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/assets/plugins/css/'));
-});
 
 /* concat and minify plugins CSS */
 gulp.task('buildCSS', function() {
@@ -79,13 +62,13 @@ gulp.task('buildCSS', function() {
 gulp.src(files)
     .pipe(concat('plugins.css'))
     .pipe(csso())
-    .pipe(gulp.dest('assets/css/'));
+    .pipe(gulp.dest('dist/assets/css/'));
     
     
 gulp.src('assets/plugins/line-icons/line-icons.css')
     .pipe(concat('line-icons.css'))
     .pipe(csso())
-    .pipe(gulp.dest('assets/plugins/line-icons/line-icons.min.css'));
+    .pipe(gulp.dest('dist/assets/plugins/line-icons/line-icons.min.css'));
     
 });
 
@@ -93,29 +76,53 @@ gulp.src('assets/plugins/line-icons/line-icons.css')
 /* concat and minify plugins JS */
 gulp.task('buildJS', function() {
     
- var files = [//'assets/plugins/jquery/jquery223.min.js'
-               //,'assets/plugins/jquery/jquery-migrate.min.js'  
-               //,'assets/plugins/jquery/additional-methods.js'
-              // ,'assets/plugins/jquery/jquery.validate.js'
-              // ,'assets/plugins/bootstrap/js/bootstrap.min.js'
-              
+ var files = [
+               'assets/plugins/bootstrap/js/bootstrap.min.js'
                ,'assets/plugins/back-to-top.js'
                ,'assets/plugins/smoothScroll.js'
-              // ,'assets/plugins/jquery.parallax.js'
-               //,'assets/plugins/owl-carousel/owl-carousel/owl.carousel.js'
-              // ,'assets/plugins/counter/waypoints.min.js'
-               //,'assets/plugins/counter/jquery.counterup.min.js'
-              // ,'assets/plugins/wow-animations/js/wow.min.js'
-               //,'assets/plugins/animated-headline/js/animated-headline.js'
-               //,'assets/plugins/animated-headline/js/modernizr.js'
-     
-               //,'assets/js/unify-app.js'
+               ,'assets/plugins/jquery.parallax.js'
+               ,'assets/plugins/owl-carousel/owl-carousel/owl.carousel.js'
+               ,'assets/plugins/counter/waypoints.min.js'
+               ,'assets/plugins/counter/jquery.counterup.min.js'
+               ,'assets/plugins/wow-animations/js/wow.min.js'
+               ,'assets/plugins/animated-headline/js/animated-headline.js'
+               ,'assets/plugins/animated-headline/js/modernizr.js'
+               ,'assets/plugins/stickytabs/stickytabs.js'
               ];
     
         gulp.src(files)
             .pipe(concat('plugins.js'))
-            //.pipe(uglify())
-            .pipe(gulp.dest('assets/js/'));
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/assets/js/'));
+    
+    
+    var files = ['assets/plugins/jquery/jquery223.min.js'
+               ,'assets/plugins/jquery/jquery-migrate.min.js'
+               ,'assets/plugins/jquery/jquery.validate.js'
+               ,'assets/plugins/jquery/additional-methods.js'
+              ];
+    
+        gulp.src(files)
+            .pipe(concat('jqall.js'))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/assets/js/'));
+
+});
+
+
+/* concat and minify plugins JS */
+gulp.task('buildJQ', function() {
+    
+ var files = ['assets/plugins/jquery/jquery223.min.js'
+               ,'assets/plugins/jquery/jquery-migrate.min.js'
+               ,'assets/plugins/jquery/jquery.validate.js'
+               ,'assets/plugins/jquery/additional-methods.js'
+              ];
+    
+        gulp.src(files)
+            .pipe(concat('jqall.js'))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/assets/js/'));
 
 });
 
@@ -160,35 +167,35 @@ gulp.task('copy', function() {
     
     //gulp.src('assets/css/app.css').pipe(gulp.dest('dist/assets/css/'));
     //gulp.src('assets/css/u-dark-blue.css').pipe(gulp.dest('dist/assets/css/'));
-    gulp.src('assets/css/grid-ms.css').pipe(gulp.dest('dist/assets/css/'));
-    //gulp.src('assets/img/**/*.*').pipe(gulp.dest('dist/assets/img/'));
-    //gulp.src('assets/images/**/*.*').pipe(gulp.dest('dist/assets/images/'));
+    //gulp.src('assets/css/grid-ms.css').pipe(gulp.dest('dist/assets/css/'));
+    gulp.src('assets/img/**/*.*').pipe(gulp.dest('dist/assets/img/'));
+    gulp.src('assets/images/**/*.*').pipe(gulp.dest('dist/assets/images/'));
     
     
-    gulp.src('assets/plugins/bootstrap/**/*.*').pipe(gulp.dest('dist/assets/plugins/bootstrap/'));
-    gulp.src('assets/plugins/jquery/**/*.*').pipe(gulp.dest('dist/assets/plugins/jquery/'));
-    gulp.src('assets/plugins/back-to-top.js').pipe(gulp.dest('dist/assets/plugins/'));
-    gulp.src('assets/plugins/wow-animations/js/wow.min.js').pipe(gulp.dest('dist/assets/plugins/wow-animations/js/'));    
-    gulp.src('assets/plugins/smoothScroll.js').pipe(gulp.dest('dist/assets/plugins/'));
-    gulp.src('assets/plugins/jquery.parallax.js').pipe(gulp.dest('dist/assets/plugins/'));
-    gulp.src('assets/plugins/image-hover/**/*.*').pipe(gulp.dest('dist/assets/plugins/image-hover'));
-    gulp.src('assets/plugins/owl-carousel/**/*.*').pipe(gulp.dest('dist/assets/plugins/owl-carousel'));
+    //gulp.src('assets/plugins/bootstrap/**/*.*').pipe(gulp.dest('dist/assets/plugins/bootstrap/'));
+    //gulp.src('assets/plugins/jquery/**/*.*').pipe(gulp.dest('dist/assets/plugins/jquery/'));
+    //gulp.src('assets/plugins/back-to-top.js').pipe(gulp.dest('dist/assets/plugins/'));
+    //gulp.src('assets/plugins/wow-animations/js/wow.min.js').pipe(gulp.dest('dist/assets/plugins/wow-animations/js/'));    
+    //gulp.src('assets/plugins/smoothScroll.js').pipe(gulp.dest('dist/assets/plugins/'));
+    //gulp.src('assets/plugins/jquery.parallax.js').pipe(gulp.dest('dist/assets/plugins/'));
+    //gulp.src('assets/plugins/image-hover/**/*.*').pipe(gulp.dest('dist/assets/plugins/image-hover'));
+    //gulp.src('assets/plugins/owl-carousel/**/*.*').pipe(gulp.dest('dist/assets/plugins/owl-carousel'));
     gulp.src('assets/plugins/font-awesome/**/*.*').pipe(gulp.dest('dist/assets/plugins/font-awesome/'));
-    gulp.src('assets/plugins/counter/jquery.counterup.min.js').pipe(gulp.dest('dist/assets/plugins/counter/'));
-    gulp.src('assets/plugins/stickytabs/stickytabs.js').pipe(gulp.dest('dist/assets/plugins/stickytabs/'));
-    gulp.src('assets/plugins/respond.js').pipe(gulp.dest('dist/assets/plugins/'));
-    gulp.src('assets/plugins/wow-animations/**/*.*').pipe(gulp.dest('dist/assets/plugins/wow-animations/'));
-    gulp.src('assets/plugins/*.*').pipe(gulp.dest('dist/assets/plugins/'));   
-    gulp.src('bootstrap/css/offcanvas.css').pipe(gulp.dest('dist/bootstrap/css/'));
+    //gulp.src('assets/plugins/counter/jquery.counterup.min.js').pipe(gulp.dest('dist/assets/plugins/counter/'));
+    //gulp.src('assets/plugins/stickytabs/stickytabs.js').pipe(gulp.dest('dist/assets/plugins/stickytabs/'));
+    //gulp.src('assets/plugins/respond.js').pipe(gulp.dest('dist/assets/plugins/'));
+    //gulp.src('assets/plugins/wow-animations/**/*.*').pipe(gulp.dest('dist/assets/plugins/wow-animations/'));
+    //gulp.src('assets/plugins/*.*').pipe(gulp.dest('dist/assets/plugins/'));   
+    //gulp.src('bootstrap/css/offcanvas.css').pipe(gulp.dest('dist/bootstrap/css/'));
     gulp.src('assets/plugins/line-icons/**/*').pipe(gulp.dest('dist/assets/plugins/line-icons/'));
-    gulp.src('assets/plugins/animated-headline/css/animated-headline.css').pipe(gulp.dest('dist/assets/plugins/animated-headline/css/'));
-    gulp.src('assets/plugins/animated-headline/js/animated-headline.js').pipe(gulp.dest('dist/assets/plugins/animated-headline/js/'));
-    gulp.src('assets/plugins/animated-headline/js/modernizr.js').pipe(gulp.dest('dist/assets/plugins/animated-headline/js/'));
+    //gulp.src('assets/plugins/animated-headline/css/animated-headline.css').pipe(gulp.dest('dist/assets/plugins/animated-headline/css/'));
+    //gulp.src('assets/plugins/animated-headline/js/animated-headline.js').pipe(gulp.dest('dist/assets/plugins/animated-headline/js/'));
+    //gulp.src('assets/plugins/animated-headline/js/modernizr.js').pipe(gulp.dest('dist/assets/plugins/animated-headline/js/'));
     gulp.src('assets/favicons/*.*').pipe(gulp.dest('dist/assets/favicons/'));
     
 
  return
 });
            
-gulp.task('default',[ 'copy', 'uglifyJS', 'csso-app', 'csso-plugins', 'images', 'img' ]);
+gulp.task('default',[ 'copy', 'csso-app', 'uglifyJS', 'buildCSS', 'buildJS', 'images', 'img' ]);
 

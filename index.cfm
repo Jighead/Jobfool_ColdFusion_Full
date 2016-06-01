@@ -27,7 +27,7 @@
         <link rel="manifest" href="..">
         <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg?v=qAAN6qKbbY" color="#000000">
         <link rel="shortcut icon" href="assets/favicons/favicon.ico?v=qAAN6qKbbY">
-        <link rel="shortcut icon" href="/favicon.ico?v=qAAN6qKbbY">
+        <link rel="shortcut icon" href="favicon.ico?v=qAAN6qKbbY">
         <meta name="apple-mobile-web-app-title" content="The Job Fool">
         <meta name="application-name" content="The Job Fool">
         <meta name="msapplication-TileColor" content="#2d89ef">
@@ -366,9 +366,7 @@
             </div>
         </div>
         <!--- === End Hire Block === --->
-
        <cfsilent>
-        <!---==== recent queries section ===== --->
         <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,30,0)#">
             SELECT TOP 200 [keyword],[location]  
             FROM [thejobfool].[dbo].[RecentQueries]
@@ -392,36 +390,15 @@
             </div>
         </div>
 
-
         <cfinclude template="partials/footer.cfm">
 
         </div>
-           
-        <script src="assets/plugins/jquery/jquery223.min.js"></script>
-        <script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
-        <script src="assets/plugins/jquery/additional-methods.js"></script>
-        <script src="assets/plugins/jquery/jquery.validate.js"></script></script>
-        <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jqall.js"></script>
         <script src="assets/js/plugins.js"></script>
-        <!--
-        <script src="assets/plugins/back-to-top.js"></script>
-        <script src="assets/plugins/smoothScroll.js"></script>
-        -->
-        <script src="assets/plugins/jquery.parallax.js"></script>
-        <script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>  
-        <script src="assets/plugins/counter/waypoints.min.js"></script>
-        <script src="assets/plugins/counter/jquery.counterup.min.js"></script>
-        <script src="assets/plugins/wow-animations/js/wow.min.js"></script>
-        <script src="assets/plugins/animated-headline/js/animated-headline.js"></script>
-        <script src="assets/plugins/animated-headline/js/modernizr.js"></script>
-        <script src="assets/js/unify-app.js"></script>   
-    
+        <script src="assets/js/app.js"></script>   
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();
-            new WOW().init();
-            App.initCounter();
-            App.initParallaxBg(); 
             
             $('input').focus(function(){
                $(this).data('placeholder',$(this).attr('placeholder'))

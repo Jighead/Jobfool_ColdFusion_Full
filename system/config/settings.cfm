@@ -11,4 +11,7 @@ application.partner="indeed";
 //application.SimplyHiredID = "";
 //application.BeyondID="";
 //application.skinpath = "/themes/";
+  
 </cfscript>
+
+

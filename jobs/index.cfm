@@ -40,13 +40,10 @@
 		<cfinclude template="../meta/head.cfm">  
         <cfinclude template="../partials/faviconmeta.cfm" />                 
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">      
-        <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css"> 
-        <link href="../bootstrap/css/offcanvas.css" rel="stylesheet"> 
-        <link rel="stylesheet" href="../assets/plugins/animate.css"> 
-        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css"> 
-        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="../assets/css/app.css">
-        
+        <link rel="stylesheet" href="assets/css/plugins.css">
+        <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/app.css">
             <STYLE>
                 #adcontainer2-16, #adcontainer3-16 {
                     /*overflow:hidden;*/
@@ -209,64 +206,55 @@
                         
         <cfinclude template="../partials/footer.cfm">               
                        
-        <script src="../assets/plugins/jquery/jquery223.min.js"></script>
-        <script src="../assets/plugins/jquery/jquery-migrate.min.js"></script>
-        <script src="../assets/plugins/jquery/additional-methods.js"></script>
-        <script src="../assets/plugins/jquery/jquery.validate.js"></script></script>
-        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>        
-        <script src="../assets/plugins/bootstrap/js/offcanvas.js"></script>
-        <script src="../assets/plugins/back-to-top.js"></script>         
-        <script src="../assets/plugins/smoothScroll.js"></script>  
-        <script src="../assets/js/unify-app.js"></script>
-        <script>
-        $(document).ready(function($){
-            App.init();
-            
-            // replace spaces with +
-            $("#x_filters a").each(function() {
-                var text = $(this).attr('href')
-                text = text.replace(/ /g, "+");
-                $(this).prop('href',text);
-                });
-            
-            // search form placeholder fix
-            $('input').focus(function(){
-               $(this).data('placeholder',$(this).attr('placeholder'))
-                   .attr('placeholder','');
-            }).blur(function(){
-               $(this).attr('placeholder',$(this).data('placeholder'));
-            });
-            
+<script src="../assets/js/jqall.js"></script>
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/app.js"></script> 
+<script>
+$(document).ready(function($){
+    App.init();
 
-            
+    // replace spaces with +
+    $("#x_filters a").each(function() {
+        var text = $(this).attr('href')
+        text = text.replace(/ /g, "+");
+        $(this).prop('href',text);
         });
-            
-        <!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php  --->
-    
-            
-       $("#alert").validate({
-        ignore: ":hidden",
-        rules: {   },
-            
-        submitHandler: function (form) {
-             
-             $.ajax({
-                type: "POST",
-                dataType:"json",
-                url: "../controller/addalert.cfm",
-                data: $(this).serialize()
-            }).done(function(){
-                $('#emailform').html(
-                    "<div class='col-xs-12 alertmessage'><h3>Sweet! You're Almost Done.</h3><p>To activate your job alert, please check your email and click the confirmation button .</p></div>");
-            }).fail(function(){
-                      $('#emailform').html(
-                    "<div class='col-xs-12 alertmessage'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
-            });
-            return false;   
-             
-         }
-    });  
-               
+
+    // search form placeholder fix
+    $('input').focus(function(){
+       $(this).data('placeholder',$(this).attr('placeholder'))
+           .attr('placeholder','');
+    }).blur(function(){
+       $(this).attr('placeholder',$(this).data('placeholder'));
+    });
+
+});
+
+<!--- obfuscated version of above http://www.danstools.com/javascript-obfuscate/index.php  --->
+
+
+$("#alert").validate({
+ignore: ":hidden",
+rules: {   },
+
+submitHandler: function (form) {
+
+     $.ajax({
+        type: "POST",
+        dataType:"json",
+        url: "../controller/addalert.cfm",
+        data: $(this).serialize()
+    }).done(function(){
+        $('#emailform').html(
+            "<div class='col-xs-12 alertmessage'><h3>Sweet! You're Almost Done.</h3><p>To activate your job alert, please check your email and click the confirmation button .</p></div>");
+    }).fail(function(){
+              $('#emailform').html(
+            "<div class='col-xs-12 alertmessage'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
+    });
+    return false;   
+
+ }
+});                
 </script>    
                         
     <!--[if lt IE 9]>

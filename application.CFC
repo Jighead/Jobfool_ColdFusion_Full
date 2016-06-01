@@ -90,12 +90,18 @@
 
     </cfoutput>
     </cfsavecontent>
-
-    <cfmail to="jobfool@gmail.com" from="errors@thejobfool.com" subject="Error: #arguments.exception.message#" type="html">
-        #errortext#
-        <cfdump var="#arguments.exception#">
-    </cfmail>
-    <cfabort>
+        
+<!---
+<cfmail to="jobfool@gmail.com" from="noreply@thejobfool.com" subject="ColdFusion Error - TheJobFool.com"
+        port="465" useSSL="true" attributeCollection="#request.mailAttributes#" type="html">
+    #errortext#
+</cfmail>
+--->
+<cfoutput>
+    #errortext#
+</cfoutput>
+        
+<cfabort>
 </cffunction>
 
     <cffunction name="appdump" output="true">
