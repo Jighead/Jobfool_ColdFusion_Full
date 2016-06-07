@@ -13,7 +13,7 @@
  *   http://www.opensource.org/licenses/mit-license.php
  */
 
-(function() {
+(function($) {
 
 	function stripHtml(value) {
 		// remove html tags and space chars
@@ -446,4 +446,4 @@
     }, jQuery.format("Please enter a value with a valid extension."));
 
     
-}());
+}(jQuery));

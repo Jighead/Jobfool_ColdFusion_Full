@@ -12,18 +12,17 @@
 <!DOCTYPE html> 
 <html lang="en"> 
     <head>
-        <title>Find a Job | TheJobFool.com</title>
-        <meta name="description" content="Find a Job. TheJobFool.com One search thousands of jobs." />
+        <title>Browse Jobs | TheJobFool.com</title>
+        <meta name="description" content="Browse for you perfect job. TheJobFool.com One search thousands of jobs." />
         <meta name="keywords" content="Find a job browse jobs find jobs by title by company by state by category job search tools job search engine jobs career employment search all jobs the job fool thejobfool thejobfool.com" />
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <cfinclude template="../partials/faviconmeta.cfm" />             
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">        
-        <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/plugins/animate.css"> 
-        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css"> 
-        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css"> 
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">        
+        <link rel="stylesheet" href="../assets/css/plugins.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="../assets/css/app.css">
             
             <STYLE>
@@ -52,7 +51,7 @@
                             <div class="col-xs-12"> 
                                 <a class="x-homelink" href="/"> 
                                     <div class="x-text-logo">
-                                        <img src="../assets/images/jesterlogo1.png" alt="Find a Job" />
+                                        <img src="../assets/images/job_search.png" alt="Find a Job" />
                                     </div>                                     
                                 </a>                                 
                             </div>                             
@@ -164,14 +163,9 @@
 </section>
 <cfinclude template="../partials/footer.cfm" />
     
-<script type="text/javascript" src="../assets/plugins/jquery/jquery.min.js"></script>         
-<script type="text/javascript" src="../assets/plugins/jquery/jquery-migrate.min.js"></script>         
-<script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../assets/plugins/stickytabs/stickytabs.js"></script>  
-<script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>         
-<script type="text/javascript" src="../assets/plugins/smoothScroll.js"></script>         
-<!-- JS Page Level -->         
-<script type="text/javascript" src="../assets/js/unify-app.js"></script>
+<script src="../assets/js/jqall.js"></script>
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/app.js"></script>
 <script>
     $(function(){
         App.init();

@@ -39,11 +39,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<cfinclude template="../meta/head.cfm">  
         <cfinclude template="../partials/faviconmeta.cfm" />                 
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">      
-        <link rel="stylesheet" href="assets/css/plugins.css">
-        <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
-        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">      
+        <link rel="stylesheet" href="../assets/css/plugins.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/app.css">
             <STYLE>
                 #adcontainer2-16, #adcontainer3-16 {
                     /*overflow:hidden;*/

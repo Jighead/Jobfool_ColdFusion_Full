@@ -91,21 +91,21 @@
     </cfoutput>
     </cfsavecontent>
         
-<!---
+
 <cfmail to="jobfool@gmail.com" from="noreply@thejobfool.com" subject="ColdFusion Error - TheJobFool.com"
         port="465" useSSL="true" attributeCollection="#request.mailAttributes#" type="html">
     #errortext#
 </cfmail>
---->
-<cfoutput>
-    #errortext#
-</cfoutput>
-        
+   <cfoutput>
+        #errortext#
+    </cfoutput>
 <cfabort>
 </cffunction>
 
     <cffunction name="appdump" output="true">
-        <cfdump var="#this#"><cfabort>
+        <cfdump var="#this#">
+            <cfdump var="#request#">
+            <cfabort>
     </cffunction>
 
 </cfcomponent>

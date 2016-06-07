@@ -16,22 +16,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico">
-        <!-- Web Fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play">
-        <!-- CSS Global Compulsory -->
-        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-        <link href="/bootstrap/css/offcanvas.css" rel="stylesheet">
-        <link href="/assets/css/grid-ms.css" rel="stylesheet">
-        <!--all Styles -->
-        <link rel="stylesheet" href="/assets/css/app.css">
-        <!-- CSS Implementing Plugins -->
-        <link rel="stylesheet" href="/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-        <link rel="stylesheet" href="/assets/plugins/animate.css">
-        <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
-        <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/assets/plugins/animated-headline/css/animated-headline.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play">
+        <link rel="stylesheet" href="../assets/css/plugins.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/app.css">
     </head>
 	<body class="x-salaries header-fixed">
     <cfinclude template="../partials/googletagmanager.cfm">
@@ -114,21 +104,9 @@
         </section>
         <cfinclude template="/partials/footer.cfm">
 
-        <script type="text/javascript" src="/assets/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
-        <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <!-- JS Implementing Plugins -->
-        <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>
-        <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>
-        <script type="text/javascript" src="/assets/plugins/jquery.parallax.js"></script>
-        <script type="text/javascript" src="/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-        <script type="text/javascript" src="/assets/plugins/counter/waypoints.min.js"></script>
-        <script type="text/javascript" src="/assets/plugins/counter/jquery.counterup.min.js"></script>
-        <script type="text/javascript" src="/assets/plugins/wow-animations/js/wow.min.js"></script>
-        <script src="/assets/plugins/animated-headline/js/animated-headline.js"></script>         
-        <script src="/assets/plugins/animated-headline/js/modernizr.js"></script>
-        <!-- JS Page Level -->
-        <script type="text/javascript" src="/assets/js/unify-app.js"></script>
+<script src="../assets/js/jqall.js"></script>
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/app.js"></script> 
         <script type="text/javascript">
         jQuery(document).ready(function() {
             App.init();

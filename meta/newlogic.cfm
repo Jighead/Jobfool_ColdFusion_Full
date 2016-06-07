@@ -44,7 +44,7 @@
 <cfparam name="jobdata.recordcount" default="0">
 <cfset url.end = url.st + url.qt>
 <cfparam name="thistitle" default="Job Search | The Job Fool">
-<cfparam name="desc.description" default=" on TheJobfool.com. Job listings from thousands of career websites with one simple search!">
+<cfparam name="desc.description" default="Find your perfect job from thousands of career websites with one simple search!">
     
 <cfparam name="canonical" default="http://thejobfool/jobs/?">
 
@@ -189,9 +189,9 @@
                         insert into RecentQueries  
                         (keyword, location, country)  
                         values   
-                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(lcase(variables.keyword))#" />
                          ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
-                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />)
+                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(lcase(request.co))#" />)
                         </cfquery>
                     </cfif>
 
@@ -203,9 +203,9 @@
                     insert into RecentQueries  
                     (keyword, location, country, ipaddress, useragent)  
                           values   
-                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(variables.keyword)#" />
+                        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(lcase(variables.keyword))#" />
                          ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(url.l)#" />
-                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(ucase(request.co))#" />
+                         ,<cfqueryparam maxlength="2" cfsqltype="cf_sql_varchar" value="#trim(lcase(request.co))#" />
                          ,<cfqueryparam maxlength="20" cfsqltype="cf_sql_varchar" value="#trim(cgi.REMOTE_ADDR)#" />
                          ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cgi.HTTP_USER_AGENT)#" />)
                     </cfquery>
@@ -219,7 +219,7 @@
     
 
 <cfif cgi.path_info contains 'kw/' or cgi.path_info contains '/kw/' or cgi.path_info contains 'l/' or cgi.path_info contains '/l/'>
-    <cfset redir = '/jobs/?kw=#url.kw#&l=#url.l#'>
+    <cfset redir = '/jobs/?kw=#lcase(url.kw)#&l=#lcase(url.l)#'>
     <cfheader statuscode="301" statustext="Moved permanently">
     <cflocation url="#redir#" addtoken="no">
 </cfif>

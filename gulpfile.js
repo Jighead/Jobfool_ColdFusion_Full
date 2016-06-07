@@ -45,8 +45,6 @@ gulp.task('csso-app', function() {
     .pipe(gulp.dest('dist/assets/css/'));
 });
 
-
-
 /* concat and minify plugins CSS */
 gulp.task('buildCSS', function() {
     
@@ -62,7 +60,8 @@ gulp.task('buildCSS', function() {
 gulp.src(files)
     .pipe(concat('plugins.css'))
     .pipe(csso())
-    .pipe(gulp.dest('dist/assets/css/'));
+    .pipe(gulp.dest('dist/assets/css/'))
+    .pipe(gulp.dest('assets/css/'));
     
     
 gulp.src('assets/plugins/line-icons/line-icons.css')
@@ -93,7 +92,8 @@ gulp.task('buildJS', function() {
         gulp.src(files)
             .pipe(concat('plugins.js'))
             .pipe(uglify())
-            .pipe(gulp.dest('dist/assets/js/'));
+            .pipe(gulp.dest('dist/assets/js/'))
+            .pipe(gulp.dest('assets/js/'));
     
     
     var files = ['assets/plugins/jquery/jquery223.min.js'
@@ -105,27 +105,10 @@ gulp.task('buildJS', function() {
         gulp.src(files)
             .pipe(concat('jqall.js'))
             .pipe(uglify())
-            .pipe(gulp.dest('dist/assets/js/'));
+            .pipe(gulp.dest('dist/assets/js/'))
+            .pipe(gulp.dest('assets/js/'));
 
 });
-
-
-/* concat and minify plugins JS */
-gulp.task('buildJQ', function() {
-    
- var files = ['assets/plugins/jquery/jquery223.min.js'
-               ,'assets/plugins/jquery/jquery-migrate.min.js'
-               ,'assets/plugins/jquery/jquery.validate.js'
-               ,'assets/plugins/jquery/additional-methods.js'
-              ];
-    
-        gulp.src(files)
-            .pipe(concat('jqall.js'))
-            .pipe(uglify())
-            .pipe(gulp.dest('dist/assets/js/'));
-
-});
-
 
 /* compress images */
 gulp.task('images', function(){
@@ -144,7 +127,11 @@ gulp.task('img', function(){
 /* copy files */
 gulp.task('copy', function() {
   // copy any html files in source/ to public/
-    var rootfiles = ['addalert.cfm'
+    var rootfiles = ['404.cfm'
+                    ,'404-1.png'
+                    ,'favicon.ico'
+                    ,'robots.txt'
+                    ,'spiderblock.cfm'
                     ,'appsettings.cfm'
                     ,'index.cfm'
                     ,'application.cfc'
@@ -159,7 +146,7 @@ gulp.task('copy', function() {
     gulp.src('controller/*.*').pipe(gulp.dest('dist/controller/'));
     gulp.src('partials/*.*').pipe(gulp.dest('dist/partials/'));
     gulp.src('jobs/*.*').pipe(gulp.dest('dist/jobs/'));
-    gulp.src('browse-jobs/*.*').pipe(gulp.dest('dist/browse-jobs/'));
+    gulp.src('browse-jobs/**/*').pipe(gulp.dest('dist/browse-jobs/'));
     gulp.src('salaries/*.*').pipe(gulp.dest('dist/salaries/'));
     gulp.src('about/*.*').pipe(gulp.dest('dist/about/'));
     gulp.src('privacy/*.*').pipe(gulp.dest('dist/privacy/'));

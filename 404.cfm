@@ -5,13 +5,12 @@
 <html lang="en"> 
     <!--<![endif]-->
     <head>
-        <title>Job Search</title>
+        <title>File Not Found - TheJobFool.com</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Job Search">
+        <meta name="viewport" content="width=device-width,  initial-scale=1.0">
         <meta name="author" content="thejobfool.com">
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png?v=qAAN6qKbbY">
-        <link rel="apple-touch-icon" sizes="60x60" href="/assets/assets/favicons/apple-touch-icon-60x60.png?v=qAAN6qKbbY">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png?v=qAAN6qKbbY">
         <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png?v=qAAN6qKbbY">
         <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png?v=qAAN6qKbbY">
         <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png?v=qAAN6qKbbY">
@@ -27,15 +26,16 @@
         <link rel="manifest" href="..">
         <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg?v=qAAN6qKbbY" color="#000000">
         <link rel="shortcut icon" href="/assets/favicons/favicon.ico?v=qAAN6qKbbY">
-        <link rel="shortcut icon" href="/favicon.ico?v=qAAN6qKbbY">
+        <link rel="shortcut icon" href="favicon.ico?v=qAAN6qKbbY">
         <meta name="apple-mobile-web-app-title" content="The Job Fool">
         <meta name="application-name" content="The Job Fool">
         <meta name="msapplication-TileColor" content="#2d89ef">
         <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png?v=qAAN6qKbbY">
         <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml?v=qAAN6qKbbY">
-        <meta name="theme-color" content="#efefef"> 
-        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
-        <link href="assets/css/grid-ms.css" rel="stylesheet">
+        <meta name="theme-color" content="#efefef">
+        <link rel="stylesheet" href="/assets/css/plugins.css">
+        <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/assets/css/app.css">
         <link href='//fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister' rel='stylesheet' type='text/css'>
 <style type="text/css">
@@ -71,7 +71,7 @@ img {
                             <div class="col-xs-12 x-noP"> 
                                 <a class="x-homelink" href="/">
                                     <div class="x-text-logo">
-                                        <img src="/assets/images/jesterlogo1.png" alt="Job Search" />
+                                        <img src="/assets/images/job_search.png" alt="Job Search" />
                                     </div>                                     
                                 </a>                                 
                             </div>                             
@@ -91,13 +91,15 @@ img {
                 </div>                 
             </div>             
         </header>
-
+    
+        <div class="row">
             <div class="col-xs-12 fourofour">
             <p>OOPS! - We Could Not Find It.</p>
-            <img src="/404-1.png"/>
+            <img src="/404-1.png"/> file not found
             </div>
-   
-<cfinclude template="partials/footer.cfm">
+        </div>
+    
+<cfinclude template="/partials/footer.cfm">
     <!--[if lt IE 9]>
 	<script src="/assets/plugins/respond.js"></script>
 	<script src="/assets/plugins/html5shiv.js"></script>

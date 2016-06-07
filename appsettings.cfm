@@ -79,8 +79,8 @@
         
 <cfset request.mailAttributes = {
     server="mail.thejobfool.com",
-    username="jobfool",
-    password="5hamburg5"
+    username="foo",
+    password="bar"
 } />
 
 </cfsilent>

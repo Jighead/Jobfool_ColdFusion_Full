@@ -1,6 +1,9 @@
 <cfoutput>
 <cfsilent>
 <cfparam name="uid" default="#randrange(100001,9999999)#">
+<cfif isDefined('results.totalResults')  and results.totalResults GT 2 >  
+    <cfset thistitle = thistitle & ' (#results.totalResults#) listings.' />
+</cfif>
 <cfsavecontent variable="desc">
 #rereplace( thistitle , '[""'']' , '' , 'all' )# - #rereplace( desc.description , '[""'']', '' , 'all' )# #rereplace( thistitle , '[""'']' , '' , 'all' )#
 </cfsavecontent>
@@ -14,7 +17,7 @@
 </cfif>
 <cfset variables.canonical = replacenocase(variables.canonical," ", "+")>
 </cfsilent>
-	<title><cfif isdefined('URL.DO')>Viewing #url.do#<CFELSE>#trim(thisTitle)# | Job Search </cfif></title>
+	<title><cfif isdefined('URL.DO')>Viewing #url.do#<CFELSE>#trim(thisTitle)#</cfif></title>
 <!---
 <meta id="keywords" name="keywords" content="#thistitle#, #url.l#, job search, job listings, career, employment job boards, direct employer, work from home, #thistitle#"/>
 --->

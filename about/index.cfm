@@ -8,13 +8,11 @@
         <meta name="author" content="JobFool LLC">
         <cfinclude template="../partials/faviconmeta.cfm" />
         <title>About The Job Fool</title>
-        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">     
-        <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css"> 
-        <link rel="stylesheet" href="/assets/plugins/animate.css"> 
-        <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> 
-        <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> 
-        <link rel="stylesheet" href="/assets/css/app.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">     
+        <link rel="stylesheet" href="../assets/css/plugins.css">
+        <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
+        <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/app.css">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
@@ -59,10 +57,9 @@
             
     <cfinclude template="../partials/footer.cfm">
         
-    <script type="text/javascript" src="../assets/plugins/jquery/jquery.min.js"></script>         
-    <script type="text/javascript" src="../assets/plugins/jquery/jquery-migrate.min.js"></script>         
-    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
-    <script type="text/javascript" src="../assets/plugins/back-to-top.js"></script>
+<script src="../assets/js/jqall.js"></script>
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/js/app.js"></script>
     <!--[if lt IE 9]>
 	<script src="../assets/plugins/respond.js"></script>
 	<script src="../assets/plugins/html5shiv.js"></script>

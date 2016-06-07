@@ -5,10 +5,10 @@
 <html lang="en"> 
     <!--<![endif]-->
     <head>
-        <title>Job Search 2016</title>
+        <title>Job Search - TheJobFool.com</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Job Search">
+        <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+        <meta name="description" content="Search for jobs, TheJobFool.com is your source for jobs and career opportunities. Job listings from thousands of career sites in one simple search.">
         <meta name="author" content="thejobfool.com">
         <link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png?v=qAAN6qKbbY">
         <link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png?v=qAAN6qKbbY">
@@ -34,7 +34,7 @@
         <meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png?v=qAAN6qKbbY">
         <meta name="msapplication-config" content="assets/favicons/browserconfig.xml?v=qAAN6qKbbY">
         <meta name="theme-color" content="#efefef">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
         <link rel="stylesheet" href="assets/css/plugins.css">
         <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -155,7 +155,7 @@
 						<cfset cityArray = ["Chicago","San Francisco", "New York City", "Atlanta", "Denver", "Miami"] />
 						<ul class="list-unstyled">
                         <cfoutput><cfloop array="#cityArray#" index="item"><cfset itemlink = replace(item," ","+","all") />
-                        <li><a href="jobs/?kw=#itemlink#">#item#</a></li>
+                        <li><a href="jobs/?l=#itemlink#">#item#</a></li>
                         </cfloop></cfoutput>
 						</ul>
                     </div>
@@ -366,11 +366,12 @@
             </div>
         </div>
         <!--- === End Hire Block === --->
+
        <cfsilent>
-        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,30,0)#">
-            SELECT TOP 200 [keyword],[location]  
+        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,10,0)#">
+            SELECT distinct TOP 200 [keyword],[location], [datetime]
             FROM [thejobfool].[dbo].[RecentQueries]
-            order by datetime desc
+            order by datetime desc, keyword, location
         </cfquery>
         </cfsilent>
   
@@ -385,7 +386,7 @@
                 	<a class="small" href="jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>">
                     #lcase(keyword)#</a>
                 </cfif>
-                </cfoutput>
+                    </cfoutput>
                 </div>
             </div>
         </div>
