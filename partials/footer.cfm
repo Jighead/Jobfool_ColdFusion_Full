@@ -19,6 +19,10 @@
                         <div class="row">
                             <ul class="list-inline country-list">
                                 <li>
+                                    <img src="/assets/images/icons/au.png" class="flag">
+                                    <a href="https://au.thejobfool.com">Australia</a>
+                                </li>
+                                <li>
                                     <img src="/assets/images/icons/ca.png" class="flag">
                                     <a href="https://can.thejobfool.com">Canada</a>
                                 </li>

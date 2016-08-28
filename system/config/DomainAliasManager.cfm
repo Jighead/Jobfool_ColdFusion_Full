@@ -2,6 +2,8 @@
 <cfif application.partner eq 'indeed'>
 		<cfif cgi.http_host contains 'uk.'>
             <cfset request.co = 'gb'>
+        <cfelseif cgi.http_host contains 'au.'>
+            <cfset request.co = 'au'>
         <cfelseif cgi.http_host contains 'can.'>
             <cfset request.co = 'ca'>
         <cfelseif cgi.http_host contains 'es.'>

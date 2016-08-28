@@ -2,7 +2,7 @@
 <cfsilent>
 <cfparam name="uid" default="#randrange(100001,9999999)#">
 <cfif isDefined('results.totalResults')  and results.totalResults GT 2 >  
-    <cfset thistitle = thistitle & ' (#results.totalResults#) listings.' />
+    <cfset thistitle = thistitle & ' (#results.totalResults#) listings | TheJobFool' />
 </cfif>
 <cfsavecontent variable="desc">
 #rereplace( thistitle , '[""'']' , '' , 'all' )# - #rereplace( desc.description , '[""'']', '' , 'all' )# #rereplace( thistitle , '[""'']' , '' , 'all' )#

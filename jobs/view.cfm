@@ -23,7 +23,8 @@
     <cfabort>
         <cfquery name="track" datasource="#request.dsn#">
         insert into exitrack
-        </cfquery>  
+        </cfquery> 
+    <cfinclude template="../partials/analytics-combined.cfm">
     <cfset sleep(1)>
 
     <cflocation url="#trueurl#"  addtoken="no">

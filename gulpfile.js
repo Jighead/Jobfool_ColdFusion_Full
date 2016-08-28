@@ -9,7 +9,7 @@ var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
-gulp.task('uncss', function() {
+/*gulp.task('uncss', function() {
   var csssource = ['assets/css/app.css'];
   return gulp.src(csssource)
     .pipe(uncss({
@@ -23,13 +23,13 @@ gulp.task('uncss', function() {
         }))
   //.pipe(cleanCSS())
   .pipe(gulp.dest('dist/assets/css/'));
-});
+});*/
 
-gulp.task('obfuscate', function() {
+/*gulp.task('obfuscate', function() {
   return gulp.src('assets/js/unify-app.js')
     .pipe(obfuscate({ replaceMethod: obfuscate.ZALGO }))
     .pipe(gulp.dest('dist/assets/js/'));
-});
+});*/
 
 gulp.task('uglifyJS', function() {
   return gulp.src('assets/js/app.js')

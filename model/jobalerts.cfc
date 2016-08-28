@@ -1,15 +1,41 @@
 <cfcomponent>
 
-    <cffunction name="addAlertConfirm" access="public" output="yes" returntype="boolean" hint="I add User">
+    <cffunction name="addAlertConfirm" access="public" output="yes" returntype="any" hint="I add User">
         <cfargument name="cfid"  type="string" required="no">
-        <cfargument name="email" type="string" required="yes">
+        <cfargument name="email" type="string" required="no">
         <cfargument name="kw" type="string" required="no">
         <cfargument name="loc" type="string" required="no">
         <cfargument name="country" type="string" required="yes" default="us">
         <cfargument name="radius" type="numeric" required="no" default="50">
         
-        <cfset var uuid = "JA-#randrange(1000000,9999999)#-#lsTimeFormat(now(),"hhmmss")#">  
-
+        <cfset var uuid = "JA-#randrange(1000000,9999999)#-#lsTimeFormat(now(),"hhmmss")#">   
+        <cfset var result = {status = "", message=""} />
+            
+        <cfset result.status = "OK">
+        <cfset result.message = "sweet">
+            
+            
+        <cfif len(arguments.what) lt 2>
+            <cfset result.status = "error">
+            <cfset result.message="no keyword">
+        </cfif>
+            
+        <cfif len(form.where) lt 3>
+        <cfset result.status = "error">
+            <cfset result.message="no location">
+        </cfif>
+            
+        <cfif form.email contains '@' and form.email contains '.'>      
+        <cfelse>
+            <cfset result.status = "error">
+            <cfset result.message="invalid email">
+        </cfif>
+                
+        <cfif result.status is not "OK">
+            <cfreturn result />
+        </cfif>
+                
+        <cftry>
         <cfquery name="dupcheck" datasource="#request.dsn#">
 			select * from jobalerts
             where 
@@ -18,8 +44,7 @@
             AND loc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.loc#">
             AND country = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.country#">
         </cfquery>
-        <cfif dupcheck.recordcount is 0>   
-        <cftry>
+        <cfif dupcheck.recordcount is 0>
         <cfquery name="add1" datasource="#request.dsn#">
             insert into jobalerts
             (cfid, uuid, email, kw, loc, radius, country, createdate)
@@ -34,6 +59,19 @@
             ,#createODBCDateTime(now())#
             )
         </cfquery>
+        <cfelse>
+            <cfset result.status="error">
+            <cfset result.message="duplicate" />
+        </cfif>
+            
+            
+        <cfcatch>
+            <!--- TODO: send an error email --->
+            <cfset result.status="error">
+            <cfset result.message="application error" />
+            <cfreturn result>
+        </cfcatch> 
+        </cftry>
         
         <!--- 
         <cfmail from="JobAlerts@thejobfool.com" to="#arguments.email#" subject="Job Alert! Please Confirm" type="html" spoolenable="no">
@@ -53,12 +91,9 @@
         http://thejobfool.com</p>
 
         </cfmail>
-     --->
- 
-        <cfcatch><cfdump var="#cfcatch#"><cfabort></cfcatch>
-        </cftry>
-        </cfif>
-    <cfreturn true>
+        --->
+       
+    <cfreturn result>
     </cffunction>
 
 

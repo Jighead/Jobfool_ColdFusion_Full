@@ -34,7 +34,9 @@
         <meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png?v=qAAN6qKbbY">
         <meta name="msapplication-config" content="assets/favicons/browserconfig.xml?v=qAAN6qKbbY">
         <meta name="theme-color" content="#efefef">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">
+        <meta name="google-site-verification" content="CNHccpZ4l6gOLEU77zl-kt9ds1Aft2wmOr1PDqlm8JQ" />
+        <!--- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> --->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
         <link rel="stylesheet" href="assets/css/plugins.css">
         <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -133,6 +135,37 @@
                     </div>
                 </div>
             </section>
+            <!--- === Recent Queries Block === --->
+            <cfsilent>
+            <cfquery name="data" datasource="#request.dsn#">  
+                delete FROM [thejobfool].[dbo].[RecentQueries] where datetime < getdate()-1;
+            </cfquery>
+            <cfquery name="data" datasource="#request.dsn#" cachedwithin="#createTimespan(0,0,0,0)#">  
+                SELECT distinct TOP 60 [keyword],[location], [datetime]
+                FROM [thejobfool].[dbo].[RecentQueries]
+                order by datetime desc, keyword, location
+            </cfquery>
+            </cfsilent>
+
+            <div class="container"> 
+                <div class="row">
+                    <div id="recentqueries" class="hidden-mobile">
+                    <cfoutput query="data">
+                        <cfset key = replace(data.keyword, " ", "+", "all") />
+                        <cfset loc = replace(data.location, " ", "+", "all") />
+                    <cfif currentrow LT 4 >
+                        <a class="small" href="jobs/?kw=#key#<cfif len(location) gt 5>&l=#loc#</cfif>" title="Job Search">
+                        #lcase(keyword)#</a>
+                    <cfelse>
+                        <a class="small" href="jobs/?kw=#key#<cfif len(location) gt 5>&l=#loc#</cfif>" title="#lcase(keyword)# job <cfif len(location) gt 5>#location#</cfif>">
+                        #lcase(keyword)#</a>
+                    </cfif>
+                        </cfoutput>
+                    </div>
+                </div>
+            </div>
+          <!--- === End Recent Queries Block === --->  
+            
             <!--- End Interactive Slider v2 --->
             <section class="bg-color-light">
             <div class="container">
@@ -202,7 +235,7 @@
                                 </button>
                             </span>
                         </div>
-                  </div>
+                    </div>
                         
                             <input type="hidden" class="form-control" name="cfid" value="homepage">
                         </form>
@@ -366,82 +399,72 @@
             </div>
         </div>
         <!--- === End Hire Block === --->
-
-       <cfsilent>
-        <cfquery name="data" datasource="#request.dsn#" username="#request.dbuser#" password="#request.dbpass#" cachedwithin="#createTimespan(0,0,10,0)#">
-            SELECT distinct TOP 200 [keyword],[location], [datetime]
-            FROM [thejobfool].[dbo].[RecentQueries]
-            order by datetime desc, keyword, location
-        </cfquery>
-        </cfsilent>
-  
-        <div class="container">
-            <div class="row">
-                <div id="recentqueries" class="mobile-hidden">
-                <cfoutput query="data">
-                <cfif currentrow LT 4 >
-                    <a class="small" href="jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>" title="Job Search">
-                    #lcase(keyword)#</a>
-                <cfelse>
-                	<a class="small" href="jobs/?kw=#keyword#<cfif len(location) gt 5>&l=#location#</cfif>">
-                    #lcase(keyword)#</a>
-                </cfif>
-                    </cfoutput>
-                </div>
-            </div>
-        </div>
-
         <cfinclude template="partials/footer.cfm">
 
         </div>
         <script src="assets/js/jqall.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/app.js"></script>   
-        <script type="text/javascript">
-        jQuery(document).ready(function() {
-            App.init();
             
-            $('input').focus(function(){
-               $(this).data('placeholder',$(this).attr('placeholder'))
-                   .attr('placeholder','');
-            }).blur(function(){
-               $(this).attr('placeholder',$(this).data('placeholder'));
-            });
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/additional-methods.min.js"></script>
+-->
+
             
-			$("#alert").validate({
-				ignore: ":hidden",
-				 rules: {   },
-					
-				submitHandler: function (form) {
-					 
-					 $.ajax({
-						type: "POST",
-						dataType:"json",
-						url: "controller/addalert.cfm",
-						data: $(this).serialize()
-					}).done(function(){
-						$('#emailform').html(
-							"<div class='col-xs-12'><h2>Sweet! You're Almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button.</p></div>");
-					}).fail(function(){
-							  $('#emailform').html(
-							"<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
-					});
-					return false;   
-					 
-				 }
-			});
+           <script src='assets/plugins/bootstrap/js/bootstrap.min.js'></script>
+           <script src='assets/plugins/back-to-top.js'></script>
+           <script src='assets/plugins/smoothScroll.js'></script>
+           <script src='assets/plugins/jquery.parallax.js'></script>
+           <script src='assets/plugins/owl-carousel/owl-carousel/owl.carousel.js'></script>
+           <script src='assets/plugins/counter/waypoints.min.js'></script>
+           <script src='assets/plugins/counter/jquery.counterup.min.js'></script>
+           <script src='assets/plugins/wow-animations/js/wow.min.js'></script>
+           <script src='assets/plugins/animated-headline/js/animated-headline.js'></script>
+           <script src='assets/plugins/animated-headline/js/modernizr.js'></script>
+           <script src='assets/plugins/stickytabs/stickytabs.js'></script>
+
             
-        }); <!--- end ready --->
+        <script src="assets/js/app.js"></script>  
             
-        $('#x_search-form').submit(function(e){
-          e.preventDefault();
+            
+            
+<script type="text/javascript">
+jQuery(document).ready(function() {
+        //App.init();
+
+        $('input').focus(function(){
+           $(this).data('placeholder',$(this).attr('placeholder'))
+               .attr('placeholder','');
+        }).blur(function(){
+           $(this).attr('placeholder',$(this).data('placeholder'));
         });
-      
-    </script>
+
+
+        $("#alert").validate({
+         ignore: ":hidden",
+         rules: {   },
+             submitHandler: function (form) {    
+                 $.post('controller/addalert.cfm',  $("#alert").serialize(),
+                    function(data,status) { 
+                     console.log(data);
+                                $("#emailform").html(data);
+                  });
+                 return false; 
+             }
+        });
+
+}); <!--- end ready --->
+
+    $('#x_search-form').submit(function(e){
+      e.preventDefault();
+    });
+
+</script>
     <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
 	<script src="assets/plugins/html5shiv.js"></script>
 	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
 	<![endif]-->
+    <cfinclude template="partials/analytics-combined.cfm">
     </body>
 </html>

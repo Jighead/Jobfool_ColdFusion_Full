@@ -116,5 +116,6 @@
         });
     </script>
     --->
+    <cfinclude template="../partials/analytics-combined.cfm">
 </body>
 </html>

@@ -6,7 +6,6 @@
 	<cflocation url="index.cfm/#qstring#" addtoken="no">
 </cfif> 
 --->
-
 <cfinclude template="/system/udf/sentenceCase.cfm">
 <cfparam name="request.co" default="US">
 <cfset url.co = request.co> <!--- conditionally set in config/settings.cfm based on subdomain --->
@@ -223,8 +222,7 @@
     <cfheader statuscode="301" statustext="Moved permanently">
     <cflocation url="#redir#" addtoken="no">
 </cfif>
-
-        
+    
   
 </cfoutput>
  <cftry>
@@ -294,7 +292,7 @@
 	<cfset thistitle = "#thistitle#"> 
     <cfset uid = "#randrange(1000,99999999)#">
 </cfif>
-     
+ 
 <cfif isDefined('url.kw') and url.L is "L" or url.kw is "radius">
 	<cfset url.kw = "">
 </cfif>
@@ -346,4 +344,3 @@
 
 <cfset variables.canonical = replacenocase(variables.canonical,"//", "/")>
 <cfif isDefined('url.L') and len(L)><cfset variables.Ltitle = "#ucase(url.L)#"></cfif>
-

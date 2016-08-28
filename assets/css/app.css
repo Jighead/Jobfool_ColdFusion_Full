@@ -11087,7 +11087,7 @@ p,
 li,
 li a,
 label {
-  color: #999;
+  color: #666;
 }
 /* line 44, C:\Apache24\htdocs\jf16\assets\css\u-style.less */
 a {
@@ -12979,23 +12979,36 @@ a:hover {
 }
 /* ========== typography ================== */
 /* line 187, C:\Apache24\htdocs\jf16\assets\css\util.less */
+h1.normal {
+  font-size: 1.2rem !important;
+  font-weight: normal;
+  margin: 2px;
+}
+/* line 193, C:\Apache24\htdocs\jf16\assets\css\util.less */
+p.normal {
+  font-size: 1.1rem !important;
+  font-weight: normal;
+  margin: 0;
+  padding: 4px;
+}
+/* line 201, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textleft {
   text-align: left !important;
 }
-/* line 190, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 204, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textright {
   text-align: justify !important;
 }
-/* line 194, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 208, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-textjustify {
   text-align: justify !important;
 }
-/* line 199, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 213, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-offcanvas {
   text-indent: -999px;
   margin: 0;
 }
-/* line 204, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 218, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -13003,13 +13016,13 @@ a:hover {
   margin-bottom: 10px;
 }
 /* ======= MISC ================= */
-/* line 214, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 228, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .x-dashline {
   min-width: 10px;
   height: 4px;
   border-bottom: 1px dashed #ddd;
 }
-/* line 221, C:\Apache24\htdocs\jf16\assets\css\util.less */
+/* line 235, C:\Apache24\htdocs\jf16\assets\css\util.less */
 .bw {
   -webkit-filter: grayscale(1) !important;
   -moz-filter: grayscale(100%) !important;
@@ -14006,6 +14019,10 @@ h1.x-jobtitle {
   line-height: 20px;
   font-weight: bold;
   color: #36567d;
+}
+/* line 38, C:\Apache24\htdocs\jf16\assets\css\jobwell.less */
+.x-job-well .x-well .x-serpshowme {
+  color: coral;
 }
 /* line 1, C:\Apache24\htdocs\jf16\assets\css\salaries.less */
 .progress {

@@ -30,7 +30,7 @@
 <cfoutput>#cgi.query_string#</cfoutput><cfabort> --->
 <!--- <cfdump var="#results#"> --->
     
-<!--- ================================================================================================================ --->
+<!--- ================================================================================================================ ---> 
 <!DOCTYPE html> 
 <html lang="en"> 
     <head>
@@ -39,7 +39,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<cfinclude template="../meta/head.cfm">  
         <cfinclude template="../partials/faviconmeta.cfm" />                 
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan">      
+        <!--- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Abril Fatface|Oswald:700,400,300|Montserrat:400,700|Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic|Rokkitt:400,700|Cantarell:400,700|<link Roboto+Slab:400,700,300|Open+Sans:400,800italic,800,700italic,600|Alfa+Slab+One|Play|Bevan"> --->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">     
         <link rel="stylesheet" href="../assets/css/plugins.css">
         <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css">
         <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -143,10 +144,10 @@
                         <cfif results.totalresults LT  showend><cfset showend = results.totalresults></cfif>
                     <cfoutput>
                         Showing #showst# - #showend# of #results.totalResults#
-                        <cfif len(results.query) and results.query neq 'in'><h1 class="x-jobtitle">#results.query#</h1></cfif> jobs
-                        <cfif len(results.location)> 
-                            near #results.location# 
-                        </cfif>
+                        <h1 class="x-jobtitle">
+                        <cfif len(results.query) and results.query neq 'in'>#results.query#</cfif> jobs
+                        <cfif len(results.location)> #results.location# </cfif>
+                        </h1>
                     </cfoutput>
                     </cfif>
                         <div class="col-xs-12 x-dashline"></div>                         
@@ -168,6 +169,9 @@
                         <div class="x-ads hidden-xs" id="adcontainer3-16">
                         <!--- below search results ads --->
                         </div>
+                        <cfif isdefined('url.kw') and len(url.kw) gt 2>
+    <cfoutput><div><h1 class="normal x-inlineblock">#url.kw# jobs <cfif isDefined('url.l') and len(url.l) gt 5>#url.l#</cfif></h1></div></cfoutput>
+                        </cfif>
                         <div class=".x-pagination col-xs-12 x-noPL x-BMR20">
                             <cfmodule template="../system/customtags/pagination.cfm" recordcount="#results.totalResults#" perpage="10" p="#url.p#">
                         </div>
@@ -179,7 +183,10 @@
                         <cfoutput>
                         <div id="emailform" class="x-emailform row" role="form"> 
                             <div class="col-xs-12">
-                                <label for="email">Send me these jobs</label>
+                                <label for="email" class="x-noM">Send me these jobs</label>
+                                <cfif len(url.kw) gt 2><cfoutput>    
+                                <p class="normal"> #url.kw# jobs <cfif len(url.l) gt 5>#url.l#</cfif></p>
+                                </cfoutput></cfif>
                             </div>                             
                             <div class="col-xs-12">
                                 <form id="alert" data-toggle="validator" role="form">
@@ -227,6 +234,10 @@ $(document).ready(function($){
     }).blur(function(){
        $(this).attr('placeholder',$(this).data('placeholder'));
     });
+    
+    $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
 
 });
 
@@ -333,5 +344,6 @@ var adblock3 = {
 };
 _googCsa('ads', pageOptions, adblock1, adblock2, adblock3);
 </script>
+<cfinclude template="../partials/analytics-combined.cfm">
 </body>     
 </html>

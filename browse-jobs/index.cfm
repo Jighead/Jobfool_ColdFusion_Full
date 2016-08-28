@@ -201,5 +201,6 @@
         enable_page_level_ads: true
       });
     </script>
+    <cfinclude template="../partials/analytics-combined.cfm">
 </body>
 </html>

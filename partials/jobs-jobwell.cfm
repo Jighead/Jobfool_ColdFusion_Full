@@ -54,14 +54,14 @@
                         <cfif len(item.formattedLocationFull)>
                             <span class="x-serplocation" itemtype="http://schema.org/Postaladdress">
                             <cfif len(url.kw) or len(item.company)>- </cfif>
-                            <cfif len(url.kw) gt 2><a href="../jobs/index.cfm?kw=#url.kwlink#&l=#item.loclink#"<cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
-                            <cfelse>
+                                <cfif len(url.kw) gt 2><a href="../jobs/index.cfm?kw=#url.kwlink#&l=#item.loclink#"<cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
                                 <a href="../jobs/index.cfm?l=#item.loclink#" <cfif hilite> class="x-matchhilite"</cfif>>#item.formattedLocationFull#</a>
                             </cfif> 
                             </span>
                         </cfif>
                         </p>
-                        <p>Show me all jobs at <a href="../jobs/index.cfm?kw=#item.company#&l=#item.loclink#">#item.company#</a></p>
+                            <p><i><span class="x-serpshowme">Show me all jobs at <a href="../jobs/index.cfm?kw=#item.company#&l=#item.loclink#">#item.company#</a></span></i></p>
+                            <p><i><span class="x-serpshowme">Show me salaries for <a href="../salaries/?qry=#item.jobtitle#&loc=#item.formattedLocationFull#">#item.jobtitle#</a></span></i></p>
                         <p class="x-serppostee"><i>#item.formattedRelativeTime#</i></p>
                        <!--- <p><a class="savejob" id="#key#" href="/jobs/savejob.cfm?jobid=#key#">Save Job</a></p> --->
                     </div>

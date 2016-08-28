@@ -6,8 +6,19 @@
 </head>
 
 <body>
-    <form id="contactform">
-    <input type="email" name="cognome" required novalidate/>
+    
+<form id="form" method="post">
+    what <input type="text" name="what" required novalidate/><br>
+    where <input type="text" name="where" required novalidate/><br>
+    where <input type="email" name="email" required novalidate/><br>
+    <br/>
+
+    <input type="submit" />
+</form> 
+    
+
+<form id="emailform">
+    <input type="email" name="email" required novalidate/>
     <br/>
 
     <input type="submit" />
@@ -16,14 +27,57 @@
 <script>
  $(document).ready(function () {
 
-     $("#contactform").validate({
+     /*$("#emailform").validate({
          ignore: ":hidden",
          rules: { },
          submitHandler: function (form) {
              alert('valid form submission'); // for demo
+             
+             $.ajax({
+						type: "POST",
+						dataType:"json",
+						url: "../controller/addalert.cfm",
+						data: $(this).serialize()
+					}).done(function(){
+						$('#emailform').html(
+							"<div class='col-xs-12'><h2>Sweet! You're Almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button.</p></div>");
+					}).fail(function(){
+							  $('#emailform').html(
+							"<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
+					});
+					return true; 
          }
 
+     });*/
+     
+     
+     
+     
+     $('#emailform').submit(function(event) {
+          alert('form submitted');
+         
+         
+         $.ajax({
+						type: "POST",
+						dataType:"json",
+						url: "controller/addalert.cfm",
+						data: $(this).serialize()
+					}).done(function(){
+						$('#emailform').html(
+							"<div class='col-xs-12'><h2>Sweet! You're Almost Done.</h2><p>To activate your job alert, please check your email and click the confirmation button.</p></div>");
+					}).fail(function(){
+							  $('#emailform').html(
+							"<div class='col-xs-12'><h2>Sorry for the Inconvenience.</h2><p>The email alert system is under going maintenance.</p></div>");
+                            console.log(data);
+					});
+         
+         
+         
+         
+      event.preventDefault();
      });
+     
+
 
  });
 </script>
